@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://lq161vi7gssa"]
 
-[ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://chicken.tscn" id="1_hj3n4"]
+[ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="1_hj3n4"]
 
 [node name="game" type="Node2D"]
 
