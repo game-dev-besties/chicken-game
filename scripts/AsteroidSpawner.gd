@@ -56,4 +56,8 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 func scale_asteroids():
 	for asteroid in asteroids.get_children():
 		asteroid.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
-		
+		#create new collision shape of correct size
+		var shape = CircleShape2D.new()
+		shape.radius = 40/Global.scale
+		var collision_shape = asteroid.get_node("CollisionShape2D")
+		collision_shape.shape = shape
