@@ -1,29 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3q71wrkdk1s6"]
+[gd_scene load_steps=5 format=3 uid="uid://dxwg853kolfn7"]
 
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_qapa4"]
 [ext_resource type="Texture2D" uid="uid://bhvlq1uoyhxlq" path="res://assets/SpaceShooterRedux/Spritesheet/sheet.png" id="1_rqvtp"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3r5d1"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fpspy"]
 friction = 0.0
 bounce = 0.5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ymtr4"]
-radius = 45.0111
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqs2k"]
+radius = 37.3363
 
-[node name="Asteroid" type="Node2D"]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Asteroid" type="RigidBody2D"]
 collision_layer = 4
-physics_material_override = SubResource("PhysicsMaterial_3r5d1")
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_fpspy")
 gravity_scale = 1.66533e-16
-linear_velocity = Vector2(50, 2.08165e-12)
-angular_velocity = 0.872665
+script = ExtResource("1_qapa4")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-rotation = 3.14159
-scale = Vector2(1, -1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rqvtp")
 region_enabled = true
-region_rect = Rect2(330, 450, 98, 98)
+region_rect = Rect2(332, 450, 89, 99)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_ymtr4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wqs2k")
