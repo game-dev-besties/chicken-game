@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2058402x5r3"]
+
+[ext_resource type="Script" path="res://scripts/AsteroidSpawner.gd" id="1_i3tka"]
+[ext_resource type="PackedScene" uid="uid://dxwg853kolfn7" path="res://scenes/asteroid.tscn" id="2_275jc"]
+
+[sub_resource type="GDScript" id="GDScript_6t3uh"]
+script/source = "extends Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ukx"]
+size = Vector2(3000, 3000)
+
+[node name="AsteroidSpawning" type="Node2D"]
+script = ExtResource("1_i3tka")
+min_radius = 100.0
+max_radius = 300.0
+max_drift_velocity = 100.0
+max_angular_velocity = 1.0
+desired_number_of_asteroids = 20
+asteroid_scene = ExtResource("2_275jc")
+
+[node name="AsteroidLiveZone" type="Area2D" parent="."]
+collision_mask = 4
+script = SubResource("GDScript_6t3uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AsteroidLiveZone"]
+position = Vector2(-13, 5)
+shape = SubResource("RectangleShape2D_t5ukx")
+
+[node name="Asteroids" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="body_exited" from="AsteroidLiveZone" to="." method="_on_asteroid_live_zone_body_exited"]
