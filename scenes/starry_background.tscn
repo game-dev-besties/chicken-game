@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dklyr7ip7kypi"]
+
+[ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_26eyj"]
+[ext_resource type="Texture2D" uid="uid://b8pnwllnvhksm" path="res://assets/parallax_background/stars.png" id="2_l3uks"]
+
+[node name="Starry Background" type="ParallaxBackground"]
+
+[node name="space" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(7905, 5884)
+
+[node name="Sprite2D" type="Sprite2D" parent="space"]
+texture = ExtResource("1_26eyj")
+centered = false
+
+[node name="stars" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(7905, 5884)
+
+[node name="Sprite2D" type="Sprite2D" parent="stars"]
+texture = ExtResource("2_l3uks")
+centered = false
