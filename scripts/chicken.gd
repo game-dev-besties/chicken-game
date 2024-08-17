@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -30,8 +30,8 @@ func _physics_process(delta):
 	var dir = get_angle_to(get_global_mouse_position()) - PI/2
 	rotate(dir)
 	
-	#if Input.is_action_pressed("click"):
-		#velocity = Vector2(0, -SPEED).rotated(dir)
-		#move_and_slide()
+	if Input.is_action_pressed("click"):
+		velocity = position.direction_to(get_global_mouse_position()) * SPEED
+	move_and_slide()
 	
 
