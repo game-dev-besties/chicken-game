@@ -50,6 +50,7 @@ func _process(delta):
 
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
+	print("remove") #print to see if it is despawning asteroids
 	num_asteroids -= 1
 	body.queue_free()
 	
@@ -57,7 +58,11 @@ func scale_asteroids():
 	for asteroid in asteroids.get_children():
 		asteroid.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
 		#create new collision shape of correct size
+		var collision_shape = asteroid.get_node("CollisionShape2D")
 		var shape = CircleShape2D.new()
 		shape.radius = 40/Global.scale
-		var collision_shape = asteroid.get_node("CollisionShape2D")
 		collision_shape.shape = shape
+		#STEPHEN, PROBLEM IS HERE.
+		#i have two theories, 1. this code messes with the astroid live box node
+		#2. the collisions for each individual asteroid is messed up and cannot detect if it is touching the live box
+	

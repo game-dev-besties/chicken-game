@@ -10,4 +10,4 @@ extends Node
 #func _process(delta):
 	#pass
 
-var scale = 0.5
+var scale = 1.5

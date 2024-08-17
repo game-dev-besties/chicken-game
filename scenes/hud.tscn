@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhhp818y48k44"]
+
+[ext_resource type="Texture2D" path="res://assets/healthbarUnder.png" id="1_rjp85"]
+[ext_resource type="Texture2D" path="res://assets/healthbarProgress.png" id="2_ddlxj"]
+[ext_resource type="Script" path="res://scripts/Oxygen.gd" id="3_m2phq"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Oxygen2" type="TextureProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 26.0
+offset_right = -26.0
+offset_bottom = 66.0
+grow_horizontal = 0
+value = 60.0
+texture_under = ExtResource("1_rjp85")
+texture_progress = ExtResource("2_ddlxj")
+script = ExtResource("3_m2phq")
+
+[node name="Timer" type="Timer" parent="Oxygen2"]
+autostart = true
+
+[connection signal="timeout" from="Oxygen2/Timer" to="Oxygen2" method="_on_timer_timeout"]
