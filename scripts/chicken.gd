@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 10000.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,11 +27,11 @@ func _input(event):
 
 
 func _physics_process(delta): 
-	var dir = get_angle_to(get_global_mouse_position()) - PI/2
-	rotate(dir)
-	
-	if Input.is_action_pressed("click"):
-		velocity = position.direction_to(get_global_mouse_position()) * SPEED
-	move_and_slide()
+	var dir = position.direction_to(get_global_mouse_position())
+	rotation = lerp_angle(rotation, dir.angle()-PI/2, 5 * delta)
+	if Input.is_action_just_released("click"):
+		velocity +=  dir * SPEED * delta
+	position += velocity * delta
+	#move_and_slide()
 	
 
