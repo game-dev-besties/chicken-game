@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8tkidkxyjmw2"]
+
+[ext_resource type="Script" path="res://scripts/OffScreenMarker.gd" id="1_v6g3p"]
+[ext_resource type="Texture2D" uid="uid://c5mko1fu6fq8b" path="res://assets/8953345926d145a802273741737608b5.png" id="2_nihjm"]
+
+[node name="OffScreenMarker" type="Node2D"]
+script = ExtResource("1_v6g3p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.036, 0.036)
+texture = ExtResource("2_nihjm")
+centered = false
+offset = Vector2(-2000, -1039)
+metadata/_edit_group_ = true
