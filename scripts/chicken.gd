@@ -1,37 +1,46 @@
 extends CharacterBody2D
-
-
-const SPEED = 10000.0
-const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-
 @onready var main = get_tree().get_root().get_node("game")
 @onready var projectile = load("res://scenes/egg.tscn")
 
+#chicken
+const SPEED = 10000.0
+#egg
+var charging = false
+var charge_time = 0.0
+var max_charge_time = 2.0 # Time in seconds to fully charge
+var power = 0.0
+
 func _ready():
 	pass
-
+#Shoot Egg
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
-			print("Left button was clicked at ", event.position)
-			
-			var instance = projectile.instantiate()
-			instance.dir = rotation
-			instance.spawnPos = position
-			instance.spawnRot = rotation 
-			main.add_child.call_deferred(instance)
-
-
+	if Input.is_action_just_pressed("click"):
+		print("charging")
+		charging = true
+		charge_time = 0.0
+	elif Input.is_action_just_released("click"):
+		print("hello mommy")
+		charging = false
+		shoot_projectile()			
+func _process(delta):
+	if charging:
+		charge_time += delta
+		charge_time = clamp(charge_time, 0, max_charge_time)
+func shoot_projectile():
+	var instance = projectile.instantiate()
+	instance.dir = rotation
+	instance.spawnPos = position
+	instance.spawnRot = rotation
+	var charge_ratio = charge_time / max_charge_time
+	print("Power: ",charge_ratio)
+	instance.scale = Vector2(1 + charge_ratio, 1 + charge_ratio)
+	main.add_child(instance)
+# Physics for chicken
 func _physics_process(delta): 
 	var dir = position.direction_to(get_global_mouse_position())
 	rotation = lerp_angle(rotation, dir.angle()-PI/2, 5 * delta)
 	if Input.is_action_just_released("click"):
 		velocity +=  dir * SPEED * delta
 	position += velocity * delta
-	#move_and_slide()
 	
 
