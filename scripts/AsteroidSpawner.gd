@@ -26,9 +26,8 @@ func spawn_asteroid():
 	
 	# Instantiate a new asteroid and give it a random drift velocity/angular velocity
 	var new_asteroid = asteroid_scene.instantiate()
-
 	new_asteroid.initialize(Vector2(radius * cos(angle), radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
-
+	
 	asteroids.add_child(new_asteroid)
 	
 	
@@ -45,6 +44,7 @@ func _process(delta):
 		for i in range(desired_number_of_asteroids-num_asteroids):
 			num_asteroids += 1
 			spawn_asteroid()
+			scale_asteroids()
 
 
 
@@ -52,3 +52,7 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 	num_asteroids -= 1
 	# Delete the asteroid
 	body.queue_free()
+	
+func scale_asteroids():
+	for asteroid in asteroids.get_children():
+		asteroid.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
