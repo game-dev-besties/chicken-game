@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var sprite = $Sprite
+@onready var texture_rect = $Sprite/TextureRect
+@onready var label = $Sprite/TextureRect/Label
+@onready var chicken = %Chicken
 
 var target_position = null
 
@@ -12,6 +15,7 @@ func _process(delta):
 	
 	set_marker_position(Rect2(top_left, size))
 	set_marker_rotation()
+	set_marker_distance()
 	
 
 func set_marker_position(bounds : Rect2):
@@ -39,6 +43,7 @@ func set_marker_position(bounds : Rect2):
 			length = x_length / cos(angle) if cos(angle) != 0 else x_length
 			
 		sprite.global_position = Vector2(length * cos(displacement.angle()), length * sin(displacement.angle())) + target_position
+		
 	
 	if bounds.has_point(global_position):
 		hide()
@@ -49,4 +54,13 @@ func set_marker_position(bounds : Rect2):
 func set_marker_rotation():
 	var angle = (global_position - sprite.global_position).angle()
 	sprite.global_rotation = angle
-	
+	texture_rect.rotation= -angle
+	#label.text = str(angle)
+
+func set_marker_distance():
+	var distance_x = (chicken.global_position.x - sprite.global_position.x)
+	var distance_y = (chicken.global_position.y - sprite.global_position.y)
+
+	var total_distance = sqrt(sprite.global_position.x * sprite.global_position.x + sprite.global_position.y * sprite.global_position.y)
+
+	label.text = str(total_distance)
