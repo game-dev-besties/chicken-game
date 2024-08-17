@@ -37,7 +37,7 @@ func _process(delta):
 		charge_time = clamp(charge_time, 0, max_charge_time)
 func shoot_projectile():
 	var instance = projectile.instantiate()
-	instance.dir = rotation + PI / 2
+	instance.dir = rotation - PI / 2
 	instance.spawnPos = position
 	var charge_ratio = charge_time / max_charge_time
 	print("Power: ",charge_ratio)
@@ -47,7 +47,7 @@ func shoot_projectile():
  #Physics for chicken
 func _physics_process(delta): 
 	var dir = position.direction_to(get_global_mouse_position())
-	rotation = lerp_angle(rotation, dir.angle()-PI/2, 5 * delta)
+	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
 	if Input.is_action_just_released("click"):
 		velocity +=  dir * SPEED * delta
 	position += velocity * delta
