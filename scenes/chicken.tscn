@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=6 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Texture2D" uid="uid://biva8na6x5fm" path="res://assets/SpaceShooterRedux/PNG/playerShip1_red.png" id="1_8lgr2"]
+[ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
+
 [ext_resource type="Texture2D" uid="uid://dpmf2b1d7kinl" path="res://assets/SpaceShooterRedux/PNG/playerShip2_red.png" id="2_30e3w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rgdu2"]
@@ -17,9 +19,20 @@ animations = [{
 "speed": 2.0
 }]
 
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5htl"]
+radius = 40.1123
+
 [node name="Chicken" type="CharacterBody2D"]
 collision_layer = 2
+script = ExtResource("1_jqoam")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rgdu2")
 frame_progress = 0.928661
+
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x5htl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
