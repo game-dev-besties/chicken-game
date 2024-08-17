@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 100
-@onready var chicken = load("res://scenes/chicken.tscn").instantiate()
+@export var SPEED = 500
 
 var dir : float
 var spawnPos : Vector2
@@ -9,8 +8,11 @@ var spawnRot : float
 
 func _ready():
 	global_position = spawnPos
-	global_rotation = spawnRot
 
 func _physics_process(delta):
-	velocity = Vector2(0, -SPEED).rotated(dir)
+	var chicken = get_tree().get_root().get_node("game").get_node("Chicken")
+	var chicken_velocity = chicken.velocity
+	
+	var direction_vector = -1 * Vector2(cos(dir), sin(dir))
+	velocity = chicken_velocity + direction_vector * SPEED
 	move_and_slide()
