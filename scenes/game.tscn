@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_le0yu"]
-[ext_resource type="PackedScene" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
+[ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
@@ -13,7 +13,7 @@ script = ExtResource("1_le0yu")
 unique_name_in_owner = true
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
-position = Vector2(11, -64)
+position = Vector2(8, -65)
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
 
