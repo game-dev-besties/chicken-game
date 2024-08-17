@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx8h5i4yuqyw7"]
+[gd_scene load_steps=5 format=3 uid="uid://dx8h5i4yuqyw7"]
 
 [ext_resource type="Texture2D" uid="uid://bttivwyp1ir5d" path="res://assets/healthbarUnder.png" id="1_rjp85"]
 [ext_resource type="Texture2D" uid="uid://cwoi5fwviwufo" path="res://assets/healthbarProgress.png" id="2_ddlxj"]
 [ext_resource type="Script" path="res://scripts/Oxygen.gd" id="3_m2phq"]
+[ext_resource type="Script" path="res://scripts/Stats.gd" id="4_08osk"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -22,5 +23,12 @@ script = ExtResource("3_m2phq")
 
 [node name="Timer" type="Timer" parent="Oxygen2"]
 autostart = true
+
+[node name="Stats" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+script = ExtResource("4_08osk")
 
 [connection signal="timeout" from="Oxygen2/Timer" to="Oxygen2" method="_on_timer_timeout"]

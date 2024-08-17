@@ -15,6 +15,7 @@ scale = Vector2(32.6367, 19.3711)
 texture = ExtResource("2_55o73")
 
 [node name="Chicken" parent="." instance=ExtResource("2_scccs")]
+unique_name_in_owner = true
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
 
