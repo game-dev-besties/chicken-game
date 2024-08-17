@@ -17,7 +17,12 @@ unique_name_in_owner = true
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
 position = Vector2(8, -65)
+min_radius = 800.0
+max_radius = 1200.0
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
+
+[node name="Asteroids" type="Node2D" parent="."]
+unique_name_in_owner = true

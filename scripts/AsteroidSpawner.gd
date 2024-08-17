@@ -6,6 +6,9 @@ extends Node2D
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
 @onready var asteroids = %Asteroids
+@onready var chicken = %Chicken
+
+
 var rng = RandomNumberGenerator.new()
 
 @export var asteroid_scene: PackedScene
@@ -17,8 +20,6 @@ func spawn_asteroid():
 		print("Asteroid Spawning: Couldn't find container node for asteroids")
 		return
 	# Randomly choose where to generate the asteroid
-	min_radius = 800
-	max_radius = 1200
 	var radius: float = rng.randf_range(min_radius, max_radius)
 	var angle: float = rng.randf_range(0, 2*PI)
 	
@@ -28,7 +29,7 @@ func spawn_asteroid():
 	
 	# Instantiate a new asteroid and give it a random drift velocity/angular velocity
 	var new_asteroid = asteroid_scene.instantiate()
-	new_asteroid.initialize(Vector2(radius * cos(angle), radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
+	new_asteroid.initialize(Vector2(chicken.position.x + radius * cos(angle), chicken.position.y + radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
 	asteroids.add_child(new_asteroid)
 	
 	
