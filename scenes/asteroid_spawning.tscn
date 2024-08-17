@@ -29,6 +29,7 @@ desired_number_of_asteroids = 20
 asteroid_scene = ExtResource("2_275jc")
 
 [node name="AsteroidLiveZone" type="Area2D" parent="."]
+scale = Vector2(1.68, 1)
 collision_mask = 4
 script = SubResource("GDScript_6t3uh")
 
