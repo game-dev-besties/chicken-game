@@ -21,7 +21,6 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/stretch/mode="viewport"
 window/stretch/scale=0.8
 
 [editor]

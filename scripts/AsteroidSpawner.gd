@@ -17,6 +17,8 @@ func spawn_asteroid():
 		print("Asteroid Spawning: Couldn't find container node for asteroids")
 		return
 	# Randomly choose where to generate the asteroid
+	min_radius = 800
+	max_radius = 1200
 	var radius: float = rng.randf_range(min_radius, max_radius)
 	var angle: float = rng.randf_range(0, 2*PI)
 	
@@ -49,7 +51,6 @@ func _process(delta):
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
 	num_asteroids -= 1
-	# Delete the asteroid
 	body.queue_free()
 	
 func scale_asteroids():
