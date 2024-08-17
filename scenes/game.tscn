@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lq161vi7gssa"]
+[gd_scene load_steps=6 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_le0yu"]
 [ext_resource type="Texture2D" uid="uid://rqdxmx01mx7f" path="res://assets/SpaceShooterRedux/sample.png" id="2_55o73"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
+[ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_le0yu")
@@ -16,3 +17,5 @@ texture = ExtResource("2_55o73")
 [node name="Chicken" parent="." instance=ExtResource("2_scccs")]
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
+
+[node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
