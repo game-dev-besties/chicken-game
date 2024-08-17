@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv8t5lwt0sovj"]
+
+[ext_resource type="Texture2D" uid="uid://cp454rnjj656u" path="res://assets/SpaceShooterRedux/PNG/playerShip1_blue.png" id="1_modbj"]
+
+[node name="Ship" type="Sprite2D"]
+texture = ExtResource("1_modbj")
