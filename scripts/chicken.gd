@@ -10,8 +10,8 @@ extends CharacterBody2D
 
 #chicken
 const SPEED = 10000.0
+var can_lay = true
 #egg
-const egg_speed = 100
 var charging = false
 var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
@@ -22,19 +22,25 @@ func _ready():
 	pass
 #Shoot Egg
 func _input(event):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") && can_lay:
 		print("charging")
 		charging = true
 		charge_time = 0.0
-	elif Input.is_action_just_released("click"):
+	elif Input.is_action_just_released("click") && can_lay:
+		can_lay = false
 		print("hello mommy")
 		charging = false
+		$Cooldown.start()
 		shoot_projectile()        
-			
+
+
+
 func _process(delta):
 	if charging:
 		charge_time += delta
 		charge_time = clamp(charge_time, 0, max_charge_time)
+
+
 func shoot_projectile():
 	var instance = projectile.instantiate()
 	instance.dir = rotation - PI / 2
@@ -62,3 +68,7 @@ func getVelo():
 
 func getAngle():
 	return angle;
+
+
+func _on_cooldown_timeout():
+	can_lay = true # Replace with function body.

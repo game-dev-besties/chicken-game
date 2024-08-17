@@ -183,3 +183,9 @@ animation = &"fat_egg"
 shape = SubResource("CapsuleShape2D_0fdf3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
