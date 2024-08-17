@@ -17,6 +17,8 @@ func spawn_asteroid():
 		print("Asteroid Spawning: Couldn't find container node for asteroids")
 		return
 	# Randomly choose where to generate the asteroid
+	min_radius = 800
+	max_radius = 1200
 	var radius: float = rng.randf_range(min_radius, max_radius)
 	var angle: float = rng.randf_range(0, 2*PI)
 	
@@ -26,9 +28,7 @@ func spawn_asteroid():
 	
 	# Instantiate a new asteroid and give it a random drift velocity/angular velocity
 	var new_asteroid = asteroid_scene.instantiate()
-
 	new_asteroid.initialize(Vector2(radius * cos(angle), radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
-
 	asteroids.add_child(new_asteroid)
 	
 	
@@ -41,14 +41,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	scale_asteroids()
 	if num_asteroids < desired_number_of_asteroids:
 		for i in range(desired_number_of_asteroids-num_asteroids):
 			num_asteroids += 1
 			spawn_asteroid()
-
+			
 
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
 	num_asteroids -= 1
-	# Delete the asteroid
 	body.queue_free()
+	
+func scale_asteroids():
+	for asteroid in asteroids.get_children():
+		asteroid.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
+		#create new collision shape of correct size
+		var shape = CircleShape2D.new()
+		shape.radius = 40/Global.scale
+		var collision_shape = asteroid.get_node("CollisionShape2D")
+		collision_shape.shape = shape

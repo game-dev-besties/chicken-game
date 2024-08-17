@@ -4,6 +4,7 @@ func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: fl
 	self.position = position
 	self.linear_velocity = drift_velocity
 	self.angular_velocity = angular_velocity
+	#self.scale = Vector2(1*Global.scale, 1*Global.scale)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
