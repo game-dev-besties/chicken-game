@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtdgunmxx1k6h"
-path="res://.godot/imported/fat_egg.png-beb86f381b127f999b69d11bba2de165.ctex"
+uid="uid://bwityohffwvgw"
+path="res://.godot/imported/small_chicken.png-e6e1ba820e7c5322c2c53b16c6130738.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chicken_sprites/fat_egg.png"
-dest_files=["res://.godot/imported/fat_egg.png-beb86f381b127f999b69d11bba2de165.ctex"]
+source_file="res://assets/chicken_sprites/small_chicken.png"
+dest_files=["res://.godot/imported/small_chicken.png-e6e1ba820e7c5322c2c53b16c6130738.ctex"]
 
 [params]
 

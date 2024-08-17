@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6fwvy1qbgj4f"
-path="res://.godot/imported/fat_idle.png-72b4ac9c694a8e819335be849fa5aeee.ctex"
+uid="uid://rqoms5pwyyjl"
+path="res://.godot/imported/fat_chicken.png-5fef296cc05bfadc76d2d555a1616909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chicken_sprites/fat_idle.png"
-dest_files=["res://.godot/imported/fat_idle.png-72b4ac9c694a8e819335be849fa5aeee.ctex"]
+source_file="res://assets/chicken_sprites/fat_chicken.png"
+dest_files=["res://.godot/imported/fat_chicken.png-5fef296cc05bfadc76d2d555a1616909.ctex"]
 
 [params]
 
