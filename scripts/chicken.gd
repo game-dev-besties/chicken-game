@@ -11,11 +11,12 @@ extends CharacterBody2D
 #chicken
 const SPEED = 10000.0
 var can_lay = true
+var growth_rate = 0.5
+var power = 0
 #egg
 var charging = false
 var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
-var power = 0.0
 
 func _ready():
 	velo = 0
@@ -39,6 +40,10 @@ func _process(delta):
 	if charging:
 		charge_time += delta
 		charge_time = clamp(charge_time, 0, max_charge_time)
+	
+	power = exp(charge_time)
+	
+	
 
 
 func shoot_projectile():
@@ -54,8 +59,10 @@ func shoot_projectile():
 func _physics_process(delta): 
 	var dir = position.direction_to(get_global_mouse_position())
 	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
+	
+	
 	if Input.is_action_just_released("click"):
-		velocity +=  dir * SPEED * delta
+		velocity +=  dir * SPEED * delta * power
 	position += velocity * delta
 	velo = velocity.length()
 	var temp = rotation * 180 / PI
