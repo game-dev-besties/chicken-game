@@ -36,7 +36,4 @@ script = SubResource("GDScript_6t3uh")
 position = Vector2(-13, 5)
 shape = SubResource("RectangleShape2D_t5ukx")
 
-[node name="Asteroids" type="Node2D" parent="."]
-unique_name_in_owner = true
-
 [connection signal="body_exited" from="AsteroidLiveZone" to="." method="_on_asteroid_live_zone_body_exited"]

@@ -29,7 +29,6 @@ func _ready():
 #Shoot Egg
 func _input(event):
 	if Input.is_action_just_pressed("click") && can_lay:
-		print("charging")
 		charging = true
 		has_clicked = true
 		charge_time = 0.0
@@ -90,7 +89,6 @@ func shoot_projectile():
 	instance.dir = rotation - PI / 2
 	instance.spawnPos = position
 	var charge_ratio = charge_time / max_charge_time
-	print("Power: ",charge_ratio)
 	instance.scale = Vector2(1 + charge_ratio, 1 + charge_ratio)
 	main.add_child(instance)
 	 

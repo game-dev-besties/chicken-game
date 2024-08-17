@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://lq161vi7gssa"]
+[gd_scene load_steps=7 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_le0yu"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
+[ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
@@ -9,12 +10,19 @@
 [node name="game" type="Node2D"]
 script = ExtResource("1_le0yu")
 
+[node name="Starry Background" parent="." instance=ExtResource("2_1fe0n")]
+
 [node name="Chicken" parent="." instance=ExtResource("2_scccs")]
 unique_name_in_owner = true
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
 position = Vector2(8, -65)
+min_radius = 800.0
+max_radius = 1200.0
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
+
+[node name="Asteroids" type="Node2D" parent="."]
+unique_name_in_owner = true
