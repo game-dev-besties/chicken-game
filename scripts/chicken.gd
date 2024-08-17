@@ -1,4 +1,10 @@
+class_name Character
 extends CharacterBody2D
+
+@export var velo : float
+@export var angle : int
+
+
 @onready var main = get_tree().get_root().get_node("game")
 @onready var projectile = load("res://scenes/egg.tscn")
 
@@ -12,6 +18,7 @@ var max_charge_time = 2.0 # Time in seconds to fully charge
 var power = 0.0
 
 func _ready():
+	velo = 0
 	pass
 #Shoot Egg
 func _input(event):
@@ -44,4 +51,14 @@ func _physics_process(delta):
 	if Input.is_action_just_released("click"):
 		velocity +=  dir * SPEED * delta
 	position += velocity * delta
-	
+	velo = velocity.length()
+	var temp = rotation * 180 / PI
+	angle = int(temp) % 360
+	if angle < 0:
+		angle = 360 + angle
+
+func getVelo():
+	return velo
+
+func getAngle():
+	return angle;
