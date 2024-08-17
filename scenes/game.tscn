@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 
+[ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
+
+
 [node name="game" type="Node2D"]
 script = ExtResource("1_le0yu")
 
@@ -14,3 +17,5 @@ script = ExtResource("1_le0yu")
 position = Vector2(11, -64)
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
+
+[node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
