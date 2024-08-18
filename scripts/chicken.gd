@@ -6,7 +6,7 @@ extends RigidBody2D
 
 
 @onready var main = get_tree().get_root().get_node("game")
-@onready var anim_sprite = $AnimatedSprite2D
+@onready var anim_sprite = $AnimationPlayer
 
 @export var projectile: PackedScene
 @export var min_mass: float = 10
@@ -134,8 +134,7 @@ func _on_cooldown_timeout():
 
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	$CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	#$AsteroidSpawning/AsteroidLiveZone/CollisionShape2D.scale= Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
+	$CollisionPolygon2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
 #messy gravity
 
