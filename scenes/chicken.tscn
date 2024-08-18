@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=29 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://rqoms5pwyyjl" path="res://assets/chicken_sprites/fat_chicken.png" id="2_6wqou"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://djvx174yxlmd0" path="res://assets/chicken_sprites/med_idle.png" id="5_dlx7d"]
 [ext_resource type="Texture2D" uid="uid://bwityohffwvgw" path="res://assets/chicken_sprites/small_chicken.png" id="5_ovsu2"]
 [ext_resource type="Script" path="res://scenes/Camera2D.gd" id="6_oefnh"]
-[ext_resource type="Script" path="res://scenes/Area2D.gd" id="7_ng6si"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njatb"]
 friction = 0.0
@@ -185,13 +184,12 @@ radius = 174.0
 height = 634.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_huguf"]
-radius = 516.078
+radius = 1584.0
 
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
-collision_mask = 3
-mass = 3.0
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_njatb")
 gravity_scale = 1.66533e-16
 script = ExtResource("1_jqoam")
@@ -202,7 +200,6 @@ animation = &"small_max"
 frame_progress = 0.436625
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 3
 shape = SubResource("CapsuleShape2D_0fdf3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -215,11 +212,8 @@ one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 4
-script = ExtResource("7_ng6si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_huguf")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
