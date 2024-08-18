@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cq4n56mn8i47y" path="res://assets/243-2435272_location-marker-png.png" id="2_s53v4"]
 
 [node name="OffScreenMarker" type="Node2D"]
+z_index = 10
 script = ExtResource("1_v6g3p")
 
 [node name="Sprite" type="Sprite2D" parent="."]
