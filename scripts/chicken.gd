@@ -24,23 +24,29 @@ var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
 var density = 5
 
+# chicken movement:
+var lay_timer = 0.4
+
 func _ready():
 	velo = 0
 	linear_velocity = Vector2()
 	
 #Shoot Egg
 func _input(event):
-	if Input.is_action_just_pressed("click") && can_lay:
+	if Input.is_action_just_pressed("click"):
 		charging = true
-		has_clicked = true
-		charge_time = 0.0
-	
-	elif Input.is_action_just_released("click") && can_lay && has_clicked:
-		can_lay = false
-		has_clicked = false
-		charging = false
-		$Cooldown.start()
-		shoot_projectile()
+		if lay_timer <= 0.4:
+			charge_time = lay_timer - 0.4
+		else:
+			charge_time = 0
+	elif Input.is_action_just_released("click"):
+		if charge_time >= 0:
+			lay_timer = 0
+			charging = false
+			$Cooldown.start()
+			shoot_projectile()
+		else:
+			charging = false
 		
 	  
 
@@ -63,7 +69,7 @@ func _process(delta):
 			else: 
 				anim_sprite.play("fat_lay")
 		charge_time += delta
-		charge_time = clamp(charge_time, 0, max_charge_time)
+		charge_time = min(charge_time, max_charge_time)
 		
 	else: 
 		if size >=1 && size < 5:
@@ -72,6 +78,7 @@ func _process(delta):
 			anim_sprite.play("med_idle")
 		elif size >= 10: 
 			anim_sprite.play("fat_idle")
+	lay_timer += delta
 	
 
 
