@@ -29,6 +29,7 @@ func _ready():
 	velo = 0
 	linear_velocity = Vector2()
 	
+	
 #Shoot Egg
 func _input(event):
 	if Input.is_action_just_pressed("click") && can_lay:
@@ -42,10 +43,12 @@ func _input(event):
 		charging = false
 		$Cooldown.start()
 		shoot_projectile()
+		self.scale = Vector2(0.01, 0.01)
 		
 	  
 
 func _process(delta):
+	
 	if charging:
 		## loading the animations, as of rn animations for med still needed
 		if size >=1 && size < 5:
@@ -74,7 +77,7 @@ func _process(delta):
 		elif size >= 10: 
 			anim_sprite.play("fat_idle")
 	
-	scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+	
 
 
 func shoot_projectile():
@@ -95,7 +98,7 @@ func shoot_projectile():
 func _physics_process(delta): 
 	var dir = position.direction_to(get_global_mouse_position())
 	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
-	
+	scale_by_mass()
 	
 	velo = linear_velocity.length()
 	var temp = rotation * 180 / PI
@@ -113,3 +116,5 @@ func getAngle():
 
 func _on_cooldown_timeout():
 	can_lay = true # Replace with function body.
+func scale_by_mass():
+	scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
