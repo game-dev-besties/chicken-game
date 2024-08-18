@@ -12,17 +12,18 @@ extends RigidBody2D
 
 #chicken
 const SPEED = 10000.0
+const min_mass = 10
 var can_lay = true
 var has_clicked = false
 var growth_rate = 0.5
 var power = 0
 var size = 10
-var sohan = 0.1
+var mass_to_scale = 0.5
 #egg
 var charging = false
 var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
-var density = 5
+const proportion = 0.25
 
 func _ready():
 	velo = 0
@@ -73,6 +74,7 @@ func _process(delta):
 		elif size >= 10: 
 			anim_sprite.play("fat_idle")
 	
+	scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
 
 
 func shoot_projectile():
@@ -82,8 +84,8 @@ func shoot_projectile():
 	instance.spawnPos = position
 	instance.spawnRot = rotation
 	var charge_ratio = charge_time / max_charge_time
-	instance.scale = Vector2(1 + charge_ratio, 1 + charge_ratio)
-	instance.mass = density * charge_ratio
+	print("charge", charge_ratio)
+	instance.mass = mass * charge_ratio * proportion
 	
 	main.add_child(instance)
 	mass -= instance.mass

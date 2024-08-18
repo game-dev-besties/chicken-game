@@ -6,6 +6,8 @@ var dir : float
 var spawnPos : Vector2
 var spawnRot : float
 @onready var chicken = get_tree().get_root().get_node("game").get_node("Chicken")
+const mass_to_scale = 1.5
+const min_size = 1
 
 
 func _ready():
@@ -16,5 +18,5 @@ func _ready():
 	linear_velocity = chicken_velocity + direction_vector * SPEED
 	chicken.apply_impulse(-direction_vector * SPEED * mass)
 
-func _physics_process(delta):
-	pass
+func _process(delta):
+	scale = Vector2(mass_to_scale * sqrt(mass) + min_size, mass_to_scale * sqrt(mass) + min_size)
