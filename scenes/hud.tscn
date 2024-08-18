@@ -9,15 +9,17 @@
 script = ExtResource("1_hr00s")
 
 [node name="Oxygen2" type="TextureProgressBar" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_top = 26.0
-offset_right = -26.0
-offset_bottom = 66.0
+anchors_preset = -1
+anchor_left = 0.953125
+anchor_top = 0.0240741
+anchor_right = 0.986458
+anchor_bottom = 0.0611111
+offset_left = -714.0
+offset_right = -5.34058e-05
+offset_bottom = 72.0
 grow_horizontal = 0
 value = 60.0
+nine_patch_stretch = true
 texture_under = ExtResource("1_rjp85")
 texture_progress = ExtResource("2_ddlxj")
 script = ExtResource("3_m2phq")
@@ -30,6 +32,7 @@ offset_left = 15.0
 offset_top = 15.0
 offset_right = 55.0
 offset_bottom = 38.0
+theme_override_font_sizes/font_size = 50
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Oxygen2/Timer" to="Oxygen2" method="_on_timer_timeout"]

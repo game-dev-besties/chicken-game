@@ -21,6 +21,7 @@ min_radius = 800.0
 max_radius = 1200.0
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
+scale = Vector2(10, 10)
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
 
