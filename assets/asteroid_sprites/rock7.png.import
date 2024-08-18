@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fv7uwf4yd3no"
-path="res://.godot/imported/small_egg.png-eb52b0a6d0790f80d1cdfc6a6e5ff592.ctex"
+uid="uid://4uqe7lub2s3h"
+path="res://.godot/imported/rock7.png-ae23bc8d461fbba39a6c0fce33efa254.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chicken_sprites/small_egg.png"
-dest_files=["res://.godot/imported/small_egg.png-eb52b0a6d0790f80d1cdfc6a6e5ff592.ctex"]
+source_file="res://assets/asteroid_sprites/rock7.png"
+dest_files=["res://.godot/imported/rock7.png-ae23bc8d461fbba39a6c0fce33efa254.ctex"]
 
 [params]
 

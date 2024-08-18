@@ -4,9 +4,13 @@ extends Node2D
 @onready var texture_rect = $Sprite/TextureRect
 @onready var label = $Sprite/TextureRect/Label
 @onready var chicken = %Chicken
+@onready var camera = $Camera2D
 
 var target_position = null
+var initial_scale = Vector2(1, 1)
 
+func _ready():
+	initial_scale = self.scale
 
 func _process(delta):
 	var canvas = get_canvas_transform()
@@ -16,6 +20,8 @@ func _process(delta):
 	set_marker_position(Rect2(top_left, size))
 	set_marker_rotation()
 	set_marker_distance()
+	var zoom_factor = get_viewport().get_camera_2d().zoom
+	self.scale = initial_scale / zoom_factor
 	
 
 func set_marker_position(bounds : Rect2):
@@ -50,6 +56,7 @@ func set_marker_position(bounds : Rect2):
 	else:
 		show()
 	
+
 
 func set_marker_rotation():
 	var angle = (global_position - sprite.global_position).angle()

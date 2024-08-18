@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxwg853kolfn7"]
+[gd_scene load_steps=21 format=3 uid="uid://dxwg853kolfn7"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_qapa4"]
 [ext_resource type="Texture2D" uid="uid://i0sdujheptai" path="res://assets/asteroid_sprites/asteroid1.png" id="2_c2bns"]
@@ -9,6 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://ym6l424xxibv" path="res://assets/asteroid_sprites/asteroid6.png" id="7_2eem8"]
 [ext_resource type="Texture2D" uid="uid://b421nipjlui52" path="res://assets/asteroid_sprites/asteroid7.png" id="8_n1ty1"]
 [ext_resource type="Texture2D" uid="uid://bpj1vkoaxo766" path="res://assets/asteroid_sprites/asteroid8.png" id="9_41aup"]
+[ext_resource type="Texture2D" uid="uid://ca7no40age2er" path="res://assets/asteroid_sprites/rock1.png" id="10_hc2ka"]
+[ext_resource type="Texture2D" uid="uid://dtmfpr0l7q2ay" path="res://assets/asteroid_sprites/rock2.png" id="11_rptlb"]
+[ext_resource type="Texture2D" uid="uid://bxs5qj2u1wm4s" path="res://assets/asteroid_sprites/rock3.png" id="12_aqhng"]
+[ext_resource type="Texture2D" uid="uid://dk4ewo78ec150" path="res://assets/asteroid_sprites/rock4.png" id="13_w0tq7"]
+[ext_resource type="Texture2D" uid="uid://w5emvub4c30c" path="res://assets/asteroid_sprites/rock5.png" id="14_xva8v"]
+[ext_resource type="Texture2D" uid="uid://prh6m0iro4yu" path="res://assets/asteroid_sprites/rock6.png" id="15_1ocpt"]
+[ext_resource type="Texture2D" uid="uid://4uqe7lub2s3h" path="res://assets/asteroid_sprites/rock7.png" id="16_v8sb5"]
+[ext_resource type="Texture2D" uid="uid://cgh2hmhgwkn0i" path="res://assets/asteroid_sprites/rock8.png" id="17_yqwmc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fpspy"]
 friction = 0.0
@@ -79,6 +87,70 @@ animations = [{
 "loop": true,
 "name": &"asteroid8",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_hc2ka")
+}],
+"loop": true,
+"name": &"rock1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rptlb")
+}],
+"loop": true,
+"name": &"rock2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_aqhng")
+}],
+"loop": true,
+"name": &"rock3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_w0tq7")
+}],
+"loop": true,
+"name": &"rock4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xva8v")
+}],
+"loop": true,
+"name": &"rock5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_1ocpt")
+}],
+"loop": true,
+"name": &"rock6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_v8sb5")
+}],
+"loop": true,
+"name": &"rock7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_yqwmc")
+}],
+"loop": true,
+"name": &"rock8",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wqs2k"]
@@ -94,7 +166,7 @@ script = ExtResource("1_qapa4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j1p56")
-animation = &"asteroid2"
+animation = &"rock8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wqs2k")
