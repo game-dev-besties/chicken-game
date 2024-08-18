@@ -15,6 +15,7 @@ extends RigidBody2D
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
 
+const MASS_WHEN_TOO_SMALL = 2
 
 #chicken
 var can_lay = true
@@ -35,6 +36,8 @@ func _ready():
 	
 #Shoot Egg
 func _input(event):
+	if mass < MASS_WHEN_TOO_SMALL:
+		return
 	if Input.is_action_just_pressed("click"):
 		charging = true
 		if lay_timer <= 0.4:
@@ -87,7 +90,9 @@ func shoot_projectile():
 	main.add_child(instance)
 
 	# Decrease the mass of the chicken to account for the new egg
+	print(str("Chicken: " + str(mass)))
 	mass -= instance.mass
+	print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
  #Physics for chicken

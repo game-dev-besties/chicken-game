@@ -7,7 +7,7 @@ var spawnPos : Vector2
 var spawnRot : float
 const mass_to_scale = 1.5
 const min_size = 1
-var mass_multiplicative_constant = 2
+var mass_multiplicative_constant = 0.3
 
 
 func _ready():
@@ -25,6 +25,7 @@ func initialize_egg(charge_ratio, chicken):
 	spawnPos = chicken.position
 	spawnRot = chicken.rotation
 	mass = chicken.mass * charge_ratio * mass_multiplicative_constant
+	print(mass)
 
 func _process(delta):
 	scale = Vector2(mass_to_scale * sqrt(mass) + min_size, mass_to_scale * sqrt(mass) + min_size)
