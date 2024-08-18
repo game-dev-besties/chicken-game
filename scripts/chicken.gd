@@ -120,4 +120,9 @@ func _on_cooldown_timeout():
 	can_lay = true # Replace with function body.
 
 func scale_by_mass():
-	scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+	$AnimatedSprite2D.scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+	$CollisionShape2D.scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+func _on_Area2D_area_entered(area):
+	#if area.is_in_group("Asteroids"):
+	print("detected")
+	

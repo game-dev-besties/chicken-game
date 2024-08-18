@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=29 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://rqoms5pwyyjl" path="res://assets/chicken_sprites/fat_chicken.png" id="2_6wqou"]
@@ -183,6 +183,9 @@ animations = [{
 radius = 174.0
 height = 634.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_huguf"]
+radius = 1584.0
+
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
@@ -206,5 +209,11 @@ script = ExtResource("6_oefnh")
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_huguf")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
