@@ -13,9 +13,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	desiredFov = chicken.mass
-	#print(chicken.mass)
-	target_zoom = (1/desiredFov)
-	smooth_zoom = lerp(smooth_zoom, target_zoom, 0.5*delta)
-	if smooth_zoom != target_zoom:
-		zoom = Vector2(base+smooth_zoom, base+smooth_zoom)
+	target_zoom = 1.0 / (pow((chicken.mass / 10.0), 1.0/3.0))
+	zoom = Vector2(target_zoom, target_zoom)
