@@ -11,8 +11,7 @@ bounce = 0.5
 radius = 37.3363
 
 [node name="Asteroid" type="RigidBody2D"]
-collision_layer = 6
-collision_mask = 6
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_fpspy")
 gravity_scale = 1.66533e-16
 script = ExtResource("1_qapa4")
