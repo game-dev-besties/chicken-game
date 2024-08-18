@@ -68,6 +68,11 @@ func _process(delta):
 				anim_sprite.play("small_max")
 			else: 
 				anim_sprite.play("small_lay")
+		elif mass < minimum_mass_for_fat_sprite:
+			if charge_time >= minimum_charge_time_for_lay_sprite: 
+				anim_sprite.play("med_max")
+			else: 
+				anim_sprite.play("med_lay")
 		else:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("fat_max")
