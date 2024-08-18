@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var spawn_radius_padding: float = 100
-@export var distance_from_min_to_max_radius: float = 2000
+@export var spawn_radius_padding: float = 50
+@export var distance_from_min_to_max_radius_scalar: float = 5
 @export var max_drift_velocity: float
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
@@ -42,9 +42,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# update_scale_for_viewport_size()
-	scale_asteroids()
 	update_scale_for_viewport_size()
+	scale_asteroids()
 	if num_asteroids < desired_number_of_asteroids:
 		for i in range(desired_number_of_asteroids-num_asteroids):
 			num_asteroids += 1
@@ -63,10 +62,10 @@ func update_scale_for_viewport_size():
 	min_radius = max(width,height) + spawn_radius_padding
 
 	# Set the outer radius to some constant distance away from the inner radius
-	max_radius = min_radius + distance_from_min_to_max_radius
+	max_radius = min_radius + get_viewport().get_camera_2d().zoom.x * distance_from_min_to_max_radius_scalar
 
 	# Set the live zone to be up to the outer radius. We do need to make sure we convert the outer radius (which is in global coordinates) into local coordinates
-	($AsteroidLiveZone/CollisionShape2D.shape as CircleShape2D).radius = self.to_local(Vector2(max_radius, max_radius)).x
+	($AsteroidLiveZone/CollisionShape2D.shape as CircleShape2D).radius = abs(self.to_local(Vector2(max_radius, max_radius)).length())
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
 	min_radius = 1000
