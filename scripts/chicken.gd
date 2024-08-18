@@ -27,6 +27,9 @@ var charge_time = 0.0
 # Cooldown timer:
 var lay_timer = 0.4
 
+# chicken movement:
+var lay_timer = 0.4
+
 func _ready():
 	# Zero the velocity when the chicken starts
 	velo = 0
@@ -59,7 +62,7 @@ func _process(delta):
 	# Choose the sprite to use based on the chicken's current mass, whether or not it is charging, and the charge time
 	if charging:
 		if mass < minimum_mass_for_medium_sprite:
-			if minimum_charge_time_for_lay_sprite >= minimum_charge_time_for_lay_sprite: 
+			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("small_max")
 			else: 
 				anim_sprite.play("small_lay")
@@ -75,6 +78,8 @@ func _process(delta):
 			anim_sprite.play("med_idle")
 		else:
 			anim_sprite.play("fat_idle")
+
+	lay_timer += delta
 
 
 func shoot_projectile():

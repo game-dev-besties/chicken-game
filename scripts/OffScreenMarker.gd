@@ -20,8 +20,8 @@ func _process(delta):
 
 func set_marker_position(bounds : Rect2):
 	if target_position == null:
-		sprite.global_position.x = clamp(global_position.x, bounds.position.x, bounds.end.x)
-		sprite.global_position.y = clamp(global_position.y, bounds.position.y, bounds.end.y)
+		sprite.global_position.x = clamp(global_position.x, bounds.position.x + 100, bounds.end.x - 100)
+		sprite.global_position.y = clamp(global_position.y, bounds.position.y + 300, bounds.end.y - 100)
 	else:
 		var displacement = global_position - target_position
 		var length
@@ -63,4 +63,4 @@ func set_marker_distance():
 
 	var total_distance = sqrt(sprite.global_position.x * sprite.global_position.x + sprite.global_position.y * sprite.global_position.y)
 
-	label.text = str(int(total_distance))
+	label.text = str(int(total_distance / 100))
