@@ -12,6 +12,7 @@
 script = ExtResource("1_le0yu")
 
 [node name="Starry Background" parent="." instance=ExtResource("2_1fe0n")]
+scroll_ignore_camera_zoom = true
 
 [node name="Chicken" parent="." instance=ExtResource("2_scccs")]
 unique_name_in_owner = true
