@@ -11,7 +11,7 @@ func _ready():
 	randomize()
 	var animations = ["asteroid1", "asteroid2", "asteroid3", "asteroid4", "asteroid5", "asteroid6", "asteroid7", "asteroid8", "rock1", "rock2", "rock3", "rock4", "rock5", "rock6", "rock7", "rock8"]
 	var kinds = animations[randi()% animations.size()]
-	$Sprite2D.play(kinds)
+	$AnimationPlayer.play(kinds)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

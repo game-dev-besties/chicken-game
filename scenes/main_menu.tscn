@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cv14ykwdifxsp"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6qngk"]
-[ext_resource type="AudioStream" path="res://assets/Main Menu.mp3" id="2_y1rug"]
+[ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_y1rug"]
 
 [sub_resource type="SystemFont" id="SystemFont_svgg3"]
 font_names = PackedStringArray("Fantasy")
