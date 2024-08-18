@@ -18,7 +18,7 @@ var target_mass = mass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta): 
 	#scale_by_mass()
-	smooth_mass = lerp(smooth_mass, target_mass, 8 * delta)
+	smooth_mass = lerp(smooth_mass, target_mass, 3 * delta)
 	mass = smooth_mass
 	#pass
 	
