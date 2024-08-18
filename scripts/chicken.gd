@@ -27,9 +27,6 @@ var charge_time = 0.0
 # Cooldown timer:
 var lay_timer = 0.4
 
-# chicken movement:
-var lay_timer = 0.4
-
 func _ready():
 	# Zero the velocity when the chicken starts
 	velo = 0
