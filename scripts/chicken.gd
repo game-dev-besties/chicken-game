@@ -54,7 +54,7 @@ func _process(delta):
 	# Update the charge time if we are currently charging a new egg
 	if charging:
 		charge_time += delta
-		charge_time = clamp(charge_time, 0, max_charge_time)
+		charge_time = min(charge_time, max_charge_time)
 
 	# Choose the sprite to use based on the chicken's current mass, whether or not it is charging, and the charge time
 	if charging:
