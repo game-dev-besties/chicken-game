@@ -176,16 +176,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fdf3"]
-radius = 58.0
-height = 220.0
+radius = 125.0
+height = 412.0
 
 [node name="Chicken" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_jqoam")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1.14441e-05)
-scale = Vector2(0.389687, 0.373245)
 sprite_frames = SubResource("SpriteFrames_rgdu2")
 animation = &"small_max"
 frame_progress = 0.436625
