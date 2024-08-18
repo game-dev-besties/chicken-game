@@ -184,13 +184,13 @@ radius = 174.0
 height = 634.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_huguf"]
-radius = 435.437
+radius = 952.909
 
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
 collision_mask = 5
-mass = 10.0
+mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_njatb")
 gravity_scale = 1.66533e-16
 script = ExtResource("1_jqoam")
@@ -216,7 +216,9 @@ one_shot = true
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1.00941)
 shape = SubResource("CircleShape2D_huguf")
+debug_color = Color(0.935084, 1.96373e-05, 0.637874, 0.42)
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

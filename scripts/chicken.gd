@@ -130,8 +130,8 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-
-
+	$AsteroidSpawning/AsteroidLiveZone/CollisionShape2D.scale= Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
+	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
 #messy gravity
 
 func _on_area_2d_body_entered(body):
@@ -154,8 +154,8 @@ func gravity(target: Node2D, delta: float):
 	var direction = (target.global_position - global_position).normalized()
 	var force = 1.0
 	force = (target.mass * self.mass)/(pow(abs(global_position.direction_to(target.global_position).length()),2))
-	var gravity_ratio:float = 0.999#-(0.0005*force)
+	var gravity_ratio:float = 0.9999-(0.0001*force)
 	if(1 == 1):
-		print(force)
+		#print(force)
 		linear_velocity*=gravity_ratio
 		position += direction * force * delta

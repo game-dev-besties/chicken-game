@@ -1,7 +1,7 @@
 
 extends Camera2D
 var chicken
-var base = 0.5
+var base = 0.05
 var smooth_zoom = 0.5
 var desiredFov: float
 var target_zoom: float

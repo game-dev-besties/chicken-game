@@ -16,12 +16,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scale_by_mass()
+	#scale_by_mass()
 	pass
 	
 func modify_mass(amount: float):
 	mass += amount
 	
-func scale_by_mass():
-	$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
-	$CollisionShape2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
+#func scale_by_mass():
+	#$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
+#	$CollisionShape2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))

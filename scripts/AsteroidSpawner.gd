@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var min_radius: float
-@export var max_radius: float
+@export var max_radius: float 
 @export var max_drift_velocity: float
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
@@ -20,6 +20,7 @@ func spawn_asteroid():
 		return
 	# Randomly choose where to generate the asteroid
 	var radius: float = rng.randf_range(min_radius, max_radius)
+	print(radius)
 	var angle: float = rng.randf_range(0, 2*PI)
 	
 	var drift_velocity_x: float = rng.randf_range(-max_drift_velocity, max_drift_velocity)
@@ -49,17 +50,19 @@ func _process(delta):
 
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
-	min_radius = 1900
+	min_radius = 1000
 	num_asteroids -= 1
 	body.queue_free()
 	
 func scale_asteroids():
 	for asteroid in asteroids.get_children():
-		asteroid.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
+		asteroid.get_node("Sprite2D").scale = Vector2(1.0 * asteroid.mass, 1.0 * asteroid.mass)
+		asteroid.get_node("CollisionShape2D").scale = Vector2(7.0 * asteroid.mass, 7.0 * asteroid.mass)
+		#asteroid.CollisionShape2D.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
 		#create new collision shape of correct size
-		var collision_shape = asteroid.get_node("CollisionShape2D") as CollisionShape2D
+		#var collision_shape = asteroid.get_node("CollisionShape2D") as CollisionShape2D
 		
-		(collision_shape.shape as CircleShape2D).radius = 40/Global.scale
+		#(collision_shape.shape as CircleShape2D).radius = 40/Global.scale
 		
 		
 		
