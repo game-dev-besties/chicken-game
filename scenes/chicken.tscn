@@ -1,10 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=27 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://rqoms5pwyyjl" path="res://assets/chicken_sprites/fat_chicken.png" id="2_6wqou"]
 [ext_resource type="Texture2D" uid="uid://d0b5c6cvv62fi" path="res://assets/chicken_sprites/med_egg.png" id="4_kcmow"]
 [ext_resource type="Texture2D" uid="uid://djvx174yxlmd0" path="res://assets/chicken_sprites/med_idle.png" id="5_dlx7d"]
 [ext_resource type="Texture2D" uid="uid://bwityohffwvgw" path="res://assets/chicken_sprites/small_chicken.png" id="5_ovsu2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njatb"]
+friction = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7wvp"]
 atlas = ExtResource("2_6wqou")
@@ -179,8 +182,12 @@ animations = [{
 radius = 125.0
 height = 412.0
 
-[node name="Chicken" type="CharacterBody2D"]
+[node name="Chicken" type="RigidBody2D"]
+z_index = 5
 collision_layer = 2
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_njatb")
+gravity_scale = 1.66533e-16
 script = ExtResource("1_jqoam")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,5 +1,5 @@
 class_name Character
-extends CharacterBody2D
+extends RigidBody2D
 
 @export var velo : float
 @export var angle : int
@@ -16,15 +16,17 @@ var can_lay = true
 var has_clicked = false
 var growth_rate = 0.5
 var power = 0
-var size = 1
-var just_laid_egg = false
+var size = 10
+var sohan = 0.1
 #egg
 var charging = false
 var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
+var density = 5
 
 func _ready():
 	velo = 0
+	linear_velocity = Vector2()
 	
 #Shoot Egg
 func _input(event):
@@ -39,13 +41,8 @@ func _input(event):
 		charging = false
 		$Cooldown.start()
 		shoot_projectile()
-		just_laid_egg = true
 		
-		
-	
-		   
-
-
+	  
 
 func _process(delta):
 	if charging:
@@ -68,7 +65,6 @@ func _process(delta):
 		charge_time += delta
 		charge_time = clamp(charge_time, 0, max_charge_time)
 		
-		power = exp(charge_time)
 	else: 
 		if size >=1 && size < 5:
 			anim_sprite.play("small_idle")	
@@ -76,22 +72,22 @@ func _process(delta):
 			anim_sprite.play("med_idle")
 		elif size >= 10: 
 			anim_sprite.play("fat_idle")
-		
-	
-
-		
-	
 	
 
 
 func shoot_projectile():
 	var instance = projectile.instantiate()
+	
 	instance.dir = rotation - PI / 2
 	instance.spawnPos = position
+	instance.spawnRot = rotation
 	var charge_ratio = charge_time / max_charge_time
 	instance.scale = Vector2(1 + charge_ratio, 1 + charge_ratio)
+	instance.mass = density * charge_ratio
+	
 	main.add_child(instance)
-	 
+	mass -= instance.mass
+
 	
  #Physics for chicken
 func _physics_process(delta): 
@@ -99,12 +95,7 @@ func _physics_process(delta):
 	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
 	
 	
-	if Input.is_action_just_released("click") && just_laid_egg:
-		just_laid_egg = false
-		velocity +=  dir * SPEED * delta * power
-	
-	position += velocity * delta
-	velo = velocity.length()
+	velo = linear_velocity.length()
 	var temp = rotation * 180 / PI
 	angle = int(temp) % 360
 	if angle < 0:

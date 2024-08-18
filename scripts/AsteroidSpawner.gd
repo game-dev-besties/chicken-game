@@ -6,8 +6,7 @@ extends Node2D
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
 @onready var asteroids = %Asteroids
-@onready var chicken = %Chicken
-
+@onready var chicken = get_tree().get_root().get_node("game").get_node("Chicken")
 
 var rng = RandomNumberGenerator.new()
 
@@ -33,7 +32,6 @@ func spawn_asteroid():
 	asteroids.add_child(new_asteroid)
 	
 	
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +45,6 @@ func _process(delta):
 		for i in range(desired_number_of_asteroids-num_asteroids):
 			num_asteroids += 1
 			spawn_asteroid()
-			print("add ", num_asteroids)
 			
 
 
@@ -55,7 +52,6 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 	min_radius = 1900
 	num_asteroids -= 1
 	body.queue_free()
-	print("remove ", num_asteroids) #print to see if it is despawning asteroids
 	
 func scale_asteroids():
 	for asteroid in asteroids.get_children():
