@@ -189,7 +189,7 @@ radius = 1584.0
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
-mass = 10.0
+mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_njatb")
 gravity_scale = 1.66533e-16
 script = ExtResource("1_jqoam")
