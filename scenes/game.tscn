@@ -19,6 +19,8 @@ unique_name_in_owner = true
 position = Vector2(8, -65)
 min_radius = 800.0
 max_radius = 1200.0
+max_drift_velocity = 2.08165e-12
+desired_number_of_asteroids = 80
 
 [node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
 scale = Vector2(10, 10)

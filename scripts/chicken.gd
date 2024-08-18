@@ -18,12 +18,12 @@ var has_clicked = false
 var growth_rate = 0.5
 var power = 0
 var size = 10
-var mass_to_scale = 0.5
+var mass_to_scale = 0.3
 #egg
 var charging = false
 var charge_time = 0.0
 var max_charge_time = 2.0 # Time in seconds to fully charge
-const proportion = 0.25
+const proportion = 2
 
 func _ready():
 	velo = 0
@@ -74,7 +74,15 @@ func _process(delta):
 		elif size >= 10: 
 			anim_sprite.play("fat_idle")
 	
-	scale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+	# Get two children
+	var animatedSprite = self.get_node("AnimatedSprite2D") as AnimatedSprite2D
+	var collisionShape = self.get_node("CollisionShape2D") as CollisionShape2D
+	var newScale = Vector2(mass_to_scale * sqrt(mass), mass_to_scale * sqrt(mass))
+	
+	print("New Scale", newScale)
+	# Update scale of children
+	animatedSprite.scale = newScale
+	collisionShape.scale = newScale
 
 
 func shoot_projectile():
@@ -84,7 +92,7 @@ func shoot_projectile():
 	instance.spawnPos = position
 	instance.spawnRot = rotation
 	var charge_ratio = charge_time / max_charge_time
-	print("charge", charge_ratio)
+	#print("charge", charge_ratio)
 	instance.mass = mass * charge_ratio * proportion
 	
 	main.add_child(instance)
