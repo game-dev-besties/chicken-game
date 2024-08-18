@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b677sgf2n07m7"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_yqsyf"]
+[ext_resource type="Texture2D" uid="uid://bxi7bkgjbw7vb" path="res://assets/SpaceShooterRedux/PNG/Meteors/meteorGrey_big3.png" id="2_xig3m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fpspy"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqs2k"]
+radius = 37.3363
+
+[node name="Planet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_fpspy")
+gravity_scale = 1.66533e-16
+script = ExtResource("1_yqsyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xig3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wqs2k")
