@@ -28,6 +28,8 @@ var charge_time = 0.0
 # Cooldown timer:
 var lay_timer = 0.4
 
+var asteroids = []
+
 func _ready():
 	# Zero the velocity when the chicken starts
 	velo = 0
@@ -97,7 +99,8 @@ func shoot_projectile():
 	
  #Physics for chicken
 func _physics_process(delta): 
-
+	if asteroids.size() > 0:
+		gravity(get_closest_asteroid(), delta)
 	# Have chicken's rotation follow the mouse cursor
 	var dir = position.direction_to(get_global_mouse_position())
 	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
@@ -127,7 +130,32 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-func _on_Area2D_area_entered(area):
-	#if area.is_in_group("Asteroids"):
-	print("detected")
-	
+
+
+#messy gravity
+
+func _on_area_2d_body_entered(body):
+	#print(asteroids)
+	#print("min", get_closest_asteroid())
+	asteroids.append(body)
+	#print("added")
+func _on_area_2d_body_exited(body):
+	asteroids.erase(body)
+func get_closest_asteroid():
+	var closest_asteroid = null
+	var min_distance = INF
+	for asteroid in asteroids:
+		var distance = global_position.distance_to(asteroid.global_position)
+		if distance < min_distance:
+			min_distance = distance
+			closest_asteroid = asteroid
+	return closest_asteroid
+func gravity(target: Node2D, delta: float):
+	var direction = (target.global_position - global_position).normalized()
+	var force = 1.0
+	force = (target.mass * self.mass)/(pow(abs(global_position.direction_to(target.global_position).length()),2))
+	var gravity_ratio:float = 0.999#-(0.0005*force)
+	if(1 == 1):
+		print(force)
+		linear_velocity*=gravity_ratio
+		position += direction * force * delta
