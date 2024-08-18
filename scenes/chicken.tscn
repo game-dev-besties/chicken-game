@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=28 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://rqoms5pwyyjl" path="res://assets/chicken_sprites/fat_chicken.png" id="2_6wqou"]
 [ext_resource type="Texture2D" uid="uid://d0b5c6cvv62fi" path="res://assets/chicken_sprites/med_egg.png" id="4_kcmow"]
 [ext_resource type="Texture2D" uid="uid://djvx174yxlmd0" path="res://assets/chicken_sprites/med_idle.png" id="5_dlx7d"]
 [ext_resource type="Texture2D" uid="uid://bwityohffwvgw" path="res://assets/chicken_sprites/small_chicken.png" id="5_ovsu2"]
+[ext_resource type="Script" path="res://scenes/Camera2D.gd" id="6_oefnh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njatb"]
 friction = 0.0
@@ -199,6 +200,8 @@ frame_progress = 0.436625
 shape = SubResource("CapsuleShape2D_0fdf3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("6_oefnh")
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.4
