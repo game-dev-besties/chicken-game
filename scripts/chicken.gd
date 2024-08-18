@@ -35,12 +35,18 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed("click"):
 		charging = true
-		charge_time = min(0.0,lay_timer - 0.4)
+		if lay_timer <= 0.4:
+			charge_time = lay_timer - 0.4
+		else:
+			charge_time = 0
 	elif Input.is_action_just_released("click"):
-		lay_timer = 0
-		charging = false
-		$Cooldown.start()
-		shoot_projectile()
+		if charge_time >= 0:
+			lay_timer = 0
+			charging = false
+			$Cooldown.start()
+			shoot_projectile()
+		else:
+			charging = false
 		
 	  
 
@@ -63,7 +69,7 @@ func _process(delta):
 			else: 
 				anim_sprite.play("fat_lay")
 		charge_time += delta
-		charge_time = clamp(charge_time, 0, max_charge_time)
+		charge_time = min(charge_time, max_charge_time)
 		
 	else: 
 		if size >=1 && size < 5:
