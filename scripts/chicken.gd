@@ -20,7 +20,7 @@ const MASS_WHEN_TOO_SMALL = 2
 #chicken
 var can_lay = true
 var has_clicked = false
-var mass_to_scale = 0.3
+@export var mass_to_scale = 0.3
 #egg
 var charging = false
 var charge_time = 0.0

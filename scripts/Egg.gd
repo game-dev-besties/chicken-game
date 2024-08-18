@@ -13,7 +13,9 @@ var mass_multiplicative_constant = 0.3
 func _ready():
 	var chicken = get_tree().get_root().get_node("game").get_node("Chicken")
 	global_position = spawnPos
-	#global_position += Vector2(0,chicken.mass*35).rotated(spawnRot)
+	var chicken_offset = chicken.mass_to_scale*pow(chicken.mass, 1.0/3.0)
+	print(chicken_offset)
+	global_position += Vector2(0,chicken_offset*250).rotated(spawnRot)
 	var chicken_velocity = chicken.linear_velocity
 	rotation = spawnRot
 	var direction_vector = -1 * Vector2(cos(dir), sin(dir))
