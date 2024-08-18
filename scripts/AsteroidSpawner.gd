@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var spawn_radius_padding: float = 50
-@export var distance_from_min_to_max_radius_scalar: float = 5
+@export var spawn_radius_padding: float = 200
+@export var distance_from_min_to_max_radius_scalar: float = 10
 @export var max_drift_velocity: float
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
