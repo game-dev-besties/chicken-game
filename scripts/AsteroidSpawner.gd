@@ -49,6 +49,7 @@ func _process(delta):
 
 
 func _on_asteroid_live_zone_body_exited(body: Node2D):
+	min_radius = 1900
 	num_asteroids -= 1
 	body.queue_free()
 	
