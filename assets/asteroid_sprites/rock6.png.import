@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r88y68sj80tj"
-path="res://.godot/imported/small_idle.png-59c8c34f00c4a99f047e3de428e84d2e.ctex"
+uid="uid://prh6m0iro4yu"
+path="res://.godot/imported/rock6.png-98ac03cf95673db4b269b503700932ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chicken_sprites/small_idle.png"
-dest_files=["res://.godot/imported/small_idle.png-59c8c34f00c4a99f047e3de428e84d2e.ctex"]
+source_file="res://assets/asteroid_sprites/rock6.png"
+dest_files=["res://.godot/imported/rock6.png-98ac03cf95673db4b269b503700932ba.ctex"]
 
 [params]
 

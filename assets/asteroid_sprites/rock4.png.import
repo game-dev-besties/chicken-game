@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0b5c6cvv62fi"
-path="res://.godot/imported/med_egg.png-4943975f71f91057d6f12a85f9814780.ctex"
+uid="uid://dk4ewo78ec150"
+path="res://.godot/imported/rock4.png-1200aff721e583f8faabf62ec6e3a5db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chicken_sprites/med_egg.png"
-dest_files=["res://.godot/imported/med_egg.png-4943975f71f91057d6f12a85f9814780.ctex"]
+source_file="res://assets/asteroid_sprites/rock4.png"
+dest_files=["res://.godot/imported/rock4.png-1200aff721e583f8faabf62ec6e3a5db.ctex"]
 
 [params]
 
