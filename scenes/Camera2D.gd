@@ -15,5 +15,5 @@ func _ready():
 func _process(delta):
 	target_zoom = base / (pow((chicken.mass / 10.0), 1.0/3.0))
 	#zoom = Vector2(target_zoom, target_zoom)
-	smooth_zoom = lerp(smooth_zoom, target_zoom, 5*delta)
+	smooth_zoom = lerp(smooth_zoom, target_zoom, 0.5*delta)
 	zoom = Vector2(smooth_zoom, smooth_zoom)
