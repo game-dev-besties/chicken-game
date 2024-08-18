@@ -19,6 +19,7 @@ func spawn_asteroid():
 		print("Asteroid Spawning: Couldn't find container node for asteroids")
 		return
 	# Randomly choose where to generate the asteroid
+	#min_radius = get_viewport_rect().size.x
 	var radius: float = rng.randf_range(min_radius, max_radius)
 	print(radius)
 	var angle: float = rng.randf_range(0, 2*PI)
@@ -57,7 +58,7 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 func scale_asteroids():
 	for asteroid in asteroids.get_children():
 		asteroid.get_node("Sprite2D").scale = Vector2(1.0 * asteroid.mass, 1.0 * asteroid.mass)
-		asteroid.get_node("CollisionShape2D").scale = Vector2(7.0 * asteroid.mass, 7.0 * asteroid.mass)
+		asteroid.get_node("CollisionShape2D").scale = Vector2(6.0 * asteroid.mass, 6.0 * asteroid.mass)
 		#asteroid.CollisionShape2D.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
 		#create new collision shape of correct size
 		#var collision_shape = asteroid.get_node("CollisionShape2D") as CollisionShape2D

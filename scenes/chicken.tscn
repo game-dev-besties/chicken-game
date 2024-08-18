@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=29 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://rqoms5pwyyjl" path="res://assets/chicken_sprites/fat_chicken.png" id="2_6wqou"]
@@ -190,6 +190,9 @@ height = 634.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_huguf"]
 radius = 952.909
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb3m7"]
+radius = 386.13
+
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
@@ -223,6 +226,15 @@ scale = Vector2(1, 1.00941)
 shape = SubResource("CircleShape2D_huguf")
 debug_color = Color(0.935084, 1.96373e-05, 0.637874, 0.42)
 
+[node name="eatingArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eatingArea"]
+shape = SubResource("CircleShape2D_gb3m7")
+debug_color = Color(0.755737, 0.454705, 0.060893, 0.42)
+
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="eatingArea" to="." method="_on_eating_area_body_entered"]
+[connection signal="body_exited" from="eatingArea" to="." method="_on_eating_area_body_exited"]

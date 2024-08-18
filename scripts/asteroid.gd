@@ -13,14 +13,20 @@ func _ready():
 	var kinds = animations[randi()% animations.size()]
 	$Sprite2D.play(kinds)
 
-
+var smooth_mass = mass
+var target_mass = mass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta): 
 	#scale_by_mass()
-	pass
+	smooth_mass = lerp(smooth_mass, target_mass, 8 * delta)
+	mass = smooth_mass
+	#pass
 	
 func modify_mass(amount: float):
-	mass += amount
+	#mass += amount
+	target_mass += amount
+	
+
 	
 #func scale_by_mass():
 	#$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))

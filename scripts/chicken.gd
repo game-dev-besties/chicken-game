@@ -29,6 +29,7 @@ var charge_time = 0.0
 var lay_timer = 0.4
 
 var asteroids = []
+var eating = []
 
 func _ready():
 	# Zero the velocity when the chicken starts
@@ -53,6 +54,8 @@ func _input(event):
 			shoot_projectile()
 		else:
 			charging = false
+	if Input.is_action_just_pressed("eat"):
+		eat()
 
 func _process(delta):
 	
@@ -97,9 +100,9 @@ func shoot_projectile():
 	main.add_child(instance)
 
 	# Decrease the mass of the chicken to account for the new egg
-	print(str("Chicken: " + str(mass)))
+	#print(str("Chicken: " + str(mass)))
 	mass -= instance.mass
-	print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
+	#print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
  #Physics for chicken
@@ -135,14 +138,16 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	$AsteroidSpawning/AsteroidLiveZone/CollisionShape2D.scale= Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
+	$AsteroidSpawning/AsteroidLiveZone/CollisionShape2D.scale= Vector2(40*pow(mass, 1.0/2.0), pow(40*mass, 1.0/2.0))
 	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
+	$eatingArea/CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 #messy gravity
 
 func _on_area_2d_body_entered(body):
 	#print(asteroids)
 	#print("min", get_closest_asteroid())
-	asteroids.append(body)
+	if body.mass >= mass*0:
+		asteroids.append(body)
 	#print("added")
 func _on_area_2d_body_exited(body):
 	asteroids.erase(body)
@@ -164,3 +169,22 @@ func gravity(target: Node2D, delta: float):
 		#print(force)
 		linear_velocity*=gravity_ratio
 		position += direction * force * delta
+
+func _on_eating_area_body_exited(body):
+	eating.erase(body)
+func _on_eating_area_body_entered(body):
+	eating.append(body)
+func get_closest_eating():
+	var closest_eating = null
+	var min_distance = INF
+	for eat in eating:
+		var distance = global_position.distance_to(eat.global_position)
+		if distance < min_distance:
+			min_distance = distance
+			closest_eating = eat
+	return closest_eating
+func eat():
+	if eating.size() > 0:
+		var amount_eated = -1
+		get_closest_eating().modify_mass(amount_eated)
+		mass -= amount_eated*2
