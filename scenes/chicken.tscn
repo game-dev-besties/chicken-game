@@ -179,8 +179,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fdf3"]
-radius = 125.0
-height = 412.0
+radius = 174.0
+height = 634.0
 
 [node name="Chicken" type="RigidBody2D"]
 z_index = 5
