@@ -32,6 +32,7 @@ var lay_timer = 0.4
 
 var asteroids = []
 var eating = []
+var touching = []
 var smooth_mass = mass
 var target_mass = mass
 
@@ -192,12 +193,14 @@ func gravity(target: RigidBody2D, delta: float):
 	if not target:
 		return
 	var direction = (target.global_position - global_position).normalized()
-	var distance = (target.global_position - global_position).length()
+	var distance = (target.global_position - global_position).length() # Replace with function body.global_position).length()
 	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
 	var force = force_magnitude * direction
 	#print("Force ", force)
 	self.apply_force(force)
-	target.apply_force(-force)
+	if touching.size() > 0:
+		self.apply_force(-force)
+		#target.angular_velocity *= 0.99
 	
  #Eating Asteroid code
 
@@ -216,6 +219,10 @@ func attempt_to_eat():
 	else:
 		target_mass += eating_asteroid.mass
 		eating_asteroid.queue_free()
-	
-	
 
+func _on_normal_force_body_entered(body):
+	print(touching)
+	touching.append(body) # Replace with function body.
+
+func _on_normal_force_body_exited(body):
+	touching.erase(body) # Replace with function body.

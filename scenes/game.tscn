@@ -24,7 +24,7 @@ projectile = ExtResource("4_gk0mq")
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
 unique_name_in_owner = true
 max_drift_velocity = 0.0
-desired_number_of_asteroids = 10
+desired_number_of_asteroids = 20
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
 
