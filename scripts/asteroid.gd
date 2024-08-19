@@ -1,5 +1,8 @@
 extends RigidBody2D
 var base_scale = 3
+var scaling = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
+var target = mass
+var scale_mass = mass
 
 func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: float):
 	self.position = position
@@ -17,16 +20,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#scale_by_mass()
+	target = mass
+	scale_mass = lerp(scale_mass, target, 10 * delta)
+	scaling = Vector2(pow(scale_mass, 1.0/3.0), pow(scale_mass, 1.0/3.0))/base_scale
 	scale_asteroids()
 	
 func modify_mass(amount: float):
 	mass += amount
 
 func scale_asteroids():
-	$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
-	$RockShape.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
-	$ShardShape.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
-	$AsteroidShape.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
+	$Sprite2D.scale = scaling
+	$RockShape.scale = scaling
+	$ShardShape.scale = scaling
+	$AsteroidShape.scale = scaling
 	#self.linear_velocity *= 1-(1/mass)
 #func scale_by_mass():
 	#$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))

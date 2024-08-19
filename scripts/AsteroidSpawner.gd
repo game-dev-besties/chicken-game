@@ -12,7 +12,7 @@ var rng = RandomNumberGenerator.new()
 var min_radius: float = 800
 var max_radius: float = 1200
 var min_mass: float = 30
-var max_mass: float = 70
+var max_mass: float = 100
 
 @export var asteroid_scene: PackedScene
 
