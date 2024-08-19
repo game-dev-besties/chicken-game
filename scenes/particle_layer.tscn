@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2a6dy4vs6yvs"]
+
+[ext_resource type="Texture2D" uid="uid://bocsx64ok70mo" path="res://assets/egg_particle.png" id="1_eceuj"]
+
+[sub_resource type="Curve" id="Curve_dg7xl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0705463), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="particleLayer" type="CanvasLayer"]
+
+[node name="particles" type="CPUParticles2D" parent="."]
+z_index = -5
+position = Vector2(960, 790)
+emitting = false
+amount = 60
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.3
+randomness = 0.59
+texture = ExtResource("1_eceuj")
+direction = Vector2(2.08165e-12, 1)
+spread = 75.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+scale_amount_min = 0.15
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_dg7xl")
