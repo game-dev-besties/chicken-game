@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dxwg853kolfn7"]
+[gd_scene load_steps=45 format=3 uid="uid://dxwg853kolfn7"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_qapa4"]
 [ext_resource type="Texture2D" uid="uid://bes78n3ovh4w0" path="res://assets/asteroid_sprites/asteroid1.png" id="2_c2bns"]
@@ -26,7 +26,7 @@ bounce = 0.03
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("../Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -107,30 +107,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../Sprite2D:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.349066, -0.349066, 3.48787e-16]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../Sprite2D:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Color(100, 100, 100, 1), Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7g47k"]
@@ -1368,6 +1344,22 @@ tracks/3/keys = {
 "values": [null]
 }
 
+[sub_resource type="Animation" id="Animation_8i4ka"]
+resource_name = "eat_asteroid"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -0.349066, 3.48787e-16]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l3yig"]
 _data = {
 "RESET": SubResource("Animation_ujbrf"),
@@ -1379,6 +1371,7 @@ _data = {
 "asteroid6": SubResource("Animation_00ss8"),
 "asteroid7": SubResource("Animation_x05km"),
 "asteroid8": SubResource("Animation_a8h0n"),
+"eat_asteroid": SubResource("Animation_8i4ka"),
 "rock1": SubResource("Animation_hdrtf"),
 "rock2": SubResource("Animation_5vfw2"),
 "rock3": SubResource("Animation_6706t"),
@@ -1396,7 +1389,7 @@ _data = {
 }
 
 [sub_resource type="Curve" id="Curve_rtm2l"]
-_data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.326816, 0.28361), 0.0, 0.0, 0, 0, Vector2(0.659218, 0), 0.0, 0.0, 0, 0, Vector2(0.997207, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.460894, 0.572254), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.132948), 0.0, 0.0, 0, 0, Vector2(1, 0.144509), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="Asteroid" type="RigidBody2D"]
@@ -1408,7 +1401,6 @@ gravity_scale = 1.66533e-16
 script = ExtResource("1_qapa4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(100, 100, 100, 1)
 position = Vector2(4, 0)
 texture = ExtResource("2_c2bns")
 
@@ -1435,14 +1427,15 @@ polygon = PackedVector2Array(-166, 21, -141, 7, -114, -6, -66, -5, -32, -25, 9, 
 [node name="AsteroidParticles" type="CPUParticles2D" parent="."]
 z_index = -1
 emitting = false
-amount = 60
+amount = 20
+lifetime = 0.4
 one_shot = true
 explosiveness = 0.86
-randomness = 0.42
+randomness = 0.62
 spread = 180.0
 gravity = Vector2(2.08165e-12, 2.08165e-12)
-initial_velocity_min = 500.0
-initial_velocity_max = 750.0
+initial_velocity_min = 1500.0
+initial_velocity_max = 1750.0
 scale_amount_min = 100.0
 scale_amount_max = 100.0
 scale_amount_curve = SubResource("Curve_rtm2l")

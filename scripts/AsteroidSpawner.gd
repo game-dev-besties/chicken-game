@@ -37,6 +37,8 @@ func spawn_asteroid():
 	asteroids.add_child(new_asteroid)
 	
 	
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

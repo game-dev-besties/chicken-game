@@ -251,6 +251,9 @@ func gravity(target: RigidBody2D, delta: float):
 	
  #Eating Asteroid code
 
+func update_asteroid(asteroid):
+	asteroid.get_node("AnimationPlayer").play("eat_asteroid")
+
 
 func attempt_to_eat():
 	if eating.size() == 0:
@@ -265,6 +268,7 @@ func attempt_to_eat():
 		eating_asteroid.mass -= mass_to_eat
 		var asteroid_particles = eating_asteroid.get_node("AsteroidParticles")
 		asteroid_particles.emitting = true
+		eating_asteroid.get_node("AnimationPlayer").play("eat_asteroid")
 	else:
 		target_mass += eating_asteroid.mass
 		eating_asteroid.queue_free()

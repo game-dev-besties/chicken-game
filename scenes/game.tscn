@@ -68,7 +68,7 @@ offset_right = 8194.0
 offset_bottom = 388.0
 theme_override_fonts/font = ExtResource("9_7amg4")
 theme_override_font_sizes/font_size = 150
-text = "Space to eat asteroids and gain mass
+text = "[space] to eat asteroids and gain mass
 
          ----->"
 autowrap_mode = 2
