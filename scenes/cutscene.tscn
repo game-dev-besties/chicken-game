@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgfmu154r0qxq"]
+
+[ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_5bwrl"]
+[ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_27rq1"]
+[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_omvb8"]
+[ext_resource type="AudioStream" uid="uid://c3c04hf4ai6ba" path="res://assets/audio/glass-shatter-3-100155.mp3" id="3_4udd0"]
+[ext_resource type="Texture2D" uid="uid://dpuymsdvswfxk" path="res://assets/chicken_sprites/base_chicken.png" id="3_atdgd"]
+[ext_resource type="Texture2D" uid="uid://bhvlq1uoyhxlq" path="res://assets/SpaceShooterRedux/Spritesheet/sheet.png" id="4_5kc5y"]
+[ext_resource type="AudioStream" uid="uid://cmqvh0i58m4lj" path="res://assets/audio/audiomass-output.mp3" id="6_pj65q"]
+
+[sub_resource type="Animation" id="Animation_twrlf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1026, 556)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Chicken:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(828, 658)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Chicken:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vl5eg"]
+resource_name = "chicken_die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Chicken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(828, 658), Vector2(-42, 683)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Chicken:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_74yw3"]
+resource_name = "ship_shake"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1026, 556), Vector2(1026, 514), Vector2(1026, 556), Vector2(1026, 598), Vector2(1026, 556)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ff7i"]
+_data = {
+"RESET": SubResource("Animation_twrlf"),
+"chicken_die": SubResource("Animation_vl5eg"),
+"ship_shake": SubResource("Animation_74yw3")
+}
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_27rq1")
+
+[node name="transition" parent="." instance=ExtResource("2_omvb8")]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_5bwrl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Characters/Ship")
+libraries = {
+"": SubResource("AnimationLibrary_8ff7i")
+}
+
+[node name="glass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4udd0")
+pitch_scale = 0.37
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Chicken" type="Sprite2D" parent="Characters"]
+position = Vector2(828, 658)
+scale = Vector2(0.121868, 0.121868)
+texture = ExtResource("3_atdgd")
+
+[node name="Ship" type="Sprite2D" parent="Characters"]
+position = Vector2(1026, 556)
+scale = Vector2(0.457031, 0.457031)
+texture = ExtResource("4_5kc5y")
+
+[node name="chicken" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pj65q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -471.0
+offset_top = -382.0
+offset_right = 2541.0
+offset_bottom = 1439.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = 496.0
+offset_top = 471.0
+offset_right = 1508.0
+offset_bottom = 581.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Somewhere out in space..."
