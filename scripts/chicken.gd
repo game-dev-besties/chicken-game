@@ -15,7 +15,7 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
-@export var gravitational_constant: float = 3e7
+@export var gravitational_constant: float = 3e8
 
 const MASS_WHEN_TOO_SMALL = 2
 
@@ -31,6 +31,8 @@ var charge_time = 0.0
 var lay_timer = 0.4
 
 var asteroids = []
+var eating = []
+var touching = []
 var smooth_mass = mass
 var target_mass = mass
 
@@ -42,6 +44,8 @@ func _ready():
 	
 #Shoot Egg
 func _input(event):
+	if Input.is_action_just_pressed("eat"):
+		attempt_to_eat()
 	if mass < MASS_WHEN_TOO_SMALL:
 		if Input.is_action_just_pressed("click"):
 			var warning_instance = warning.instantiate()
@@ -154,8 +158,17 @@ func _on_area_2d_body_entered(body):
 	#print("min", get_closest_asteroid())
 	asteroids.append(body)
 	#print("added")
+	
 func _on_area_2d_body_exited(body):
 	asteroids.erase(body)
+	
+func _on_eating_circle_body_entered(body):
+	eating.append(body)
+
+func _on_eating_circle_body_exited(body):
+	eating.erase(body)
+
+	
 func get_closest_asteroid():
 	var closest_asteroid = null
 	var min_distance = INF
@@ -165,12 +178,51 @@ func get_closest_asteroid():
 			min_distance = distance
 			closest_asteroid = asteroid
 	return closest_asteroid
+	
+func get_closest_eating():
+	var closest_asteroid = null
+	var min_distance = INF
+	for asteroid in eating:
+		var distance = global_position.distance_to(asteroid.global_position)
+		if distance < min_distance:
+			min_distance = distance
+			closest_asteroid = asteroid
+	return closest_asteroid
+	
 func gravity(target: RigidBody2D, delta: float):
 	if not target:
 		return
 	var direction = (target.global_position - global_position).normalized()
-	var distance = (target.global_position - global_position).length()
+	var distance = (target.global_position - global_position).length() # Replace with function body.global_position).length()
 	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
 	var force = force_magnitude * direction
+	#print("Force ", force)
 	self.apply_force(force)
-	target.apply_force(-force)
+	if touching.size() > 0:
+		self.apply_force(-force)
+		#target.angular_velocity *= 0.99
+	
+ #Eating Asteroid code
+
+
+func attempt_to_eat():
+	if eating.size() == 0:
+		return
+	var eating_asteroid = get_closest_eating()
+	var eating_distance = global_position.distance_to(eating_asteroid.global_position)
+	# Can only eat an asteroid inside our eating circle
+	# Our chicken is insane and eats half of it's own body weight with each bite
+	var mass_to_eat = mass * 0.1
+	if eating_asteroid.mass > mass_to_eat:
+		target_mass += mass_to_eat
+		eating_asteroid.mass -= mass_to_eat
+	else:
+		target_mass += eating_asteroid.mass
+		eating_asteroid.queue_free()
+
+func _on_normal_force_body_entered(body):
+	print(touching)
+	touching.append(body) # Replace with function body.
+
+func _on_normal_force_body_exited(body):
+	touching.erase(body) # Replace with function body.
