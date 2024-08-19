@@ -7,6 +7,7 @@ extends RigidBody2D
 
 @onready var main = get_tree().get_root().get_node("game")
 @onready var anim_sprite = $AnimationPlayer
+@onready var warning = load("res://scenes/warning.tscn")
 
 @export var projectile: PackedScene
 @export var min_mass: float = 10
@@ -42,6 +43,10 @@ func _ready():
 #Shoot Egg
 func _input(event):
 	if mass < MASS_WHEN_TOO_SMALL:
+		if Input.is_action_just_pressed("click"):
+			var warning_instance = warning.instantiate()
+			warning_instance.initialize_warning(position, linear_velocity)
+			main.add_child(warning_instance)
 		return
 	if Input.is_action_just_pressed("click"):
 		charging = true

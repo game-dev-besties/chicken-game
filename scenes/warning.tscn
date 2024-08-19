@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd7p31bt3cfh8"]
+
+[ext_resource type="Script" path="res://scripts/Warning.gd" id="1_pwwkx"]
+[ext_resource type="FontFile" uid="uid://bootcyj3rvcaj" path="res://assets/Comic Sans MS.ttf" id="1_uqp4n"]
+
+[node name="Warning" type="Label"]
+z_index = 6
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_uqp4n")
+theme_override_font_sizes/font_size = 50
+text = "You need to eat to lay eggs!"
+script = ExtResource("1_pwwkx")
