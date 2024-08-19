@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var spawn_radius_padding: float = 200
-@export var distance_from_min_to_max_radius_scalar: float = 10
+@export var spawn_radius_padding_scalar: float = 5000
+@export var distance_from_min_to_max_radius_scalar: float = 5000
 @export var max_drift_velocity: float
 @export var max_angular_velocity: float
 @export var desired_number_of_asteroids: int
@@ -59,7 +59,7 @@ func update_scale_for_viewport_size():
 	var height: float = global_rect.size.y
 
 	# Set the inner radius to the maximum viewport dimension (either width or height) with some additive constant added to it
-	min_radius = max(width,height) + spawn_radius_padding
+	min_radius = max(width,height) + spawn_radius_padding_scalar * get_viewport().get_camera_2d().zoom.x
 
 	# Set the outer radius to some constant distance away from the inner radius
 	max_radius = min_radius + get_viewport().get_camera_2d().zoom.x * distance_from_min_to_max_radius_scalar
