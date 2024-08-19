@@ -863,7 +863,7 @@ _data = {
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 6
-mass = 5.0
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_fpspy")
 gravity_scale = 1.66533e-16
 script = ExtResource("1_qapa4")
