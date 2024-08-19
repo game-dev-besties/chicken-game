@@ -17,6 +17,6 @@ func _process(delta):
 	zoom = Vector2(smooth_zoom, smooth_zoom)
 	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
 	
-	particles.position.y = 540 + chicken.mass * 2 * cos(chicken.rotation) * zoom.length() * sqrt(zoom.length())
-	particles.position.x = 960 - chicken.mass * 2 * sin(chicken.rotation) * zoom.length() * sqrt(zoom.length())
+	particles.position.y = 540 + chicken.mass * 2 * cos(chicken.rotation) * zoom.length() * zoom.length() * zoom.length()
+	particles.position.x = 960 - chicken.mass * 2 * sin(chicken.rotation) * zoom.length() * zoom.length() * zoom.length()
 
