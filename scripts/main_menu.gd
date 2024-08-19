@@ -16,7 +16,6 @@ func _ready():
 	options.button_up.connect(on_options_up)
 	credits.button_up.connect(on_credits_up)
 	exit.button_up.connect(on_exit_up)
-	$AnimationPlayer.play("on_run")
 	pass
 	
 func on_start_button_up() -> void:
@@ -30,3 +29,5 @@ func on_credits_up() -> void:
 	
 func on_exit_up() -> void:
 	get_tree().quit()
+
+
