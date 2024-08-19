@@ -40,6 +40,8 @@ func spawn_asteroid():
 	num_asteroids += 1
 	
 	
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
