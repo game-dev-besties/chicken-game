@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_4vivh"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
-[ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
+[ext_resource type="PackedScene" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
 [ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
@@ -14,11 +14,6 @@
 [node name="game" type="Node2D"]
 script = ExtResource("1_4vivh")
 
-[node name="transition" parent="." instance=ExtResource("2_gb4lc")]
-
-[node name="OffScreenMarker" parent="." instance=ExtResource("3_c4we2")]
-scale = Vector2(10, 10)
-
 [node name="Starry Background" parent="." instance=ExtResource("2_1fe0n")]
 scroll_ignore_camera_zoom = true
 
@@ -28,19 +23,20 @@ projectile = ExtResource("4_gk0mq")
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
 
-[node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
-
 [node name="Asteroids" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="particleLayer" parent="." instance=ExtResource("8_wa4gk")]
 layer = -1
 
-[node name="Left Click" type="Label" parent="."]
+[node name="hud nightmare" type="Node2D" parent="."]
+
+[node name="Left Click" type="Label" parent="hud nightmare"]
+visible = false
 offset_left = 1739.0
 offset_top = -345.0
 offset_right = 3289.0
-offset_bottom = 20.0
+offset_bottom = 388.0
 theme_override_fonts/font = ExtResource("9_7amg4")
 theme_override_font_sizes/font_size = 150
 text = "Hold left click to charge egg
@@ -48,7 +44,8 @@ text = "Hold left click to charge egg
          ----->"
 autowrap_mode = 2
 
-[node name="Mass" type="Label" parent="."]
+[node name="Mass" type="Label" parent="hud nightmare"]
+visible = false
 offset_left = 4272.0
 offset_top = -345.0
 offset_right = 5822.0
@@ -60,11 +57,12 @@ text = "You lose mass as you shoot
          ----->"
 autowrap_mode = 2
 
-[node name="Asteroid" type="Label" parent="."]
+[node name="Asteroid" type="Label" parent="hud nightmare"]
+visible = false
 offset_left = 6644.0
 offset_top = -345.0
 offset_right = 8194.0
-offset_bottom = 388.0
+offset_bottom = 572.0
 theme_override_fonts/font = ExtResource("9_7amg4")
 theme_override_font_sizes/font_size = 150
 text = "[space] to eat asteroids and gain mass
@@ -72,7 +70,8 @@ text = "[space] to eat asteroids and gain mass
          ----->"
 autowrap_mode = 2
 
-[node name="Oxygen" type="Label" parent="."]
+[node name="Oxygen" type="Label" parent="hud nightmare"]
+visible = false
 offset_left = 8965.0
 offset_top = -345.0
 offset_right = 10515.0
@@ -84,7 +83,8 @@ text = "Don't run out of oxygen!
          ----->"
 autowrap_mode = 2
 
-[node name="Good Luck" type="Label" parent="."]
+[node name="Good Luck" type="Label" parent="hud nightmare"]
+visible = false
 offset_left = 11424.0
 offset_top = -345.0
 offset_right = 12974.0
@@ -95,3 +95,12 @@ text = "Reach the waypoint!
 
          ----->"
 autowrap_mode = 2
+
+[node name="HUD" parent="hud nightmare" instance=ExtResource("5_e1ta3")]
+
+[node name="transition" parent="hud nightmare" instance=ExtResource("2_gb4lc")]
+visible = false
+
+[node name="OffScreenMarker" parent="hud nightmare" instance=ExtResource("3_c4we2")]
+visible = false
+scale = Vector2(10, 10)

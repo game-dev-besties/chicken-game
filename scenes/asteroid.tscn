@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dxwg853kolfn7"]
+[gd_scene load_steps=51 format=3 uid="uid://dxwg853kolfn7"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_qapa4"]
 [ext_resource type="Texture2D" uid="uid://bes78n3ovh4w0" path="res://assets/asteroid_sprites/asteroid1.png" id="2_c2bns"]
@@ -611,6 +611,22 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8i4ka"]
+resource_name = "eat_asteroid"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -0.349066, 3.48787e-16]
 }
 
 [sub_resource type="Animation" id="Animation_hdrtf"]
