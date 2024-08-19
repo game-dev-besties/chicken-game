@@ -162,6 +162,7 @@ func scale_by_mass():
 	$CollisionPolygon2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
 	$"Eating Circle".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
+	$"Area2D".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 #messy gravity
 
 func _on_area_2d_body_entered(body):

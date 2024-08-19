@@ -21,9 +21,9 @@ radius = 3458.75
 
 [node name="AsteroidSpawning" type="Node2D"]
 script = ExtResource("1_i3tka")
-max_drift_velocity = 100.0
+max_drift_velocity = 10000.0
 max_angular_velocity = 1.0
-desired_number_of_asteroids = 3
+desired_number_of_asteroids = 40
 asteroid_scene = ExtResource("2_275jc")
 
 [node name="AsteroidLiveZone" type="Area2D" parent="."]
