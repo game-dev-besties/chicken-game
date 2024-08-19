@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://lq161vi7gssa"]
+[gd_scene load_steps=11 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_4vivh"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
