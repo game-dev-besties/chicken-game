@@ -23,8 +23,9 @@ func _ready():
 	linear_velocity = chicken_velocity + direction_vector * SPEED
 	chicken.apply_impulse(-direction_vector * SPEED * mass)
 	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
-	particles.scale_amount_max = mass / 50
-	particles.scale_amount_min = mass / 100
+	var camera = get_tree().get_root().get_node("game").get_node("Chicken").get_node("Camera2D")
+	particles.scale_amount_max = sqrt(mass) / 13 * camera.zoom.length()
+	particles.scale_amount_min = sqrt(mass) / 25 * camera.zoom.length()
 
 
 func initialize_egg(charge_ratio, chicken):
