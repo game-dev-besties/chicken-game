@@ -15,7 +15,7 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
-@export var gravitational_constant: float = 3e8
+@export var gravitational_constant: float = 3e5
 
 const MASS_WHEN_TOO_SMALL = 2
 
@@ -221,7 +221,7 @@ func attempt_to_eat():
 		eating_asteroid.queue_free()
 
 func _on_normal_force_body_entered(body):
-	print(touching)
+	#print(touching)
 	touching.append(body) # Replace with function body.
 
 func _on_normal_force_body_exited(body):

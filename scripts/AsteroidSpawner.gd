@@ -11,6 +11,8 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var min_radius: float = 800
 var max_radius: float = 1200
+var min_mass: float = 20
+var max_mass: float = 50
 
 @export var asteroid_scene: PackedScene
 
@@ -31,6 +33,7 @@ func spawn_asteroid():
 	# Instantiate a new asteroid and give it a random drift velocity/angular velocity
 	var new_asteroid = asteroid_scene.instantiate()
 	new_asteroid.initialize(Vector2(chicken.position.x + radius * cos(angle), chicken.position.y + radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
+	new_asteroid.mass=rng.randf_range(min_mass,max_radius)
 	asteroids.add_child(new_asteroid)
 	
 	
@@ -74,10 +77,11 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 	print("remove ", num_asteroids)
 	
 func scale_asteroids():
-	for asteroid in asteroids.get_children():
-		asteroid.get_node("Sprite2D").scale = Vector2(1.0 * pow(asteroid.mass, 1.0/3.0), 1.0 *  pow(asteroid.mass, 1.0/3.0))
-		asteroid.get_node("CollisionPolygon2D").scale = Vector2(pow(asteroid.mass, 1.0/3.0),  pow(asteroid.mass, 1.0/3.0))
-		asteroid.get_node("CollisionPolygon2D2").scale = Vector2(pow(asteroid.mass, 1.0/3.0),  pow(asteroid.mass, 1.0/3.0))
+	pass
+	#for asteroid in asteroids.get_children():
+		#asteroid.get_node("Sprite2D").scale = Vector2(1.0 * pow(asteroid.mass, 1.0/3.0), 1.0 *  pow(asteroid.mass, 1.0/3.0))
+		#asteroid.get_node("CollisionPolygon2D").scale = Vector2(pow(asteroid.mass, 1.0/3.0),  pow(asteroid.mass, 1.0/3.0))
+		#asteroid.get_node("CollisionPolygon2D2").scale = Vector2(pow(asteroid.mass, 1.0/3.0),  pow(asteroid.mass, 1.0/3.0))
 		#asteroid.CollisionShape2D.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
 		#create new collision shape of correct size
 		#var collision_shape = asteroid.get_node("CollisionPoly2D") as CollisionShape2D
