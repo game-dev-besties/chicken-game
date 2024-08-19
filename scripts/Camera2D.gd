@@ -1,8 +1,8 @@
 
 extends Camera2D
 var chicken
-var base = 0.5
-var smooth_zoom = 0.5
+var base = 0.4
+var smooth_zoom = 0.4
 var desiredFov: float
 var target_zoom: float 
 # Called when the node enters the scene tree for the first time.

@@ -15,7 +15,7 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
-@export var gravitational_constant: float = 3e6
+@export var gravitational_constant: float = 5e6
 
 const MASS_WHEN_TOO_SMALL = 2
 
@@ -210,17 +210,17 @@ func gravity(target: RigidBody2D, delta: float):
 	var force = force_magnitude * direction
 	#print("Force ", force)
 	target.linear_velocity *= (1/target.mass)
-	if target.mass >= self.mass:
+	if target.mass >= self.mass/3:
 		self.apply_force(force)
 		if touching.size() > 0:
 			self.apply_force(-force)
-	elif target.mass < self.mass:
+	elif target.mass < self.mass/3:
 		#print("im bigger")
 		#if eating.size() > 0:
 			#target.linear_velocity *= 0.2
 			#target.angular_velocity *= 0.2
 		#else:
-		self.apply_force((force)/2)
+		target.apply_force((force)/2)
 		#target.angular_velocity *= 0.99
 	
  #Eating Asteroid code
