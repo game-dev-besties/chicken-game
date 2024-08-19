@@ -1393,7 +1393,7 @@ _data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.460894, 0.572254), 0.0,
 point_count = 4
 
 [node name="Asteroid" type="RigidBody2D"]
-collision_layer = 4
+collision_layer = 5
 collision_mask = 6
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_fpspy")

@@ -21,7 +21,8 @@ radius = 3458.75
 
 [node name="AsteroidSpawning" type="Node2D"]
 script = ExtResource("1_i3tka")
-max_drift_velocity = 10000.0
+spawn_radius_padding_scalar = 0.0
+max_drift_velocity = 10.0
 max_angular_velocity = 1.0
 desired_number_of_asteroids = 40
 asteroid_scene = ExtResource("2_275jc")
@@ -35,6 +36,6 @@ script = SubResource("GDScript_6t3uh")
 position = Vector2(9.53674e-07, 0)
 scale = Vector2(0.619048, 1)
 shape = SubResource("CircleShape2D_06sig")
-debug_color = Color(1.92523e-06, 0.632613, 0.449587, 0.42)
+debug_color = Color(0.806665, 0.415034, 0, 0.42)
 
 [connection signal="body_exited" from="AsteroidLiveZone" to="." method="_on_asteroid_live_zone_body_exited"]
