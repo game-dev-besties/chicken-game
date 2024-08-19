@@ -7,6 +7,7 @@ extends RigidBody2D
 
 @onready var main = get_tree().get_root().get_node("game")
 @onready var anim_sprite = $AnimationPlayer
+#@onready var eggparticles = get_tree().get_root().get_node("game").get_node("HUD").get_node("eggparticles")
 
 @export var projectile: PackedScene
 @export var min_mass: float = 10
@@ -105,6 +106,16 @@ func shoot_projectile():
 	# Decrease the mass of the chicken to account for the new egg
 	#print(str("Chicken: " + str(mass)))
 	target_mass -= instance.mass
+	var eggparticles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
+	var delta = mass * 2
+	
+	eggparticles.position.y = 540 + delta * cos(rotation)
+	eggparticles.position.x = 960 - delta * sin(rotation)
+	eggparticles.rotation = rotation
+	eggparticles.emitting = true
+	
+	#print(instance.scale)
+	
 	#print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
@@ -122,7 +133,7 @@ func _physics_process(delta):
 	# Set velo to the magnitude of the velocity to be used by the HUD
 	# Same for angle
 	velo = linear_velocity.length()
-	var temp = rotation * 180 / PI
+	var temp = linear_velocity.angle() * 180 / PI
 	angle = int(temp) % 360
 	if angle < 0:
 		angle = 360 + angle
@@ -167,6 +178,6 @@ func gravity(target: RigidBody2D, delta: float):
 	var distance = (target.global_position - global_position).length()
 	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
 	var force = force_magnitude * direction
-	print("Force ", force)
+	#print("Force ", force)
 	self.apply_force(force)
 	target.apply_force(-force)
