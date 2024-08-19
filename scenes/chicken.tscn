@@ -460,6 +460,7 @@ hframes = 6
 frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(2, 4)
 polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)
 
