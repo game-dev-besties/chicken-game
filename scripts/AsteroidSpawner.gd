@@ -9,7 +9,7 @@ extends Node2D
 @onready var chicken = get_tree().get_root().get_node("game").get_node("Chicken")
 
 var rng = RandomNumberGenerator.new()
-var min_radius: float = 10000
+var min_radius: float = 0
 var max_radius: float = 20000
 var min_mass: float = 30
 var max_mass: float = 100
@@ -43,6 +43,9 @@ func spawn_asteroid():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var scalingzone = 1 * pow(chicken.mass, 1.0/3.0)
+	var max_radius = $AsteroidLiveZone/CollisionShape2D.shape.radius
+	$AsteroidLiveZone/CollisionShape2D.scale = Vector2(scalingzone,scalingzone*1.8)
 	pass
 
 
@@ -50,13 +53,17 @@ func _ready():
 func _process(delta):
 	#update_scale_for_viewport_size()
 	scale_asteroids()
-	var scalingzone = 1.5 * pow(chicken.mass, 1.0/3.0)
+	var scalingzone = 1 * pow(chicken.mass, 1.0/3.0)
+	max_radius = scalingzone * 5000
+	min_radius = max_radius/3
+	desired_number_of_asteroids = max_radius/500
+	desired_number_of_asteroids = int(clamp(desired_number_of_asteroids, 3, 70))
 	$AsteroidLiveZone/CollisionShape2D.scale = Vector2(scalingzone,scalingzone*1.8)
 	if num_asteroids < desired_number_of_asteroids:
 		for i in range(desired_number_of_asteroids-num_asteroids):
 			#num_asteroids += 1
 			spawn_asteroid()
-			print("add ", num_asteroids)
+			#print("add ", num_asteroids)
 
 # Update the inner/outer radii and live zone size to match the current viewport and ensure asteroid spawning and despawning only happen outside the viewport
 func update_scale_for_viewport_size():
