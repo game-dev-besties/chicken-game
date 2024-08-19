@@ -11,6 +11,47 @@ friction = 0.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_553y4"]
 load_path = "res://.godot/imported/fat_chicken.png-5fef296cc05bfadc76d2d555a1616909.ctex"
 
+[sub_resource type="Animation" id="Animation_7gibh"]
+resource_name = "med_idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
+}
+
 [sub_resource type="Animation" id="Animation_nr0li"]
 length = 0.001
 tracks/0/type = "value"
@@ -48,6 +89,88 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
+}
+
+[sub_resource type="Animation" id="Animation_51d1l"]
+resource_name = "med_lay"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
+}
+
+[sub_resource type="Animation" id="Animation_tdrcg"]
+resource_name = "med_max"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
 }
 
 [sub_resource type="Animation" id="Animation_fduj8"]
@@ -170,129 +293,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90), PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
-}
-
-[sub_resource type="Animation" id="Animation_7gibh"]
-resource_name = "med_idle"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [5, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
-}
-
-[sub_resource type="Animation" id="Animation_51d1l"]
-resource_name = "med_lay"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
-}
-
-[sub_resource type="Animation" id="Animation_tdrcg"]
-resource_name = "med_max"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_uh0mx"), ExtResource("3_uh0mx")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CollisionPolygon2D:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
 }
 
 [sub_resource type="Animation" id="Animation_nxlcv"]
