@@ -11,16 +11,16 @@ var loaded_out = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ColorRect.visible = true
-	$Label.modulate.a = 0
+	$Title.modulate.a = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timer += delta
 	
 	if timer < 2 && timer > 1:
-		$Label.modulate.a += 1*delta
+		$Title.modulate.a += 1*delta
 	elif timer > 4 && timer < 6:
-		$Label.modulate.a -= 1*delta
+		$Title.modulate.a -= 1*delta
 	elif timer > 4.2 && not fade_to_ship:
 		$ColorRect.visible = false
 		$transition.transition("fade_to_normal")
@@ -43,7 +43,5 @@ func _process(delta):
 	elif timer > 15 && loaded_out:
 		get_tree().change_scene_to_packed(game)
 
-	
-
-
-	
+func _on_button_pressed():
+	get_tree().change_scene_to_packed(game)
