@@ -88,6 +88,21 @@ tracks/1/keys = {
 "values": [6.28319, -6.28319]
 }
 
+[sub_resource type="Animation" id="Animation_if8y7"]
+resource_name = "ship_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_l7n5l")]
+}
+
 [sub_resource type="Animation" id="Animation_74yw3"]
 resource_name = "ship_shake"
 length = 0.16
@@ -114,21 +129,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("6_5uugq"), ExtResource("6_5uugq")]
-}
-
-[sub_resource type="Animation" id="Animation_if8y7"]
-resource_name = "ship_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_l7n5l")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ff7i"]
