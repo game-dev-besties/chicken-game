@@ -19,14 +19,12 @@ offset_left = -714.0
 offset_right = -5.34058e-05
 offset_bottom = 72.0
 grow_horizontal = 0
+max_value = 18000.0
 value = 60.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_l0pb7")
 texture_progress = ExtResource("3_xit7o")
 script = ExtResource("3_m2phq")
-
-[node name="Timer" type="Timer" parent="Oxygen2"]
-autostart = true
 
 [node name="Stats" type="Label" parent="."]
 offset_left = 15.0
@@ -40,5 +38,3 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1053, 74)
 scale = Vector2(0.208824, 0.208824)
 texture = ExtResource("5_gxiwf")
-
-[connection signal="timeout" from="Oxygen2/Timer" to="Oxygen2" method="_on_timer_timeout"]
