@@ -11,8 +11,8 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var min_radius: float = 800
 var max_radius: float = 1200
-var min_mass: float = 20
-var max_mass: float = 50
+var min_mass: float = 30
+var max_mass: float = 100
 
 @export var asteroid_scene: PackedScene
 
@@ -33,7 +33,7 @@ func spawn_asteroid():
 	# Instantiate a new asteroid and give it a random drift velocity/angular velocity
 	var new_asteroid = asteroid_scene.instantiate()
 	new_asteroid.initialize(Vector2(chicken.position.x + radius * cos(angle), chicken.position.y + radius * sin(angle)), Vector2(drift_velocity_x, drift_velocity_y), angular_velocity)
-	new_asteroid.mass=rng.randf_range(min_mass,max_radius)
+	new_asteroid.mass=rng.randf_range(min_mass,max_mass)
 	asteroids.add_child(new_asteroid)
 	
 	

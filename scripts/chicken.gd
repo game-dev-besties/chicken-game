@@ -8,6 +8,7 @@ extends RigidBody2D
 @onready var main = get_tree().get_root().get_node("game")
 @onready var anim_sprite = $AnimationPlayer
 @onready var warning = load("res://scenes/warning.tscn")
+#var arrow = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("arrow")
 
 @export var projectile: PackedScene
 @export var min_mass: float = 10
@@ -15,17 +16,17 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
-@export var gravitational_constant: float = 3e5
+@export var gravitational_constant: float = 5e6
 
 const MASS_WHEN_TOO_SMALL = 2
 
 #chicken
 var can_lay = true
 var has_clicked = false
-var mass_to_scale = 0.3
+var mass_to_scale = 0.4
 #egg
-var charging = false
-var charge_time = 0.0
+@export var charging: bool = false
+@export var charge_time: float = 0.0
 
 # Cooldown timer:
 var lay_timer = 0.4
@@ -75,6 +76,28 @@ func _process(delta):
 	if charging:
 		charge_time += delta
 		charge_time = min(charge_time, max_charge_time)
+		
+	#
+	#if charging:
+		##print(charge_time)
+		#if charge_time <= 0.5:
+			#arrow.self_modulate.a = 0.25
+		##if charge_time <= 0.25:
+			##arrow.self_modulate.a = 0.125
+		##elif charge_time <= 0.5:
+			##arrow.self_modulate.a = 0.25
+		##elif charge_time <= 0.75:
+			##arrow.self_modulate.a = 0.375
+		#elif charge_time <= 1:
+			#arrow.self_modulate.a = 0.5
+		##elif charge_time <= 1.25:
+			##arrow.self_modulate.a = 0.625
+		#elif charge_time <= 1.5:
+			#arrow.self_modulate.a = 0.75
+		##elif charge_time <= 1.75:
+			##arrow.self_modulate.a = 0.875
+		#elif charge_time <= 2:
+			#arrow.self_modulate.a = 1
 
 	# Choose the sprite to use based on the chicken's current mass, whether or not it is charging, and the charge time
 	if charging:
@@ -93,6 +116,8 @@ func _process(delta):
 				anim_sprite.play("fat_max")
 			else: 
 				anim_sprite.play("fat_lay")
+		#arrow.show()
+		#arrow.self_modulate.a = charge_time / 2
 	else: 
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
@@ -100,6 +125,7 @@ func _process(delta):
 			anim_sprite.play("med_idle")
 		else:
 			anim_sprite.play("fat_idle")
+		#arrow.hide()
 
 	lay_timer += delta
 
@@ -114,12 +140,12 @@ func shoot_projectile():
 	# Decrease the mass of the chicken to account for the new egg
 	#print(str("Chicken: " + str(mass)))
 	target_mass -= instance.mass
-	var eggparticles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
+	var eggparticles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particlesSprite").get_node("particles")
 	var delta = mass * 2
 	
-	eggparticles.position.y = 540 + delta * cos(rotation)
-	eggparticles.position.x = 960 - delta * sin(rotation)
-	eggparticles.rotation = rotation
+	#eggparticles.position.y = 540 + delta * cos(rotation)
+	#eggparticles.position.x = 960 - delta * sin(rotation)
+	#eggparticles.rotation = rotation
 	eggparticles.emitting = true
 	
 	#print(instance.scale)
@@ -160,8 +186,9 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionPolygon2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
+	$Area2D/CollisionShape2D.scale = Vector2(4 / pow(mass, 1.0/5.0), 4 / pow(mass, 1.0/5.0))
 	$"Eating Circle".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
+	$"Area2D".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 #messy gravity
 
 func _on_area_2d_body_entered(body):
@@ -209,17 +236,17 @@ func gravity(target: RigidBody2D, delta: float):
 	var force = force_magnitude * direction
 	#print("Force ", force)
 	target.linear_velocity *= (1/target.mass)
-	if target.mass >= self.mass:
+	if target.mass >= self.mass/3:
 		self.apply_force(force)
 		if touching.size() > 0:
 			self.apply_force(-force)
-	elif target.mass < self.mass:
-		
-		if eating.size() > 0:
-			target.linear_velocity *= 0.2
-			target.angular_velocity *= 0.2
-		else:
-			target.apply_force(-force)
+	elif target.mass < self.mass/3:
+		#print("im bigger")
+		#if eating.size() > 0:
+			#target.linear_velocity *= 0.2
+			#target.angular_velocity *= 0.2
+		#else:
+		target.apply_force((force)/2)
 		#target.angular_velocity *= 0.99
 	
  #Eating Asteroid code

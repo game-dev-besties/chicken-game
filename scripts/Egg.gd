@@ -22,7 +22,7 @@ func _ready():
 	var direction_vector = -1 * Vector2(cos(dir), sin(dir))
 	linear_velocity = chicken_velocity + direction_vector * SPEED
 	chicken.apply_impulse(-direction_vector * SPEED * mass)
-	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
+	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particlesSprite").get_node("particles")
 	var camera = get_tree().get_root().get_node("game").get_node("Chicken").get_node("Camera2D")
 	particles.scale_amount_max = sqrt(mass) / 13 * camera.zoom.length()
 	particles.scale_amount_min = sqrt(mass) / 25 * camera.zoom.length()
