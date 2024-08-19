@@ -50,7 +50,7 @@ func _ready():
 func _process(delta):
 	#update_scale_for_viewport_size()
 	scale_asteroids()
-	var scalingzone = pow(chicken.mass,1/3)*5
+	var scalingzone = 1.5 * pow(chicken.mass, 1.0/3.0)
 	$AsteroidLiveZone/CollisionShape2D.scale = Vector2(scalingzone,scalingzone*1.8)
 	if num_asteroids < desired_number_of_asteroids:
 		for i in range(desired_number_of_asteroids-num_asteroids):

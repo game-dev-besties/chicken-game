@@ -24,7 +24,6 @@ unique_name_in_owner = true
 projectile = ExtResource("4_gk0mq")
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
-unique_name_in_owner = true
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
 
