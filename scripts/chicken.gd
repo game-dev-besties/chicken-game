@@ -172,6 +172,5 @@ func gravity(target: RigidBody2D, delta: float):
 	var distance = (target.global_position - global_position).length()
 	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
 	var force = force_magnitude * direction
-	print("Force ", force)
 	self.apply_force(force)
 	target.apply_force(-force)

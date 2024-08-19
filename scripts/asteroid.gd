@@ -9,7 +9,7 @@ func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: fl
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var animations = ["asteroid1", "asteroid2", "asteroid3", "asteroid4", "asteroid5", "asteroid6", "asteroid7", "asteroid8", "rock1", "rock2", "rock3", "rock4", "rock5", "rock6", "rock7", "rock8"]
+	var animations = ["asteroid1", "asteroid2", "asteroid3", "asteroid4", "asteroid5", "asteroid6", "asteroid7", "asteroid8", "rock1", "rock2", "rock3", "rock4", "rock5", "rock6", "rock7", "rock8", "shard1", "shard2", "shard3", "shard4", "shard5", "shard6"]
 	var kinds = animations[randi()% animations.size()]
 	$AnimationPlayer.play(kinds)
 
