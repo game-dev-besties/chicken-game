@@ -162,9 +162,7 @@ func _on_area_2d_body_exited(body):
 	asteroids.erase(body)
 	
 func _on_eating_circle_body_entered(body):
-	print(eating)
 	eating.append(body)
-	print("min", get_closest_eating())
 
 func _on_eating_circle_body_exited(body):
 	eating.erase(body)
