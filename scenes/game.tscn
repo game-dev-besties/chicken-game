@@ -22,11 +22,9 @@ unique_name_in_owner = true
 projectile = ExtResource("4_gk0mq")
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
-position = Vector2(8, -65)
-min_radius = 800.0
-max_radius = 1200.0
-max_drift_velocity = 2.08165e-12
-desired_number_of_asteroids = 80
+unique_name_in_owner = true
+max_drift_velocity = 0.0
+desired_number_of_asteroids = 10
 
 [node name="HUD" parent="." instance=ExtResource("5_e1ta3")]
 
