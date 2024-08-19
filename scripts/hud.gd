@@ -4,5 +4,5 @@ extends CanvasLayer
 @onready var stats = $Stats
 
 func _process(delta):
-	stats.text = "Velocity: " + str(int(chicken.getVelo())) + "\n" + "Angle: " + str(chicken.getAngle())
+	stats.text = "Velocity: " + str(int(chicken.getVelo())) + "\n" + "Mass: " + str(chicken.mass)
 

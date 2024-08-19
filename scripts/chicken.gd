@@ -15,14 +15,14 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
-@export var gravitational_constant: float = 3e5
+@export var gravitational_constant: float = 3e6
 
 const MASS_WHEN_TOO_SMALL = 2
 
 #chicken
 var can_lay = true
 var has_clicked = false
-var mass_to_scale = 0.3
+var mass_to_scale = 0.4
 #egg
 var charging = false
 var charge_time = 0.0
@@ -160,7 +160,7 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionPolygon2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	$Area2D/CollisionShape2D.scale = Vector2(5 / pow(mass, 1.0/5.0), 5 / pow(mass, 1.0/5.0))
+	$Area2D/CollisionShape2D.scale = Vector2(4 / pow(mass, 1.0/5.0), 4 / pow(mass, 1.0/5.0))
 	$"Eating Circle".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 	$"Area2D".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 #messy gravity
@@ -215,12 +215,12 @@ func gravity(target: RigidBody2D, delta: float):
 		if touching.size() > 0:
 			self.apply_force(-force)
 	elif target.mass < self.mass:
-		
-		if eating.size() > 0:
-			target.linear_velocity *= 0.2
-			target.angular_velocity *= 0.2
-		else:
-			target.apply_force(-force)
+		#print("im bigger")
+		#if eating.size() > 0:
+			#target.linear_velocity *= 0.2
+			#target.angular_velocity *= 0.2
+		#else:
+		self.apply_force((force)/2)
 		#target.angular_velocity *= 0.99
 	
  #Eating Asteroid code
