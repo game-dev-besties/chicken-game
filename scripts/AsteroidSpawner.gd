@@ -11,8 +11,8 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var min_radius: float = 800
 var max_radius: float = 1200
-var min_mass: float = 20
-var max_mass: float = 50
+var min_mass: float = 30
+var max_mass: float = 70
 
 @export var asteroid_scene: PackedScene
 
