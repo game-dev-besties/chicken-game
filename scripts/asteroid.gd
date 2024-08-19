@@ -1,5 +1,5 @@
 extends RigidBody2D
-var base_scale = 10
+var base_scale = 1
 
 func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: float):
 	self.position = position
