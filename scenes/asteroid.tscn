@@ -20,7 +20,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fpspy"]
 friction = 0.0
-bounce = 0.5
+bounce = 0.03
 
 [sub_resource type="Animation" id="Animation_ujbrf"]
 length = 0.001

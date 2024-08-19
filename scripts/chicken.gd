@@ -14,6 +14,7 @@ extends RigidBody2D
 @export var minimum_mass_for_fat_sprite: float = 10
 @export var minimum_charge_time_for_lay_sprite: float = 2
 @export var max_charge_time: float = 2.0
+@export var gravitational_constant: float = 3e8
 
 const MASS_WHEN_TOO_SMALL = 2
 
@@ -159,12 +160,13 @@ func get_closest_asteroid():
 			min_distance = distance
 			closest_asteroid = asteroid
 	return closest_asteroid
-func gravity(target: Node2D, delta: float):
+func gravity(target: RigidBody2D, delta: float):
+	if not target:
+		return
 	var direction = (target.global_position - global_position).normalized()
-	var force = 1.0
-	force = (target.mass * self.mass)/(pow(abs(global_position.direction_to(target.global_position).length()),2))
-	var gravity_ratio:float = 0.9999-(0.0001*force)
-	if(1 == 1):
-		#print(force)
-		linear_velocity*=gravity_ratio
-		position += direction * force * delta
+	var distance = (target.global_position - global_position).length()
+	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
+	var force = force_magnitude * direction
+	print("Force ", force)
+	self.apply_force(force)
+	target.apply_force(-force)
