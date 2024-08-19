@@ -21,8 +21,6 @@ radius = 3458.75
 
 [node name="AsteroidSpawning" type="Node2D"]
 script = ExtResource("1_i3tka")
-min_radius = 100.0
-max_radius = 300.0
 max_drift_velocity = 100.0
 max_angular_velocity = 1.0
 desired_number_of_asteroids = 3
