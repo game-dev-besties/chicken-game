@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgfmu154r0qxq"]
+[gd_scene load_steps=14 format=3 uid="uid://bgfmu154r0qxq"]
 
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_5bwrl"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_27rq1"]
 [ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_omvb8"]
 [ext_resource type="AudioStream" uid="uid://c3c04hf4ai6ba" path="res://assets/audio/glass-shatter-3-100155.mp3" id="3_4udd0"]
 [ext_resource type="Texture2D" uid="uid://dpuymsdvswfxk" path="res://assets/chicken_sprites/base_chicken.png" id="3_atdgd"]
-[ext_resource type="Texture2D" uid="uid://bhvlq1uoyhxlq" path="res://assets/SpaceShooterRedux/Spritesheet/sheet.png" id="4_5kc5y"]
+[ext_resource type="Texture2D" uid="uid://bo4ur5stiofr0" path="res://assets/ship_open.png" id="5_l7n5l"]
+[ext_resource type="Texture2D" uid="uid://bnu3mo7piarub" path="res://assets/ship.png" id="6_5uugq"]
 [ext_resource type="AudioStream" uid="uid://cmqvh0i58m4lj" path="res://assets/audio/audiomass-output.mp3" id="6_pj65q"]
 
 [sub_resource type="Animation" id="Animation_twrlf"]
@@ -20,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1026, 556)]
+"values": [Vector2(915, 556)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -32,7 +33,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(828, 658)]
+"values": [Vector2(672, 666)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -45,6 +46,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_5uugq")]
 }
 
 [sub_resource type="Animation" id="Animation_vl5eg"]
@@ -60,7 +73,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(828, 658), Vector2(-42, 683)]
+"values": [Vector2(672, 666), Vector2(-59, 917)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,7 +90,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_74yw3"]
 resource_name = "ship_shake"
-length = 0.2
+length = 0.16
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,13 +101,41 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1026, 556), Vector2(1026, 514), Vector2(1026, 556), Vector2(1026, 598), Vector2(1026, 556)]
+"values": [Vector2(915, 556), Vector2(915, 514), Vector2(915, 556), Vector2(915, 598), Vector2(915, 556)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_5uugq"), ExtResource("6_5uugq")]
+}
+
+[sub_resource type="Animation" id="Animation_if8y7"]
+resource_name = "ship_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_l7n5l")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ff7i"]
 _data = {
 "RESET": SubResource("Animation_twrlf"),
 "chicken_die": SubResource("Animation_vl5eg"),
+"ship_open": SubResource("Animation_if8y7"),
 "ship_shake": SubResource("Animation_74yw3")
 }
 
@@ -119,19 +160,21 @@ pitch_scale = 0.37
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Chicken" type="Sprite2D" parent="Characters"]
-position = Vector2(828, 658)
+position = Vector2(672, 666)
 scale = Vector2(0.121868, 0.121868)
 texture = ExtResource("3_atdgd")
 
 [node name="Ship" type="Sprite2D" parent="Characters"]
-position = Vector2(1026, 556)
+position = Vector2(915, 556)
+rotation = 0.418879
 scale = Vector2(0.457031, 0.457031)
-texture = ExtResource("4_5kc5y")
+texture = ExtResource("6_5uugq")
 
 [node name="chicken" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_pj65q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -471.0
 offset_top = -382.0
 offset_right = 2541.0

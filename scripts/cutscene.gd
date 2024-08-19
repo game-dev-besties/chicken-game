@@ -21,7 +21,7 @@ func _process(delta):
 		$Label.modulate.a += 1*delta
 	elif timer > 4 && timer < 6:
 		$Label.modulate.a -= 1*delta
-	elif timer > 4.5 && not fade_to_ship:
+	elif timer > 4.2 && not fade_to_ship:
 		$ColorRect.visible = false
 		$transition.transition("fade_to_normal")
 		fade_to_ship = true
