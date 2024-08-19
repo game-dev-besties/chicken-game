@@ -197,9 +197,18 @@ func gravity(target: RigidBody2D, delta: float):
 	var force_magnitude = (gravitational_constant * target.mass * self.mass) / (pow(distance, 2))
 	var force = force_magnitude * direction
 	#print("Force ", force)
-	self.apply_force(force)
-	if touching.size() > 0:
-		self.apply_force(-force)
+	target.linear_velocity *= (1/target.mass)
+	if target.mass >= self.mass:
+		self.apply_force(force)
+		if touching.size() > 0:
+			self.apply_force(-force)
+	elif target.mass < self.mass:
+		
+		if eating.size() > 0:
+			target.linear_velocity *= 0.2
+			target.angular_velocity *= 0.2
+		else:
+			target.apply_force(-force)
 		#target.angular_velocity *= 0.99
 	
  #Eating Asteroid code

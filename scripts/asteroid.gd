@@ -26,6 +26,7 @@ func scale_asteroids():
 	$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
 	$CollisionPolygon2D.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
 	$CollisionPolygon2D2.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
+	#self.linear_velocity *= 1-(1/mass)
 #func scale_by_mass():
 	#$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
 #	$CollisionShape2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
