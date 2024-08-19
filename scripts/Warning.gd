@@ -20,4 +20,3 @@ func initialize_warning(chicken_position, chicken_velocity):
 
 func _on_despawn_timeout():
 	queue_free()
-	print("deleted warning")

@@ -75,10 +75,10 @@ func _on_asteroid_live_zone_body_exited(body: Node2D):
 	
 func scale_asteroids():
 	for asteroid in asteroids.get_children():
-		asteroid.get_node("Sprite2D").scale = Vector2(1.0 * asteroid.mass, 1.0 * asteroid.mass)
-		asteroid.get_node("AsteroidShape").scale = Vector2(asteroid.mass, asteroid.mass)
-		asteroid.get_node("RockShape").scale = Vector2(asteroid.mass, asteroid.mass)
-		asteroid.get_node("ShardShape").scale = Vector2(asteroid.mass, asteroid.mass)
+		asteroid.get_node("Sprite2D").scale = Vector2(pow(asteroid.mass, 1.0/3.0), pow(asteroid.mass, 1.0/3.0))
+		asteroid.get_node("AsteroidShape").scale = Vector2(pow(asteroid.mass, 1.0/3.0), pow(asteroid.mass, 1.0/3.0))
+		asteroid.get_node("RockShape").scale = Vector2(pow(asteroid.mass, 1.0/3.0), pow(asteroid.mass, 1.0/3.0))
+		asteroid.get_node("ShardShape").scale = Vector2(pow(asteroid.mass, 1.0/3.0), pow(asteroid.mass, 1.0/3.0))
 		#asteroid.CollisionShape2D.scale = Vector2(1.0 / Global.scale, 1.0 / Global.scale)
 		#create new collision shape of correct size
 		#var collision_shape = asteroid.get_node("CollisionPoly2D") as CollisionShape2D
