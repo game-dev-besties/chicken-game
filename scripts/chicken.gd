@@ -251,9 +251,6 @@ func gravity(target: RigidBody2D, delta: float):
 	
  #Eating Asteroid code
 
-func update_asteroid(asteroid):
-	asteroid.get_node("AnimationPlayer").play("eat_asteroid")
-
 
 func attempt_to_eat():
 	if eating.size() == 0:
