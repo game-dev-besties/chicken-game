@@ -5,11 +5,7 @@ extends TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	value = 100
+	value = 18000
 
-func decrease():
+func _physics_process(delta):
 	value -= 1
-
-
-func _on_timer_timeout():
-	decrease()
