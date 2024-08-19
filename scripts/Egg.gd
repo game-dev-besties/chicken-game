@@ -23,21 +23,15 @@ func _ready():
 	linear_velocity = chicken_velocity + direction_vector * SPEED
 	chicken.apply_impulse(-direction_vector * SPEED * mass)
 	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particles")
-	#print(mass)
 	particles.scale_amount_max = mass / 50
 	particles.scale_amount_min = mass / 100
-	#particles.
-	#particles.scale_amount_max = scale / 50
-	#particles.scale_amount_min = scale / 100
-	#print(scale)
+
 
 func initialize_egg(charge_ratio, chicken):
 	dir = chicken.rotation - PI / 2
 	spawnPos = chicken.position
 	spawnRot = chicken.rotation
 	mass = chicken.mass * charge_ratio * mass_multiplicative_constant
-	#print(mass)
-	#var particles = get_tree().get_root().get_node("game").get_node("Chicken").get_node("eggparticles")
 
 
 

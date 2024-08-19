@@ -7,7 +7,6 @@ extends RigidBody2D
 
 @onready var main = get_tree().get_root().get_node("game")
 @onready var anim_sprite = $AnimationPlayer
-#@onready var eggparticles = get_tree().get_root().get_node("game").get_node("HUD").get_node("eggparticles")
 
 @export var projectile: PackedScene
 @export var min_mass: float = 10
