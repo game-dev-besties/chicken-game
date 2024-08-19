@@ -29,6 +29,8 @@ var charge_time = 0.0
 var lay_timer = 0.4
 
 var asteroids = []
+var smooth_mass = mass
+var target_mass = mass
 
 func _ready():
 	# Zero the velocity when the chicken starts
@@ -55,7 +57,10 @@ func _input(event):
 			charging = false
 
 func _process(delta):
-	
+
+	smooth_mass = lerp(smooth_mass, target_mass, 8 * delta)
+	mass = smooth_mass
+
 	# Update the charge time if we are currently charging a new egg
 	if charging:
 		charge_time += delta
@@ -98,7 +103,7 @@ func shoot_projectile():
 
 	# Decrease the mass of the chicken to account for the new egg
 	#print(str("Chicken: " + str(mass)))
-	mass -= instance.mass
+	target_mass -= instance.mass
 	#print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
