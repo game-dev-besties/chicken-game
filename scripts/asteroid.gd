@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+var base_scale = 10
 
 func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: float):
 	self.position = position
@@ -17,11 +17,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#scale_by_mass()
-	pass
+	scale_asteroids()
 	
 func modify_mass(amount: float):
 	mass += amount
-	
+
+func scale_asteroids():
+	$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
+	$CollisionPolygon2D.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
+	$CollisionPolygon2D2.scale = Vector2(pow(mass, 1.0/3.0),  pow(mass, 1.0/3.0))/base_scale
+	#self.linear_velocity *= 1-(1/mass)
 #func scale_by_mass():
 	#$Sprite2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
 #	$CollisionShape2D.scale = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))
