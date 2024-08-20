@@ -1,13 +1,13 @@
 extends TextureProgressBar
 
 @onready var timer = $Timer
-@onready var death_screen = preload("res://scenes/death_screen.tscn")
+@onready var death_screen = load("res://scenes/death_screen.tscn")
 
 # Bad Code that gets the transition from the Game Scene
 @onready var transition = get_tree().get_root().get_node("game").get_node("transition")
 
 func _physics_process(delta):
-	Global.oxygen = max(Global.oxygen-10, 0)
+	Global.oxygen = max(Global.oxygen-1, 0)
 	value = Global.oxygen
 	if Global.oxygen <= 0:
 		transition.transition("fade_to_black")
