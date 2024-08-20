@@ -85,10 +85,11 @@ func update_scale_for_viewport_size():
 	#($AsteroidLiveZone/CollisionShape2D.shape as CircleShape2D).radius = abs(self.to_local(Vector2(max_radius, max_radius)).length())
 	
 func _on_asteroid_live_zone_body_exited(body: Node2D):
-	min_radius = 1000
-	num_asteroids -= 1
-	body.queue_free()
-	print("remove ", num_asteroids)
+	if body.get_meta("type") == "asteroid":
+		min_radius = 1000
+		num_asteroids -= 1
+		body.queue_free()
+	#print("remove ", num_asteroids)
 	
 func scale_asteroids():
 	pass

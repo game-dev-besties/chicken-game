@@ -1,6 +1,6 @@
 extends RigidBody2D
-var base_scale = 3
-var scaling = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
+var base_scale = 0.30
+@export var scaling = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
 var target = mass
 var scale_mass = mass
 
@@ -11,6 +11,7 @@ func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: fl
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.set_meta("type","planet")
 	randomize()
 	var animations = ["asteroid1", "asteroid2", "asteroid3", "asteroid4", "asteroid5", "asteroid6", "asteroid7", "asteroid8", "rock1", "rock2", "rock3", "rock4", "rock5", "rock6", "rock7", "rock8", "shard1", "shard2", "shard3", "shard4", "shard5", "shard6"]
 	var kinds = animations[randi()% animations.size()]
@@ -29,6 +30,7 @@ func modify_mass(amount: float):
 
 func scale_by_mass():
 	$Sprite2D.scale = scaling
-	$RockShape.scale = scaling
-	$ShardShape.scale = scaling
-	$AsteroidShape.scale = scaling
+	#$RockShape.scale = scaling
+	#$ShardShape.scale = scaling
+	#$AsteroidShape.scale = scaling
+	$CollisionShape2D.scale = scaling
