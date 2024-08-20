@@ -210,12 +210,12 @@ theme_override_font_sizes/font_size = 80
 text = "Somewhere out in space..."
 
 [node name="Subtitle" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 998.0
-offset_right = 940.0
-offset_bottom = 1059.0
+offset_left = 291.0
+offset_top = 937.0
+offset_right = 1673.0
+offset_bottom = 998.0
 theme_override_fonts/font = ExtResource("9_yisj2")
 theme_override_font_sizes/font_size = 50
-text = "Captain Cluck was evicted"
+text = "Captain Cluck was VIOLENTLY evicted :C"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
