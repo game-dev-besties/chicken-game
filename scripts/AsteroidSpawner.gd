@@ -20,7 +20,7 @@ var num_asteroids = 0
 
 func spawn_asteroid():
 	if not asteroids:
-		print("Asteroid Spawning: Couldn't find container node for asteroids")
+		#print("Asteroid Spawning: Couldn't find container node for asteroids")
 		return
 	# Randomly choose where to generate the asteroid
 	var radius: float = rng.randf_range(min_radius, max_radius)

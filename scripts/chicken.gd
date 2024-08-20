@@ -289,7 +289,7 @@ func attempt_to_eat():
 				is_running = true
 				transition.transition("fade_to_black")
 				await transition.on_transition_finished
-				print(get_tree() == null)
+				#print(get_tree() == null)
 				get_tree().change_scene_to_packed(win_screen)
 		else:
 			eating_asteroid.queue_free()

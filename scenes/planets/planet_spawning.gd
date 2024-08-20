@@ -22,7 +22,7 @@ var live_zone
 
 func spawn_object():
 	if not objects:
-		print("Object Spawning: Couldn't find container node for objects")
+		#print("Object Spawning: Couldn't find container node for objects")
 		return
 	# Randomly choose where to generate the asteroid
 	var radius: float = rng.randf_range(min_radius, max_radius)

@@ -17,7 +17,7 @@ func _ready():
 	start_game.button_up.connect(on_start_button_up)
 	credits.button_up.connect(_on_credits_button_up)
 	exit.button_up.connect(_on_exit_pressed)
-	print("test")
+	#print("test")
 	$transition.transition("fade_to_normal")
 	
 func on_start_button_up() -> void:
