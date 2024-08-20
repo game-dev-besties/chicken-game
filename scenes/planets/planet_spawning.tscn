@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca3ci6ohdnfik"]
+[gd_scene load_steps=3 format=3 uid="uid://cvsnmr8me52ve"]
 
 [ext_resource type="Script" path="res://scenes/planets/planet_spawning.gd" id="1_igrya"]
 

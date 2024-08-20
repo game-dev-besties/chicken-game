@@ -276,6 +276,7 @@ func attempt_to_eat():
 	# Our chicken is insane and eats half of it's own body weight with each bite
 	var mass_to_eat = mass * 0.1
 	if eating_asteroid.mass > mass_to_eat:
+		print("eating")
 		target_mass += mass_to_eat
 		eating_asteroid.mass -= mass_to_eat
 		var asteroid_particles = eating_asteroid.get_node("AsteroidParticles")
