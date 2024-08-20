@@ -166,20 +166,11 @@ theme_override_fonts/font = ExtResource("5_do15o")
 theme_override_font_sizes/font_size = 150
 text = "   Start   "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_do15o")
 theme_override_font_sizes/font_size = 100
 text = "Credits"
-
-[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_do15o")
-theme_override_font_sizes/font_size = 100
-text = " Exit "
 
 [node name="transition" parent="." instance=ExtResource("4_3kon7")]
 
@@ -189,6 +180,4 @@ autoplay = true
 
 [node name="transition2" parent="." instance=ExtResource("4_3kon7")]
 
-[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_button_up"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
