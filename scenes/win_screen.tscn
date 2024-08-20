@@ -110,4 +110,3 @@ theme_override_font_sizes/font_size = 24
 text = "Play Again"
 
 [node name="transition" parent="." instance=ExtResource("4_5msvo")]
-visible = false
