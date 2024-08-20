@@ -19,6 +19,7 @@ func _ready():
 	global_position += Vector2(0,chicken_offset*250).rotated(spawnRot)
 	var chicken_velocity = chicken.linear_velocity
 	rotation = spawnRot
+	print(rotation)
 	var direction_vector = -1 * Vector2(cos(dir), sin(dir))
 	linear_velocity = chicken_velocity + direction_vector * SPEED
 	chicken.apply_impulse(-direction_vector * SPEED * mass)

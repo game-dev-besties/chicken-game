@@ -59,7 +59,7 @@ func _process(delta):
 	max_radius = scalingzone * 5000
 	min_radius = max_radius/3
 	desired_number_of_objects = max_radius/3000
-	print(desired_number_of_objects)
+	#print(desired_number_of_objects)
 	desired_number_of_objects = int(clamp(desired_number_of_objects, 0, 20))
 	live_zone.scale = Vector2(scalingzone,scalingzone*1.8)
 	if num_objects < desired_number_of_objects:
