@@ -9,6 +9,8 @@ var target_zoom: float
 func _ready():
 	chicken = get_tree().get_root().get_node("game").get_node("Chicken")
 	smooth_zoom = base / (pow((chicken.mass / 10.0), 1.0/3.0))
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,6 +19,13 @@ func _process(delta):
 	zoom = Vector2(smooth_zoom, smooth_zoom)
 	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particlesSprite")
 	var arrow = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("arrow")
+	var res_x = get_viewport().get_visible_rect().size.x
+	var res_y = get_viewport().get_visible_rect().size.y
+	arrow.position.x = res_x / 2 + 125
+	arrow.position.y = res_y / 2 - 23
+	
+	particles.position.x = res_x / 2
+	particles.position.y = res_y / 2
 	arrow.rotation = chicken.rotation - PI / 2
 	particles.rotation = chicken.rotation
 	if chicken.charging:

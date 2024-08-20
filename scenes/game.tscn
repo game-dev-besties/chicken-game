@@ -96,10 +96,10 @@ mass = 10000.0
 scale = Vector2(10, 10)
 
 [node name="Asteroid" type="Label" parent="Ship"]
-offset_left = 4481.25
-offset_top = -641.5
-offset_right = 10694.2
-offset_bottom = 79.5
+offset_left = 1735.0
+offset_top = -656.0
+offset_right = 7948.0
+offset_bottom = 65.0
 theme_override_fonts/font = ExtResource("9_7amg4")
 theme_override_font_sizes/font_size = 600
 text = "EAT THE SHIP"
