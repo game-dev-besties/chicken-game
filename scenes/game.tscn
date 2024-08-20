@@ -30,6 +30,10 @@ projectile = ExtResource("4_gk0mq")
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Chicken"]
+stream = ExtResource("11_0pdlf")
+autoplay = true
+
 [node name="Space Objects" type="Node2D" parent="."]
 
 [node name="Asteroids" type="Node2D" parent="Space Objects"]
@@ -104,12 +108,6 @@ text = "Reach the waypoint!
 autowrap_mode = 2
 
 [node name="HUD" parent="hud nightmare" instance=ExtResource("5_e1ta3")]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(424200, 0)
-scale = Vector2(4, 4)
-stream = ExtResource("11_0pdlf")
-autoplay = true
 
 [node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
 position = Vector2(424200, 0)
