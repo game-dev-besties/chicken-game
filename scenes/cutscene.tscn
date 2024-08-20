@@ -216,6 +216,6 @@ offset_right = 940.0
 offset_bottom = 1059.0
 theme_override_fonts/font = ExtResource("9_yisj2")
 theme_override_font_sizes/font_size = 50
-text = "Captain Cluck was ejected"
+text = "Captain Cluck was evicted"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

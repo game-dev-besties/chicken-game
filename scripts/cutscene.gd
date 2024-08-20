@@ -38,7 +38,7 @@ func _process(delta):
 		$AnimationPlayer.play("chicken_die")
 		$chicken.play()
 		chicken_died = true
-	elif timer > 12:
+	elif timer > 12 && timer < 14:
 		$Subtitle.modulate.a += 1*delta
 	elif timer > 14 && not loaded_out:
 		$transition.transition("fade_to_black")
