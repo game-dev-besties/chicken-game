@@ -1,12 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=31 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
+[ext_resource type="AudioStream" uid="uid://yyik1c2f3in5" path="res://assets/audio/Cluck.wav" id="3_7v15l"]
 [ext_resource type="Texture2D" uid="uid://bn2rv8vh06kpm" path="res://assets/chicken_sprites/med_chicken.png" id="3_uh0mx"]
+[ext_resource type="AudioStream" uid="uid://drs60a8aps5vp" path="res://assets/audio/Nom.wav" id="5_2k61l"]
 [ext_resource type="Texture2D" uid="uid://bwityohffwvgw" path="res://assets/chicken_sprites/small_chicken.png" id="5_ovsu2"]
 [ext_resource type="Texture2D" uid="uid://piv1fh3agw8l" path="res://assets/chicken_sprites/fat_wing.png" id="5_qg3t6"]
 [ext_resource type="Texture2D" uid="uid://doqendw51eoro" path="res://assets/chicken_sprites/med_wing.png" id="6_euydr"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="6_oefnh"]
 [ext_resource type="Texture2D" uid="uid://d28q62ik41ssc" path="res://assets/chicken_sprites/small_wing.png" id="7_luk58"]
+[ext_resource type="AudioStream" uid="uid://c1oa31npjqf3l" path="res://assets/audio/Pop.wav" id="10_8jrep"]
+[ext_resource type="AudioStream" uid="uid://u57bdpskalha" path="res://assets/audio/Error.wav" id="11_rsm6w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njatb"]
 friction = 0.0
@@ -63,6 +67,134 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AnimatedSFX:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7v15l")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AnimatedSFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xs5yi"]
+resource_name = "fat_eat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qg3t6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSFX:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2k61l")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AnimatedSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xs5yi"]
+resource_name = "fat_eat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qg3t6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_xs5yi"]
@@ -302,6 +434,31 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 2, 1, 0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSFX:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2k61l")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AnimatedSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 
 [sub_resource type="Animation" id="Animation_7gibh"]
 resource_name = "med_idle"
@@ -501,6 +658,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 2, 1, 0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSFX:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2k61l")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AnimatedSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_nxlcv"]
 resource_name = "small_idle"
@@ -661,13 +842,69 @@ tracks/3/keys = {
 "values": [6]
 }
 
+[sub_resource type="Animation" id="Animation_tbm5i"]
+resource_name = "lay_egg_sfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSFX:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8jrep")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ydmts"]
+resource_name = "begin_egg_sfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSFX:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7v15l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huwpa"]
 _data = {
 "RESET": SubResource("Animation_nr0li"),
+"begin_egg_sfx": SubResource("Animation_ydmts"),
 "fat_eat": SubResource("Animation_xs5yi"),
 "fat_idle": SubResource("Animation_fduj8"),
 "fat_lay": SubResource("Animation_3440b"),
 "fat_max": SubResource("Animation_8a8dd"),
+"lay_egg_sfx": SubResource("Animation_tbm5i"),
 "med_eat": SubResource("Animation_teach"),
 "med_idle": SubResource("Animation_7gibh"),
 "med_lay": SubResource("Animation_51d1l"),
@@ -688,6 +925,7 @@ collision_mask = 5
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_njatb")
 gravity_scale = 1.66533e-16
+inertia = 10000.0
 lock_rotation = true
 script = ExtResource("1_jqoam")
 
@@ -713,6 +951,9 @@ polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 script = ExtResource("6_oefnh")
+
+[node name="AnimatedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7v15l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
@@ -742,6 +983,18 @@ collision_mask = 4
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)
 
+[node name="CluckCooldown" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="WarningSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rsm6w")
+
+[node name="CluckSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7v15l")
+
+[node name="LayEggSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8jrep")
+
 [connection signal="body_entered" from="normal force" to="." method="_on_normal_force_body_entered"]
 [connection signal="body_exited" from="normal force" to="." method="_on_normal_force_body_exited"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
@@ -749,3 +1002,4 @@ polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Eating Circle" to="." method="_on_eating_circle_body_entered"]
 [connection signal="body_exited" from="Eating Circle" to="." method="_on_eating_circle_body_exited"]
+[connection signal="timeout" from="CluckCooldown" to="." method="_on_cluck_cooldown_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_5bwrl"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_27rq1"]
-[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_omvb8"]
+[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="2_omvb8"]
 [ext_resource type="AudioStream" uid="uid://c3c04hf4ai6ba" path="res://assets/audio/glass-shatter-3-100155.mp3" id="3_4udd0"]
 [ext_resource type="Texture2D" uid="uid://dpuymsdvswfxk" path="res://assets/chicken_sprites/base_chicken.png" id="3_atdgd"]
 [ext_resource type="Texture2D" uid="uid://bo4ur5stiofr0" path="res://assets/ship_open.png" id="5_l7n5l"]
