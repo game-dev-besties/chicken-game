@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://lq161vi7gssa"]
+[gd_scene load_steps=14 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rhfla"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
-[ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
+[ext_resource type="PackedScene" uid="uid://d4iphmbqgjx0f" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
 [ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvsnmr8me52ve" path="res://scenes/planets/planet_spawning.tscn" id="6_8sr4a"]
 [ext_resource type="PackedScene" uid="uid://c2a6dy4vs6yvs" path="res://scenes/particle_layer.tscn" id="8_wa4gk"]
 [ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_7amg4"]
+[ext_resource type="AudioStream" uid="uid://qa02xyp47k4k" path="res://assets/Main Game Music.mp3" id="11_0pdlf"]
 [ext_resource type="PackedScene" uid="uid://dv8t5lwt0sovj" path="res://scenes/ship.tscn" id="11_ef2ff"]
 
 [node name="game" type="Node2D"]
@@ -103,6 +104,12 @@ text = "Reach the waypoint!
 autowrap_mode = 2
 
 [node name="HUD" parent="hud nightmare" instance=ExtResource("5_e1ta3")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(424200, 0)
+scale = Vector2(4, 4)
+stream = ExtResource("11_0pdlf")
+autoplay = true
 
 [node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
 position = Vector2(424200, 0)

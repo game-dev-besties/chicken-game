@@ -23,8 +23,9 @@ func _ready():
 	var relative_angle = PI - acos(Vector2(sin(rotation), cos(rotation)).dot(Vector2(chicken_velocity.normalized())))
 	var angle_multiplier = (1.25 * cos(0.5 * relative_angle) + .75)
 	var direction_vector = -1 * Vector2(cos(dir), sin(dir))
-	linear_velocity = chicken_velocity + direction_vector * SPEED * angle_multiplier
-	chicken.apply_impulse(-direction_vector * SPEED * mass * angle_multiplier)
+	var egg_speed_mult = 1 + chicken.getVelo()/1000 
+	linear_velocity = chicken_velocity + direction_vector * SPEED * angle_multiplier * egg_speed_mult
+	chicken.apply_impulse(-direction_vector * SPEED * mass * angle_multiplier * egg_speed_mult)
 	var particles = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("particlesSprite").get_node("particles")
 	var camera = get_tree().get_root().get_node("game").get_node("Chicken").get_node("Camera2D")
 	particles.scale_amount_max = sqrt(mass) / 13 * camera.zoom.length()
