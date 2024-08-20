@@ -1,7 +1,7 @@
 
 extends Camera2D
 var chicken
-var base = 0.4
+var base = 0.35
 var smooth_zoom = 0.4
 var desiredFov: float
 var target_zoom: float 
@@ -20,25 +20,26 @@ func _process(delta):
 	arrow.rotation = chicken.rotation - PI / 2
 	particles.rotation = chicken.rotation
 	if chicken.charging:
-		#print(charge_time)
-		if chicken.charge_time <= 0.5:
-			arrow.self_modulate.a = 0.25
-		#if charge_time <= 0.25:
-			#arrow.self_modulate.a = 0.125
-		#elif charge_time <= 0.5:
+		arrow.value = chicken.charge_time * 50
+		##print(charge_time)
+		#if chicken.charge_time <= 0.5:
 			#arrow.self_modulate.a = 0.25
-		#elif charge_time <= 0.75:
-			#arrow.self_modulate.a = 0.375
-		elif chicken.charge_time <= 1:
-			arrow.self_modulate.a = 0.5
-		#elif charge_time <= 1.25:
-			#arrow.self_modulate.a = 0.625
-		elif chicken.charge_time <= 1.5:
-			arrow.self_modulate.a = 0.75
-		#elif charge_time <= 1.75:
-			#arrow.self_modulate.a = 0.875
-		elif chicken.charge_time <= 2:
-			arrow.self_modulate.a = 1
+		##if charge_time <= 0.25:
+			##arrow.self_modulate.a = 0.125
+		##elif charge_time <= 0.5:
+			##arrow.self_modulate.a = 0.25
+		##elif charge_time <= 0.75:
+			##arrow.self_modulate.a = 0.375
+		#elif chicken.charge_time <= 1:
+			#arrow.self_modulate.a = 0.5
+		##elif charge_time <= 1.25:
+			##arrow.self_modulate.a = 0.625
+		#elif chicken.charge_time <= 1.5:
+			#arrow.self_modulate.a = 0.75
+		##elif charge_time <= 1.75:
+			##arrow.self_modulate.a = 0.875
+		#elif chicken.charge_time <= 2:
+			#arrow.self_modulate.a = 1
 		arrow.show()
 	else:
 		arrow.hide()

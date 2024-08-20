@@ -1,6 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv8t5lwt0sovj"]
 
-[ext_resource type="Texture2D" uid="uid://cp454rnjj656u" path="res://assets/SpaceShooterRedux/PNG/playerShip1_blue.png" id="1_modbj"]
+[ext_resource type="Texture2D" uid="uid://bnu3mo7piarub" path="res://assets/ship.png" id="1_y5x12"]
 
-[node name="Ship" type="Sprite2D"]
-texture = ExtResource("1_modbj")
+[node name="Ship" type="RigidBody2D"]
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y5x12")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1213, -187, -1232, -158, -1201, -129, -1044, -190, -1036, -174, -1082, -128, -1074, 27, -1040, 61, -1030, 125, -980, 156, -915, 213, -1014, 256, -1060, 298, -1054, 354, -1250, 478, -1221, 593, -1172, 625, -778, 562, -493, 762, -422, 765, -81, 550, -59, 393, 315, 193, 592, 190, 980, -154, 1363, -552, 1364, -617, 1393, -646, 1419, -625, 1430, -669, 1358, -716, 1277, -728, 511, -647, -38, -568, -79, -553, -282, -548, -297, -569, -476, -560, -567, -424, -600, -414, -655, -430, -799, -391, -832, -361)

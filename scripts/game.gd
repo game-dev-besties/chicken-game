@@ -1,5 +1,6 @@
 extends Node2D
 
 func _ready():
-	pass
+	$transition.transition("fade_to_normal")
 
+ 

@@ -7,6 +7,7 @@ extends Control
 @onready var exit = $MarginContainer/HBoxContainer/VBoxContainer/Exit as Button
 # CHANGE THIS PRELOAD
 @onready var game = preload("res://scenes/game.tscn") as PackedScene
+@onready var cutscene = preload("res://scenes/cutscene.tscn") as PackedScene
 # Additional menus go here
 # @onready var options_menu = preload() as PackedScene
 # @onready var credits = preload() as PackedScene
@@ -19,7 +20,10 @@ func _ready():
 	pass
 	
 func on_start_button_up() -> void:
-	get_tree().change_scene_to_packed(game)
+	$transition.transition("fade_to_black")
+	await $transition.on_transition_finished
+	get_tree().change_scene_to_packed(cutscene)
+	#get_tree().change_scene_to_packed(game)
 	
 func on_options_up() -> void:
 	pass
