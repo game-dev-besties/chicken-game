@@ -17,7 +17,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timer += delta
-	
 	if timer < 2 && timer > 1:
 		$Title.modulate.a += 1*delta
 	elif timer > 4 && timer < 6:
