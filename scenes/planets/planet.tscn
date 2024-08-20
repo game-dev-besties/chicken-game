@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d0ksawywgy1t5"]
+[gd_scene load_steps=46 format=3 uid="uid://d0ksawywgy1t5"]
 
 [ext_resource type="Script" path="res://scenes/planets/planet.gd" id="1_og51u"]
 [ext_resource type="Texture2D" uid="uid://bfgqhfqjfqpsf" path="res://assets/planets/moon1.png" id="2_0i8m3"]
@@ -1207,10 +1207,26 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_3al3m"]
+resource_name = "eat_asteroid"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.349066, -0.349066, 3.48787e-16]
+}
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pu28w"]
 _data = {
 "RESET": SubResource("Animation_otyw5"),
 "earth1": SubResource("Animation_se5yh"),
+"eat_asteroid": SubResource("Animation_3al3m"),
 "moon1": SubResource("Animation_pisrh"),
 "moon2": SubResource("Animation_n1yxf"),
 "moon3": SubResource("Animation_c02ej"),
@@ -1246,6 +1262,10 @@ radius = 434.018
 [sub_resource type="CircleShape2D" id="CircleShape2D_kibnr"]
 radius = 436.001
 
+[sub_resource type="Curve" id="Curve_pf8k5"]
+_data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.460894, 0.572254), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.132948), 0.0, 0.0, 0, 0, Vector2(1, 0.144509), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="planet" type="RigidBody2D"]
 collision_layer = 5
 collision_mask = 6
@@ -1264,8 +1284,13 @@ libraries = {
 "": SubResource("AnimationLibrary_pu28w")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -3)
+shape = SubResource("CircleShape2D_40wlp")
+
 [node name="AsteroidParticles" type="CPUParticles2D" parent="."]
 z_index = -1
+scale = Vector2(10, 10)
 emitting = false
 amount = 20
 lifetime = 0.4
