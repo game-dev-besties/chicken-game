@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rhfla"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
-[ext_resource type="PackedScene" uid="uid://d4iphmbqgjx0f" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
+[ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
 [ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
@@ -83,30 +83,6 @@ text = "[space] to eat a-STEROIDS and gain mass
          ----->"
 autowrap_mode = 2
 
-[node name="Oxygen" type="Label" parent="hud nightmare"]
-offset_left = 8965.0
-offset_top = -345.0
-offset_right = 10515.0
-offset_bottom = 388.0
-theme_override_fonts/font = ExtResource("9_7amg4")
-theme_override_font_sizes/font_size = 150
-text = "Don't run out of oxygen!
-
-         ----->"
-autowrap_mode = 2
-
-[node name="Good Luck" type="Label" parent="hud nightmare"]
-offset_left = 11424.0
-offset_top = -345.0
-offset_right = 12974.0
-offset_bottom = 388.0
-theme_override_fonts/font = ExtResource("9_7amg4")
-theme_override_font_sizes/font_size = 150
-text = "Reach the waypoint!
-
-         ----->"
-autowrap_mode = 2
-
 [node name="HUD" parent="hud nightmare" instance=ExtResource("5_e1ta3")]
 
 [node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
@@ -118,3 +94,13 @@ mass = 10000.0
 
 [node name="OffScreenMarker" parent="Ship" instance=ExtResource("3_c4we2")]
 scale = Vector2(10, 10)
+
+[node name="Asteroid" type="Label" parent="."]
+offset_left = 430646.0
+offset_top = -2450.0
+offset_right = 436859.0
+offset_bottom = -1729.0
+theme_override_fonts/font = ExtResource("9_7amg4")
+theme_override_font_sizes/font_size = 600
+text = "EAT THE SHIP"
+autowrap_mode = 2
