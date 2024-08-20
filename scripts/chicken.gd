@@ -14,8 +14,8 @@ extends RigidBody2D
 @export var min_mass: float = 10
 @export var minimum_mass_for_medium_sprite: float = 25
 @export var minimum_mass_for_fat_sprite: float = 100
-@export var minimum_charge_time_for_lay_sprite: float = 2
-@export var max_charge_time: float = 2.0
+@export var minimum_charge_time_for_lay_sprite: float = 1
+@export var max_charge_time: float = 1.0
 @export var gravitational_constant: float = 5e6
 
 const MASS_WHEN_TOO_SMALL = 2
