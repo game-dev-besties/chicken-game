@@ -95,16 +95,19 @@ func _process(delta):
 				anim_sprite.play("small_max")
 			else: 
 				anim_sprite.play("small_lay")
+				$CluckSFX.random_play()
 		elif mass < minimum_mass_for_fat_sprite:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("med_max")
 			else: 
 				anim_sprite.play("med_lay")
+				$CluckSFX.random_play()
 		else:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("fat_max")
 			else: 
 				anim_sprite.play("fat_lay")
+				$CluckSFX.random_play()
 	else: 
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
@@ -136,7 +139,7 @@ func shoot_projectile():
 	#eggparticles.rotation = rotation
 	eggparticles.emitting = true
 	#print(instance.scale)
-	$LayEggSFX.play()
+	$LayEggSFX.random_play()
 	#print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
@@ -282,7 +285,6 @@ func cluck():
 	if is_clucking:
 		return
 	else:
-		$CluckSFX.play()
 		$CluckCooldown.start()
 		is_clucking = true
 
