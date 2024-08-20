@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgfmu154r0qxq"]
+[gd_scene load_steps=15 format=3 uid="uid://dng67y0f67sdu"]
 
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_5bwrl"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_27rq1"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4ur5stiofr0" path="res://assets/ship_open.png" id="5_l7n5l"]
 [ext_resource type="Texture2D" uid="uid://bnu3mo7piarub" path="res://assets/ship.png" id="6_5uugq"]
 [ext_resource type="AudioStream" uid="uid://cmqvh0i58m4lj" path="res://assets/audio/audiomass-output.mp3" id="6_pj65q"]
-[ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_eefot"]
+[ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_yisj2"]
 
 [sub_resource type="Animation" id="Animation_twrlf"]
 length = 0.001
@@ -198,12 +198,12 @@ text = "SKIP"
 
 [node name="Title" type="Label" parent="."]
 z_index = 2
-offset_left = 267.0
-offset_top = 476.0
-offset_right = 1695.0
-offset_bottom = 586.0
+offset_left = 284.0
+offset_top = 489.0
+offset_right = 1712.0
+offset_bottom = 599.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9_eefot")
+theme_override_fonts/font = ExtResource("9_yisj2")
 theme_override_font_sizes/font_size = 80
 text = "Somewhere out in space..."
 
