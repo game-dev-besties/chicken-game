@@ -134,6 +134,7 @@ func shoot_projectile():
 	# Create and initialize a new egg projectile
 	var instance = projectile.instantiate()
 	var charge_ratio = charge_time / max_charge_time
+	charge_time = lay_timer - 0.4
 	instance.initialize_egg(charge_ratio, self)
 	main.add_child(instance)
 
