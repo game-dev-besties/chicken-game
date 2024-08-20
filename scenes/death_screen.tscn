@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdkrvxsduq6f3"]
+[gd_scene load_steps=6 format=3 uid="uid://bdkrvxsduq6f3"]
 
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_eu748"]
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_q13r5"]
 [ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_eyyjt"]
 [ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_eu6fm"]
-
-[sub_resource type="SystemFont" id="SystemFont_cymt8"]
-font_names = PackedStringArray("Fantasy")
-
-[sub_resource type="SystemFont" id="SystemFont_a3b23"]
-font_names = PackedStringArray("Fantasy")
+[ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="4_usj7t"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -53,7 +48,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = SubResource("SystemFont_cymt8")
+theme_override_fonts/font = ExtResource("4_usj7t")
 theme_override_font_sizes/font_size = 64
 text = "You Died!"
 horizontal_alignment = 1
@@ -63,7 +58,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = SubResource("SystemFont_cymt8")
+theme_override_fonts/font = ExtResource("4_usj7t")
 theme_override_font_sizes/font_size = 30
 text = "Total Mass Eaten:"
 horizontal_alignment = 1
@@ -73,24 +68,46 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = SubResource("SystemFont_cymt8")
+theme_override_fonts/font = ExtResource("4_usj7t")
 theme_override_font_sizes/font_size = 30
 text = "Oxygen Left:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator4" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator5" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator6" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator7" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_a3b23")
+theme_override_fonts/font = ExtResource("4_usj7t")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
 [node name="PlayAgain" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_a3b23")
+theme_override_fonts/font = ExtResource("4_usj7t")
 theme_override_font_sizes/font_size = 24
 text = "Play Again"
 
 [node name="transition" parent="." instance=ExtResource("4_eu6fm")]
+visible = false
