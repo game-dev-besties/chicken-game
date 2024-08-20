@@ -44,5 +44,4 @@ func _process(delta):
 		get_tree().change_scene_to_packed(game)
 
 func _on_button_pressed():
-	print("skip")
-	#get_tree().change_scene_to_packed(game)
+	get_tree().change_scene_to_packed(game)
