@@ -216,6 +216,7 @@ offset_right = 1673.0
 offset_bottom = 998.0
 theme_override_fonts/font = ExtResource("9_yisj2")
 theme_override_font_sizes/font_size = 50
-text = "Captain Cluck was VIOLENTLY evicted :C"
+text = "Captain Cluck was VIOLENTLY evicted :C
+Reach the ship before oxygen runs out!"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
