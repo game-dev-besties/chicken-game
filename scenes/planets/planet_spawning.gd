@@ -14,7 +14,7 @@ var max_radius: float = 20000
 var min_mass: float = 500
 var max_mass: float = 1000
 
-@export var object_scene: PackedScene = preload("res://scenes/planets/planet.tscn")
+@export var object_scene: PackedScene = load("res://scenes/planets/planet.tscn")
 
 var num_objects = 0
 

@@ -11,6 +11,13 @@ extends Node
 	#pass
 
 var scale = 1.5
+var oxygen: float = 0
+var mass_eaten: float = 0
+
+
+func init_stats():
+	oxygen = 18000
+	mass_eaten = 0
 
 func check_collisions(point: Vector2, radius: float) -> Array:
 	var space_state = get_tree().get_current_scene().get_world_2d().direct_space_state

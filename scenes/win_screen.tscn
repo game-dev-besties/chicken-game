@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdkrvxsduq6f3"]
+[gd_scene load_steps=7 format=3 uid="uid://c3pee7n5ddbod"]
 
-[ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_eu748"]
-[ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_q13r5"]
-[ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_eyyjt"]
-[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_eu6fm"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_v6rwm"]
+[ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="2_m04c7"]
+[ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="3_rknba"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_5msvo"]
 
 [sub_resource type="SystemFont" id="SystemFont_cymt8"]
 font_names = PackedStringArray("Fantasy")
@@ -11,10 +11,10 @@ font_names = PackedStringArray("Fantasy")
 [sub_resource type="SystemFont" id="SystemFont_a3b23"]
 font_names = PackedStringArray("Fantasy")
 
-[node name="DeathScreen" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_q13r5")
+script = ExtResource("1_v6rwm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
@@ -24,10 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_eu748")
+texture = ExtResource("2_m04c7")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_eyyjt")
+stream = ExtResource("3_rknba")
 autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -93,4 +93,4 @@ theme_override_fonts/font = SubResource("SystemFont_a3b23")
 theme_override_font_sizes/font_size = 24
 text = "Play Again"
 
-[node name="transition" parent="." instance=ExtResource("4_eu6fm")]
+[node name="transition" parent="." instance=ExtResource("4_5msvo")]

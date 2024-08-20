@@ -7,7 +7,8 @@ extends RigidBody2D
 
 @onready var main = get_tree().get_root().get_node("game")
 @onready var anim_sprite = $AnimationPlayer
-@onready var warning = load("res://scenes/warning.tscn")
+@onready var warning = load("res://scenes/warning.tscn") 
+@onready var win_screen = load("res://scenes/win_screen.tscn") as PackedScene
 #var arrow = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("arrow")
 
 @export var projectile: PackedScene
@@ -264,13 +265,19 @@ func attempt_to_eat():
 	if eating_asteroid.mass > mass_to_eat:
 		#print("eating")
 		target_mass += mass_to_eat
+		Global.mass_eaten += mass_to_eat
 		eating_asteroid.mass -= mass_to_eat
 		var asteroid_particles = eating_asteroid.get_node("AsteroidParticles")
 		asteroid_particles.emitting = true
 		eating_asteroid.get_node("AnimationPlayer").play("eat_asteroid")
 	else:
 		target_mass += eating_asteroid.mass
-		eating_asteroid.queue_free()
+		Global.mass_eaten += mass_to_eat
+		var shipShipShip = get_tree().get_root().get_node("game").get_node("Ship")
+		if shipShipShip == eating_asteroid:
+			get_tree().change_scene_to_packed(win_screen)
+		else:
+			eating_asteroid.queue_free()
 	
 	
 

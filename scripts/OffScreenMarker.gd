@@ -72,5 +72,4 @@ func set_marker_distance():
 	#var total_distance = sqrt(sprite.global_position.x * sprite.global_position.x + sprite.global_position.y * sprite.global_position.y)
 
 	label.text = str(int(total_distance / 100))
-	
-	print(ship .global_position)
+

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game = preload("res://scenes/game.tscn") as PackedScene
+@onready var game = load("res://scenes/game.tscn") as PackedScene
 
 var timer = 0
 var ship_shake1 = false
