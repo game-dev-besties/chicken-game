@@ -188,7 +188,8 @@ func _on_cooldown_timeout():
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
 	$CollisionPolygon2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
-	$Area2D/CollisionShape2D.scale = Vector2(4 / pow(mass, 1.0/5.0), 4 / pow(mass, 1.0/5.0))
+	#$Area2D/CollisionShape2D.scale = Vector2(4 / pow(mass, 1.0/5.0), 4 / pow(mass, 1.0/5.0))
+	$Area2D/CollisionShape2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0) + 2, mass_to_scale * pow(mass, 1.0/3.0) + 2)
 	$"Eating Circle".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 	$"Area2D".scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0),mass_to_scale * pow(mass, 1.0/3.0))
 #messy gravity
