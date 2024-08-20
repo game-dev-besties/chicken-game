@@ -144,7 +144,6 @@ _data = {
 script = ExtResource("1_27rq1")
 
 [node name="transition" parent="." instance=ExtResource("2_omvb8")]
-visible = false
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_5bwrl")
