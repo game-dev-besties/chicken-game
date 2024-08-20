@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://lq161vi7gssa"]
+[gd_scene load_steps=12 format=3 uid="uid://lq161vi7gssa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rhfla"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
 [ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_gb4lc"]
+[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx6jhe5ckltna" path="res://scenes/egg.tscn" id="4_gk0mq"]
 [ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
 [ext_resource type="PackedScene" uid="uid://c2a6dy4vs6yvs" path="res://scenes/particle_layer.tscn" id="8_wa4gk"]
 [ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_7amg4"]
+[ext_resource type="PackedScene" uid="uid://dv8t5lwt0sovj" path="res://scenes/ship.tscn" id="11_ef2ff"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_rhfla")
@@ -97,4 +98,10 @@ autowrap_mode = 2
 
 [node name="OffScreenMarker" parent="hud nightmare" instance=ExtResource("3_c4we2")]
 visible = false
+position = Vector2(500000, 0)
 scale = Vector2(10, 10)
+
+[node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
+position = Vector2(500, 0)
+collision_layer = 4
+collision_mask = 7

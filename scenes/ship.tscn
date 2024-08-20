@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bnu3mo7piarub" path="res://assets/ship.png" id="1_y5x12"]
 
 [node name="Ship" type="RigidBody2D"]
+mass = 1000.0
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_y5x12")
