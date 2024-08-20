@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ca3ci6ohdnfik" path="res://scenes/planets/planet_spawning.tscn" id="6_8sr4a"]
 [ext_resource type="PackedScene" uid="uid://c2a6dy4vs6yvs" path="res://scenes/particle_layer.tscn" id="8_wa4gk"]
 [ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_7amg4"]
+[ext_resource type="PackedScene" uid="uid://dv8t5lwt0sovj" path="res://scenes/ship.tscn" id="11_ef2ff"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_rhfla")
@@ -106,4 +107,10 @@ autowrap_mode = 2
 
 [node name="OffScreenMarker" parent="hud nightmare" instance=ExtResource("3_c4we2")]
 visible = false
+position = Vector2(424200, 0)
 scale = Vector2(10, 10)
+
+[node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
+position = Vector2(424200, 0)
+collision_layer = 4
+collision_mask = 7
