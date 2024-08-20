@@ -6,14 +6,10 @@ extends TextureProgressBar
 # Bad Code that gets the transition from the Game Scene
 @onready var transition = get_tree().get_root().get_node("game").get_node("transition")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	value = 18000
-
 func _physics_process(delta):
-	value -= 1
-	if value <= 0:
+	Global.oxygen = max(Global.oxygen-10, 0)
+	value = Global.oxygen
+	if Global.oxygen <= 0:
 		transition.transition("fade_to_black")
 		await transition.on_transition_finished
 		# It's possible that physics process gets called during a scene switch

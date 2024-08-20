@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_eu748"]
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_q13r5"]
 [ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_eyyjt"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="4_eu6fm"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_eu6fm"]
 
 [sub_resource type="SystemFont" id="SystemFont_cymt8"]
 font_names = PackedStringArray("Fantasy")
@@ -56,6 +56,26 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("SystemFont_cymt8")
 theme_override_font_sizes/font_size = 64
 text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MassEaten" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_cymt8")
+theme_override_font_sizes/font_size = 30
+text = "Total Mass Eaten:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OxygenLeft" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_cymt8")
+theme_override_font_sizes/font_size = 30
+text = "Oxygen Left:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
