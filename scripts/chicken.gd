@@ -165,7 +165,8 @@ func shoot_projectile():
  #Physics for chicken
 func _physics_process(delta): 
 	if asteroids.size() > 0:
-		gravity(get_closest_asteroid(), delta)
+		#gravity(get_closest_asteroid(), delta)
+		multi_gravity(delta)
 	# Have chicken's rotation follow the mouse cursor
 	var dir = position.direction_to(get_global_mouse_position())
 	rotation = lerp_angle(rotation, dir.angle()+PI/2, 5 * delta)
@@ -236,6 +237,10 @@ func get_closest_eating():
 			min_distance = distance
 			closest_asteroid = asteroid
 	return closest_asteroid
+func multi_gravity(delta: float):
+	for asteroid in eating:
+		gravity(asteroid, delta)
+
 	
 func gravity(target: RigidBody2D, delta: float):
 	if not target:
