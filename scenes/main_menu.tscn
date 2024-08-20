@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv14ykwdifxsp"]
+[gd_scene load_steps=10 format=3 uid="uid://cv14ykwdifxsp"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6qngk"]
 [ext_resource type="Texture2D" uid="uid://dpuymsdvswfxk" path="res://assets/chicken_sprites/base_chicken.png" id="2_lhpxs"]
+[ext_resource type="Texture2D" uid="uid://bvb62jv2ht02e" path="res://assets/planet_2_and_colors.png" id="2_tb8wm"]
 [ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_y1rug"]
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="3_dcty4"]
 [ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_3kon7"]
@@ -48,6 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6qngk")
 
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(951, 282)
+scale = Vector2(0.309797, 0.280707)
+texture = ExtResource("2_tb8wm")
+
 [node name="mm_chicken" type="Sprite2D" parent="."]
 position = Vector2(1508, 363)
 scale = Vector2(0.365604, 0.365604)
@@ -89,7 +95,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("SystemFont_svgg3")
 theme_override_font_sizes/font_size = 64
-text = "Chicken Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -102,7 +107,58 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator6" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator7" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator8" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator9" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator10" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator11" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator12" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator13" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator14" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator15" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator16" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator17" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator18" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator19" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Start Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
