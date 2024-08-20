@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dky3wp7xpj4p5"]
+
+[ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="1_8nw4b"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_c68qp"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_w8huv"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_c68qp")
+
+[node name="transition" parent="." instance=ExtResource("2_w8huv")]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -53.0
+offset_top = -21.0
+offset_right = 1960.0
+offset_bottom = 1122.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 685.0
+offset_top = 146.0
+offset_right = 1278.0
+offset_bottom = 267.0
+theme_override_fonts/font = ExtResource("1_8nw4b")
+theme_override_font_sizes/font_size = 100
+text = "CREDITS"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1148.0
+offset_top = 350.0
+offset_right = 1654.0
+offset_bottom = 795.0
+theme_override_fonts/font = ExtResource("1_8nw4b")
+theme_override_font_sizes/font_size = 50
+text = "Art:
+Hillary Nguyen
+Jadia Zhang
+
+Sound/Music:
+John Yuan
+Tyler Do"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 285.0
+offset_right = 979.0
+offset_bottom = 900.0
+theme_override_fonts/font = ExtResource("1_8nw4b")
+theme_override_font_sizes/font_size = 50
+text = "
+Programming:
+Aaron Wu
+Annabelle Lee
+Dorien Zhang
+Jonathan Xue
+Sohan Agarkar
+Stephen Xu"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 208.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_8nw4b")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

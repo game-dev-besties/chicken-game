@@ -862,6 +862,7 @@ polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209
 position = Vector2(1, 0)
 texture = SubResource("CompressedTexture2D_553y4")
 hframes = 6
+frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(2, 4)
