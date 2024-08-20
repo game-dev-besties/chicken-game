@@ -216,7 +216,7 @@ func get_closest_eating():
 			closest_asteroid = asteroid
 	return closest_asteroid
 func multi_gravity(delta: float):
-	for asteroid in eating:
+	for asteroid in asteroids:
 		gravity(asteroid, delta)
 
 	
