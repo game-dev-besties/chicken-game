@@ -2,9 +2,9 @@ class_name MainMenu
 extends Control
 
 @onready var start_game = $"MarginContainer/HBoxContainer/VBoxContainer/Start Game" as Button
-@onready var options = $MarginContainer/HBoxContainer/VBoxContainer/Options as Button
-@onready var credits = $MarginContainer/HBoxContainer/VBoxContainer/Credits as Button
-@onready var exit = $MarginContainer/HBoxContainer/VBoxContainer/Exit as Button
+@onready var options = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Options as Button
+@onready var credits = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Credits as Button
+@onready var exit = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Exit as Button
 # CHANGE THIS PRELOAD
 @onready var game = preload("res://scenes/game.tscn") as PackedScene
 @onready var cutscene = preload("res://scenes/cutscene.tscn") as PackedScene

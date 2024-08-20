@@ -20,7 +20,7 @@ func _process(delta):
 	arrow.rotation = chicken.rotation - PI / 2
 	particles.rotation = chicken.rotation
 	if chicken.charging:
-		arrow.value = chicken.charge_time * 50
+		arrow.value = chicken.charge_time * 100
 		##print(charge_time)
 		#if chicken.charge_time <= 0.5:
 			#arrow.self_modulate.a = 0.25

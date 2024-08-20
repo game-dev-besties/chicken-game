@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_5bwrl"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_27rq1"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_omvb8"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_omvb8"]
 [ext_resource type="AudioStream" uid="uid://c3c04hf4ai6ba" path="res://assets/audio/glass-shatter-3-100155.mp3" id="3_4udd0"]
 [ext_resource type="Texture2D" uid="uid://dpuymsdvswfxk" path="res://assets/chicken_sprites/base_chicken.png" id="3_atdgd"]
 [ext_resource type="Texture2D" uid="uid://bo4ur5stiofr0" path="res://assets/ship_open.png" id="5_l7n5l"]
@@ -144,6 +144,7 @@ _data = {
 script = ExtResource("1_27rq1")
 
 [node name="transition" parent="." instance=ExtResource("2_omvb8")]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_5bwrl")
@@ -175,6 +176,7 @@ texture = ExtResource("6_5uugq")
 stream = ExtResource("6_pj65q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -471.0
 offset_top = -382.0
 offset_right = 2541.0
@@ -206,5 +208,14 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_yisj2")
 theme_override_font_sizes/font_size = 80
 text = "Somewhere out in space..."
+
+[node name="Subtitle" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 998.0
+offset_right = 940.0
+offset_bottom = 1059.0
+theme_override_fonts/font = ExtResource("9_yisj2")
+theme_override_font_sizes/font_size = 50
+text = "Captain Cluck was evicted"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

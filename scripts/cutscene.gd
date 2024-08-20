@@ -12,6 +12,7 @@ var loaded_out = false
 func _ready():
 	$ColorRect.visible = true
 	$Title.modulate.a = 0
+	$Subtitle.modulate.a = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,6 +38,8 @@ func _process(delta):
 		$AnimationPlayer.play("chicken_die")
 		$chicken.play()
 		chicken_died = true
+	elif timer > 12 && timer < 14:
+		$Subtitle.modulate.a += 1*delta
 	elif timer > 14 && not loaded_out:
 		$transition.transition("fade_to_black")
 		loaded_out = true
