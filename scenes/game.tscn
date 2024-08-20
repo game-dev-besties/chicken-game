@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rhfla"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
 [ext_resource type="PackedScene" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_gb4lc"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx6jhe5ckltna" path="res://scenes/egg.tscn" id="4_gk0mq"]

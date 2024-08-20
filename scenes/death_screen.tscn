@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbvnrdo2isgyo" path="res://assets/parallax_background/final_background.png" id="1_eu748"]
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_q13r5"]
 [ext_resource type="AudioStream" uid="uid://crb345pjbw0eh" path="res://assets/Main Menu.mp3" id="2_eyyjt"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="4_eu6fm"]
+[ext_resource type="PackedScene" uid="uid://brdfxd0shcfvl" path="res://scenes/transition.tscn" id="4_eu6fm"]
 
 [sub_resource type="SystemFont" id="SystemFont_cymt8"]
 font_names = PackedStringArray("Fantasy")
