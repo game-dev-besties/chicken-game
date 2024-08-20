@@ -95,11 +95,11 @@ mass = 10000.0
 [node name="OffScreenMarker" parent="Ship" instance=ExtResource("3_c4we2")]
 scale = Vector2(10, 10)
 
-[node name="Asteroid" type="Label" parent="."]
-offset_left = 430646.0
-offset_top = -2450.0
-offset_right = 436859.0
-offset_bottom = -1729.0
+[node name="Asteroid" type="Label" parent="Ship"]
+offset_left = 1611.5
+offset_top = -612.5
+offset_right = 7824.5
+offset_bottom = 108.5
 theme_override_fonts/font = ExtResource("9_7amg4")
 theme_override_font_sizes/font_size = 600
 text = "EAT THE SHIP"
