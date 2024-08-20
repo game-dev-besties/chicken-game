@@ -1,6 +1,5 @@
 extends TextureProgressBar
 
-@onready var timer = $Timer
 @onready var death_screen = load("res://scenes/death_screen.tscn")
 
 # Bad Code that gets the transition from the Game Scene

@@ -9,8 +9,10 @@ extends RigidBody2D
 @onready var anim_sprite = $AnimationPlayer
 @onready var warning = load("res://scenes/warning.tscn") 
 @onready var win_screen = load("res://scenes/win_screen.tscn") as PackedScene
+@onready var transition = get_tree().get_root().get_node("game").get_node("transition")
 #var arrow = get_tree().get_root().get_node("game").get_node("particleLayer").get_node("arrow")
 
+@export var is_running: bool = false
 @export var projectile: PackedScene
 @export var min_mass: float = 10
 @export var minimum_mass_for_medium_sprite: float = 25
@@ -18,6 +20,7 @@ extends RigidBody2D
 @export var minimum_charge_time_for_lay_sprite: float = 1
 @export var max_charge_time: float = 1.0
 @export var gravitational_constant: float = 5e6
+
 
 const MASS_WHEN_TOO_SMALL = 2
 
@@ -280,8 +283,14 @@ func attempt_to_eat():
 		target_mass += eating_asteroid.mass
 		Global.mass_eaten += mass_to_eat
 		var shipShipShip = get_tree().get_root().get_node("game").get_node("Ship")
+		
 		if shipShipShip == eating_asteroid:
-			get_tree().change_scene_to_packed(win_screen)
+			if !is_running:
+				is_running = true
+				transition.transition("fade_to_black")
+				await transition.on_transition_finished
+				print(get_tree() == null)
+				get_tree().change_scene_to_packed(win_screen)
 		else:
 			eating_asteroid.queue_free()
 	
