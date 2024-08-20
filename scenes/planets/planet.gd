@@ -13,7 +13,8 @@ func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: fl
 func _ready():
 	self.set_meta("type","planet")
 	randomize()
-	var animations = ["planet1", "planet2", "planet3", "planet4", "planet5", "planet6", "planet7", "rings1", "rings2", "rings3", "rings4", "rings5", "moon1", "moon2", "moon3", "moon4", "moon5"]
+	var animations = ["rings1"]
+	#var animations = ["planet1", "planet2", "planet3", "planet4", "planet5", "planet6", "planet7", "rings1", "rings2", "rings3", "rings4", "rings5", "moon1", "moon2", "moon3", "moon4", "moon5"]
 	var kinds = animations[randi()% animations.size()]
 	$AnimationPlayer.play(kinds)
 
@@ -30,7 +31,7 @@ func modify_mass(amount: float):
 
 func scale_by_mass():
 	$Sprite2D.scale = scaling
-	#$RockShape.scale = scaling
-	#$ShardShape.scale = scaling
-	#$AsteroidShape.scale = scaling
-	$CollisionShape2D.scale = scaling
+	$Rings.scale = scaling
+	$Planet.scale = scaling
+	$Moon.scale = scaling
+	$Earth.scale = scaling

@@ -93,6 +93,33 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_ydmts"]
+resource_name = "begin_egg_sfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSFX:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7v15l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_xs5yi"]
 resource_name = "fat_eat"
 length = 0.6
@@ -313,6 +340,33 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_tbm5i"]
+resource_name = "lay_egg_sfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSFX:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8jrep")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_teach"]
@@ -761,60 +815,6 @@ tracks/3/keys = {
 "values": [6]
 }
 
-[sub_resource type="Animation" id="Animation_tbm5i"]
-resource_name = "lay_egg_sfx"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AnimatedSFX:stream")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_8jrep")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AnimatedSFX:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_ydmts"]
-resource_name = "begin_egg_sfx"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AnimatedSFX:stream")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_7v15l")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AnimatedSFX:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huwpa"]
 _data = {
 "RESET": SubResource("Animation_nr0li"),
@@ -859,6 +859,7 @@ polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209
 position = Vector2(1, 0)
 texture = SubResource("CompressedTexture2D_553y4")
 hframes = 6
+frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(2, 4)
