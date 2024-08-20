@@ -1,12 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cp14j05wa35i8"]
+[gd_scene load_steps=19 format=3 uid="uid://cp14j05wa35i8"]
 
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_jqoam"]
 [ext_resource type="Texture2D" uid="uid://bn2rv8vh06kpm" path="res://assets/chicken_sprites/med_chicken.png" id="3_uh0mx"]
-[ext_resource type="Texture2D" uid="uid://piv1fh3agw8l" path="res://assets/chicken_sprites/fat_wing.png" id="5_n53js"]
 [ext_resource type="Texture2D" uid="uid://bwityohffwvgw" path="res://assets/chicken_sprites/small_chicken.png" id="5_ovsu2"]
-[ext_resource type="Texture2D" uid="uid://doqendw51eoro" path="res://assets/chicken_sprites/med_wing.png" id="6_1a7wu"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="6_oefnh"]
-[ext_resource type="Texture2D" uid="uid://d28q62ik41ssc" path="res://assets/chicken_sprites/small_wing.png" id="7_dkmnu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njatb"]
 friction = 0.0
@@ -23,10 +20,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.001),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5, 5]
+"values": [4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,18 +48,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.001),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
 }
 
 [sub_resource type="Animation" id="Animation_65u4g"]
@@ -103,7 +88,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 4]
+"values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90), PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
 }
 
 [sub_resource type="Animation" id="Animation_fduj8"]
@@ -146,18 +131,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90), PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
-}
 
 [sub_resource type="Animation" id="Animation_3440b"]
 resource_name = "fat_lay"
@@ -199,18 +172,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90), PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
-}
 
 [sub_resource type="Animation" id="Animation_8a8dd"]
 resource_name = "fat_max"
@@ -251,18 +212,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90), PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209, -117, 244, -54, 258, 61, 257, 176, 211, 200, 140, 213, 85, 183, 21, 143, -24, 84, -86, 125, -142, 127, -227, 90, -283, 40, -325, -43, -324, -124, -265, -143, -177, -99, -90)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
-}
 
 [sub_resource type="Animation" id="Animation_hilov"]
 resource_name = "fat_wing_start"
@@ -299,10 +248,10 @@ tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 2, 1, 0]
+"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
 }
 
 [sub_resource type="Animation" id="Animation_nw1ry"]
@@ -340,10 +289,10 @@ tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
 }
 
 [sub_resource type="Animation" id="Animation_7gibh"]
@@ -386,18 +335,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
-}
 
 [sub_resource type="Animation" id="Animation_51d1l"]
 resource_name = "med_lay"
@@ -438,18 +375,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72), PackedVector2Array(-92, -21, -156, 35, -163, 85, -146, 128, -130, 176, -95, 217, -44, 236, 49, 240, 131, 194, 156, 141, 178, 92, 159, 39, 121, -11, 105, -64, 135, -136, 127, -227, 85, -270, 31, -294, -32, -278, -108, -227, -131, -153, -108, -72)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 6]
 }
 
 [sub_resource type="Animation" id="Animation_tdrcg"]
@@ -790,21 +715,15 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huwpa"]
 _data = {
 "RESET": SubResource("Animation_nr0li"),
-"fat_flap": SubResource("Animation_65u4g"),
 "fat_idle": SubResource("Animation_fduj8"),
 "fat_lay": SubResource("Animation_3440b"),
 "fat_max": SubResource("Animation_8a8dd"),
-"fat_wing_start": SubResource("Animation_hilov"),
-"med_flap": SubResource("Animation_nw1ry"),
 "med_idle": SubResource("Animation_7gibh"),
 "med_lay": SubResource("Animation_51d1l"),
 "med_max": SubResource("Animation_tdrcg"),
-"med_wing_start": SubResource("Animation_nnfcm"),
-"small_flap": SubResource("Animation_yc55o"),
 "small_idle": SubResource("Animation_nxlcv"),
 "small_lay": SubResource("Animation_fy4pf"),
-"small_max": SubResource("Animation_n8api"),
-"small_wing_start": SubResource("Animation_u252c")
+"small_max": SubResource("Animation_n8api")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_huguf"]
@@ -832,7 +751,7 @@ polygon = PackedVector2Array(-112, -30, -172, 10, -208, 81, -184, 159, -159, 209
 position = Vector2(1, 0)
 texture = SubResource("CompressedTexture2D_553y4")
 hframes = 6
-frame = 5
+frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(2, 4)
@@ -850,11 +769,10 @@ libraries = {
 }
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -864,7 +782,6 @@ shape = SubResource("CircleShape2D_huguf")
 debug_color = Color(0.935084, 1.96373e-05, 0.637874, 0.42)
 
 [node name="Eating Circle" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Eating Circle"]
