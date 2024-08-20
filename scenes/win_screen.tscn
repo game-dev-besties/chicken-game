@@ -55,7 +55,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("SystemFont_cymt8")
 theme_override_font_sizes/font_size = 64
-text = "You Died!"
+text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,3 +94,4 @@ theme_override_font_sizes/font_size = 24
 text = "Play Again"
 
 [node name="transition" parent="." instance=ExtResource("4_5msvo")]
+visible = false

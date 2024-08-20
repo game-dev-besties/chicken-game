@@ -4,7 +4,6 @@ extends Node2D
 @onready var texture_rect = $Sprite/TextureRect
 @onready var label = $Sprite/TextureRect/Label
 @onready var chicken = %Chicken
-@onready var camera = $Camera2D
 
 var target_position = null
 var initial_scale = Vector2(1, 1)
