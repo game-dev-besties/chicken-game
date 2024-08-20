@@ -15,7 +15,7 @@ func _process(delta):
 	var canvas = get_canvas_transform()
 	var top_left = -canvas.origin / canvas.get_scale()
 	var size = get_viewport_rect().size / canvas.get_scale()
-	
+	print(canvas.get_scale())
 	set_marker_position(Rect2(top_left, size))
 	set_marker_rotation()
 	set_marker_distance()
@@ -25,8 +25,9 @@ func _process(delta):
 
 func set_marker_position(bounds : Rect2):
 	#if target_position == null:
-	sprite.global_position.x = clamp(global_position.x, bounds.position.x + 100, bounds.end.x - 100)
-	sprite.global_position.y = clamp(global_position.y, bounds.position.y + 300, bounds.end.y - 100)
+	var canvas = get_canvas_transform()
+	sprite.global_position.x = clamp(global_position.x, bounds.position.x + 300, bounds.end.x - 300)
+	sprite.global_position.y = clamp(global_position.y, bounds.position.y + 900, bounds.end.y - 300)
 	#else:
 		#var displacement = global_position - target_position
 		#var length
