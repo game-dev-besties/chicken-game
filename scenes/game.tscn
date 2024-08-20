@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rhfla"]
 [ext_resource type="PackedScene" uid="uid://cy2058402x5r3" path="res://scenes/asteroid_spawning.tscn" id="1_tpe1c"]
 [ext_resource type="PackedScene" uid="uid://dklyr7ip7kypi" path="res://scenes/starry_background.tscn" id="2_1fe0n"]
-[ext_resource type="PackedScene" uid="uid://3l7tkkg3ob7f" path="res://scenes/transition.tscn" id="2_gb4lc"]
+[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="2_gb4lc"]
 [ext_resource type="PackedScene" uid="uid://cp14j05wa35i8" path="res://scenes/chicken.tscn" id="2_scccs"]
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx6jhe5ckltna" path="res://scenes/egg.tscn" id="4_gk0mq"]
@@ -34,7 +34,6 @@ layer = -1
 [node name="hud nightmare" type="Node2D" parent="."]
 
 [node name="Left Click" type="Label" parent="hud nightmare"]
-visible = false
 offset_left = 1739.0
 offset_top = -345.0
 offset_right = 3289.0
@@ -47,7 +46,6 @@ text = "Hold left click to charge egg
 autowrap_mode = 2
 
 [node name="Mass" type="Label" parent="hud nightmare"]
-visible = false
 offset_left = 4272.0
 offset_top = -345.0
 offset_right = 5822.0
@@ -60,7 +58,6 @@ text = "You lose mass as you shoot
 autowrap_mode = 2
 
 [node name="Asteroid" type="Label" parent="hud nightmare"]
-visible = false
 offset_left = 6644.0
 offset_top = -345.0
 offset_right = 8194.0
@@ -73,7 +70,6 @@ text = "[space] to eat asteroids and gain mass
 autowrap_mode = 2
 
 [node name="Oxygen" type="Label" parent="hud nightmare"]
-visible = false
 offset_left = 8965.0
 offset_top = -345.0
 offset_right = 10515.0
@@ -86,7 +82,6 @@ text = "Don't run out of oxygen!
 autowrap_mode = 2
 
 [node name="Good Luck" type="Label" parent="hud nightmare"]
-visible = false
 offset_left = 11424.0
 offset_top = -345.0
 offset_right = 12974.0
