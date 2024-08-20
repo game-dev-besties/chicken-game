@@ -23,6 +23,7 @@ const MASS_WHEN_TOO_SMALL = 2
 #chicken
 var can_lay = true
 var is_eating = false
+var is_clucking = false
 var has_clicked = false
 var mass_to_scale = 0.4
 var eat_cooldown_start = false
@@ -54,8 +55,10 @@ func _input(event):
 			var warning_instance = warning.instantiate()
 			warning_instance.initialize_warning(position, linear_velocity)
 			main.add_child(warning_instance)
+			$WarningSFX.play()
 		return
 	if Input.is_action_just_pressed("click"):
+		cluck()
 		charging = true
 		if lay_timer <= 0.4:
 			charge_time = lay_timer - 0.4
@@ -73,34 +76,19 @@ func _process(delta):
 
 	smooth_mass = lerp(smooth_mass, target_mass, 8 * delta)
 	mass = smooth_mass
-
+	
+	
+	if is_eating:
+		if mass < minimum_mass_for_medium_sprite:
+			anim_sprite.play("small_eat")
+		elif mass < minimum_mass_for_fat_sprite:
+			anim_sprite.play("med_eat")
+		else:
+			anim_sprite.play("fat_eat")
 	# Update the charge time if we are currently charging a new egg
-	if charging:
+	elif charging:
 		charge_time += delta
 		charge_time = min(charge_time, max_charge_time)
-		
-	#
-	#if charging:
-		##print(charge_time)
-		#if charge_time <= 0.5:
-			#arrow.self_modulate.a = 0.25
-		##if charge_time <= 0.25:
-			##arrow.self_modulate.a = 0.125
-		##elif charge_time <= 0.5:
-			##arrow.self_modulate.a = 0.25
-		##elif charge_time <= 0.75:
-			##arrow.self_modulate.a = 0.375
-		#elif charge_time <= 1:
-			#arrow.self_modulate.a = 0.5
-		##elif charge_time <= 1.25:
-			##arrow.self_modulate.a = 0.625
-		#elif charge_time <= 1.5:
-			#arrow.self_modulate.a = 0.75
-		##elif charge_time <= 1.75:
-			##arrow.self_modulate.a = 0.875
-		#elif charge_time <= 2:
-			#arrow.self_modulate.a = 1
-
 	# Choose the sprite to use based on the chicken's current mass, whether or not it is charging, and the charge time
 		if mass < minimum_mass_for_medium_sprite:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
@@ -117,15 +105,6 @@ func _process(delta):
 				anim_sprite.play("fat_max")
 			else: 
 				anim_sprite.play("fat_lay")
-		#arrow.show()
-		#arrow.self_modulate.a = charge_time / 2
-	elif is_eating:
-		if mass < minimum_mass_for_medium_sprite:
-			anim_sprite.play("small_eat")
-		elif mass < minimum_mass_for_fat_sprite:
-			anim_sprite.play("med_eat")
-		else:
-			anim_sprite.play("fat_eat")
 	else: 
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
@@ -156,9 +135,8 @@ func shoot_projectile():
 	#eggparticles.position.x = 960 - delta * sin(rotation)
 	#eggparticles.rotation = rotation
 	eggparticles.emitting = true
-	
 	#print(instance.scale)
-	
+	$LayEggSFX.play()
 	#print("Chicken: " + str(mass) + ", Egg: " +  str(instance.mass))
 
 	
@@ -293,3 +271,14 @@ func _on_normal_force_body_entered(body):
 
 func _on_normal_force_body_exited(body):
 	touching.erase(body) # Replace with function body.
+
+func cluck():
+	if is_clucking:
+		return
+	else:
+		$CluckSFX.play()
+		$CluckCooldown.start()
+		is_clucking = true
+
+func _on_cluck_cooldown_timeout():
+	is_clucking = false
