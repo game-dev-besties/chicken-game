@@ -58,7 +58,6 @@ func _input(event):
 			$WarningSFX.play()
 		return
 	if Input.is_action_just_pressed("click"):
-		cluck()
 		charging = true
 		if lay_timer <= 0.4:
 			charge_time = lay_timer - 0.4
@@ -93,22 +92,29 @@ func _process(delta):
 		if mass < minimum_mass_for_medium_sprite:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("small_max")
+				if not is_clucking:
+					$CluckSFX.random_play()
+					is_clucking = true
 			else: 
 				anim_sprite.play("small_lay")
-				$CluckSFX.random_play()
 		elif mass < minimum_mass_for_fat_sprite:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("med_max")
+				if not is_clucking:
+					$CluckSFX.random_play()
+					is_clucking = true
 			else: 
 				anim_sprite.play("med_lay")
-				$CluckSFX.random_play()
 		else:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("fat_max")
+				if not is_clucking:
+					$CluckSFX.random_play()
+					is_clucking = true
 			else: 
 				anim_sprite.play("fat_lay")
-				$CluckSFX.random_play()
 	else: 
+		is_clucking = false
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
 		elif mass < minimum_mass_for_fat_sprite:
@@ -281,12 +287,4 @@ func _on_normal_force_body_entered(body):
 func _on_normal_force_body_exited(body):
 	touching.erase(body) # Replace with function body.
 
-func cluck():
-	if is_clucking:
-		return
-	else:
-		$CluckCooldown.start()
-		is_clucking = true
 
-func _on_cluck_cooldown_timeout():
-	is_clucking = false
