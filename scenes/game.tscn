@@ -13,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_7amg4"]
 [ext_resource type="AudioStream" uid="uid://qa02xyp47k4k" path="res://assets/Main Game Music.mp3" id="11_0pdlf"]
 [ext_resource type="PackedScene" uid="uid://dv8t5lwt0sovj" path="res://scenes/ship.tscn" id="11_ef2ff"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="14_wkodi"]
+[ext_resource type="PackedScene" uid="uid://bs48oysuhuhc0" path="res://scenes/pause_menu.tscn" id="14_wkodi"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_rhfla")

@@ -95,18 +95,18 @@ layout_mode = 2
 [node name="Separator7" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_wuukc")
-theme_override_font_sizes/font_size = 24
-text = "Main Menu"
-
 [node name="PlayAgain" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_wuukc")
 theme_override_font_sizes/font_size = 24
 text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wuukc")
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
 
 [node name="transition" parent="." instance=ExtResource("4_5msvo")]

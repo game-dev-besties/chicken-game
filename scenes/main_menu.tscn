@@ -190,4 +190,5 @@ autoplay = true
 [node name="transition2" parent="." instance=ExtResource("4_3kon7")]
 
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_button_up"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
