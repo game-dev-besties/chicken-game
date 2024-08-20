@@ -65,9 +65,12 @@ func set_marker_rotation():
 	#label.text = str(angle)
 
 func set_marker_distance():
-	var distance_x = (chicken.global_position.x - sprite.global_position.x)
-	var distance_y = (chicken.global_position.y - sprite.global_position.y)
-
-	var total_distance = sqrt(sprite.global_position.x * sprite.global_position.x + sprite.global_position.y * sprite.global_position.y)
+	var ship = get_tree().get_root().get_node("game").get_node("Ship").get_node("OffScreenMarker")
+	var distance_x = (chicken.global_position.x - ship.global_position.x)
+	var distance_y = (chicken.global_position.y - ship.global_position.y)
+	var total_distance = ship.global_position.distance_to(chicken.global_position)
+	#var total_distance = sqrt(sprite.global_position.x * sprite.global_position.x + sprite.global_position.y * sprite.global_position.y)
 
 	label.text = str(int(total_distance / 100))
+	
+	print(ship .global_position)

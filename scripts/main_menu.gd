@@ -17,7 +17,7 @@ func _ready():
 	options.button_up.connect(on_options_up)
 	credits.button_up.connect(on_credits_up)
 	exit.button_up.connect(on_exit_up)
-	pass
+	$transition.transition("fade_to_normal")
 	
 func on_start_button_up() -> void:
 	$transition.transition("fade_to_black")

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8tkidkxyjmw2" path="res://scenes/off_screen_marker.tscn" id="3_c4we2"]
 [ext_resource type="PackedScene" uid="uid://dx6jhe5ckltna" path="res://scenes/egg.tscn" id="4_gk0mq"]
 [ext_resource type="PackedScene" uid="uid://dx8h5i4yuqyw7" path="res://scenes/hud.tscn" id="5_e1ta3"]
-[ext_resource type="PackedScene" uid="uid://ca3ci6ohdnfik" path="res://scenes/planets/planet_spawning.tscn" id="6_8sr4a"]
+[ext_resource type="PackedScene" uid="uid://cvsnmr8me52ve" path="res://scenes/planets/planet_spawning.tscn" id="6_8sr4a"]
 [ext_resource type="PackedScene" uid="uid://c2a6dy4vs6yvs" path="res://scenes/particle_layer.tscn" id="8_wa4gk"]
 [ext_resource type="FontFile" uid="uid://bnrn3kwnrkkb6" path="res://assets/neuropol x rg.otf" id="9_7amg4"]
 [ext_resource type="PackedScene" uid="uid://dv8t5lwt0sovj" path="res://scenes/ship.tscn" id="11_ef2ff"]
@@ -28,7 +28,6 @@ projectile = ExtResource("4_gk0mq")
 [node name="planet_spawning" parent="Chicken" instance=ExtResource("6_8sr4a")]
 
 [node name="AsteroidSpawning" parent="Chicken" instance=ExtResource("1_tpe1c")]
-visible = false
 
 [node name="Space Objects" type="Node2D" parent="."]
 
@@ -105,12 +104,10 @@ autowrap_mode = 2
 
 [node name="HUD" parent="hud nightmare" instance=ExtResource("5_e1ta3")]
 
-[node name="OffScreenMarker" parent="hud nightmare" instance=ExtResource("3_c4we2")]
-visible = false
-position = Vector2(424200, 0)
-scale = Vector2(10, 10)
-
 [node name="Ship" parent="." instance=ExtResource("11_ef2ff")]
 position = Vector2(424200, 0)
 collision_layer = 4
 collision_mask = 7
+
+[node name="OffScreenMarker" parent="Ship" instance=ExtResource("3_c4we2")]
+scale = Vector2(10, 10)
