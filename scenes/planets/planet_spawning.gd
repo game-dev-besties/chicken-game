@@ -11,8 +11,8 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var min_radius: float = 0
 var max_radius: float = 20000
-var min_mass: float = 2000
-var max_mass: float = 4000 
+var min_mass: float = 1000
+var max_mass: float = 2000 
 
 @export var object_scene: PackedScene = load("res://scenes/planets/planet.tscn")
 

@@ -1,5 +1,5 @@
 extends RigidBody2D
-var base_scale = 4
+var base_scale = 2
 @export var scaling = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
 var target = mass
 var scale_mass = mass
