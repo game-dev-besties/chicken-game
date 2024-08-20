@@ -15,8 +15,8 @@ extends Control
 
 func _ready():
 	start_game.button_up.connect(on_start_button_up)
-	credits.button_up.connect(on_credits_up)
-	exit.button_up.connect(on_exit_up)
+	credits.button_up.connect(_on_credits_pressed)
+	exit.button_up.connect(_on_exit_pressed)
 	print("test")
 	$transition.transition("fade_to_normal")
 	
@@ -26,12 +26,12 @@ func on_start_button_up() -> void:
 	get_tree().change_scene_to_packed(cutscene)
 	#get_tree().change_scene_to_packed(game)
 	
-func on_credits_up() -> void:
+
+func _on_credits_pressed():
 	$transition.transition("fade_to_black")
 	await $transition.on_transition_finished
 	get_tree().change_scene_to_packed(credit_scene)
-	
-func on_exit_up() -> void:
+
+
+func _on_exit_pressed():
 	get_tree().quit()
-
-
