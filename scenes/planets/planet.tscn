@@ -110,6 +110,22 @@ tracks/2/keys = {
 "values": [Vector2(0.990635, 0.990635)]
 }
 
+[sub_resource type="Animation" id="Animation_3al3m"]
+resource_name = "eat_asteroid"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.349066, -0.349066, 3.48787e-16]
+}
+
 [sub_resource type="Animation" id="Animation_pisrh"]
 resource_name = "moon1"
 tracks/0/type = "value"
@@ -751,21 +767,6 @@ tracks/1/keys = {
 "values": [Vector2(0.863188, 0.863188)]
 }
 
-[sub_resource type="Animation" id="Animation_3al3m"]
-resource_name = "eat_asteroid"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.349066, -0.349066, 3.48787e-16]
-}
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pu28w"]
 _data = {
 "RESET": SubResource("Animation_otyw5"),
