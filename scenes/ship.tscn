@@ -1,13 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv8t5lwt0sovj"]
+[gd_scene load_steps=6 format=3 uid="uid://dv8t5lwt0sovj"]
 
 [ext_resource type="Texture2D" uid="uid://bnu3mo7piarub" path="res://assets/ship.png" id="1_y5x12"]
+
+[sub_resource type="Curve" id="Curve_8dfn6"]
+_data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.460894, 0.572254), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.132948), 0.0, 0.0, 0, 0, Vector2(1, 0.144509), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_pfhms"]
+resource_name = "eat_asteroid"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.349066, -0.349066, 3.48787e-16]
+}
+
+[sub_resource type="Animation" id="Animation_lwaxt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0jx7"]
+_data = {
+"RESET": SubResource("Animation_lwaxt"),
+"eat_asteroid": SubResource("Animation_pfhms")
+}
 
 [node name="Ship" type="RigidBody2D"]
 mass = 1000.0
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.349066
 texture = ExtResource("1_y5x12")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1213, -187, -1232, -158, -1201, -129, -1044, -190, -1036, -174, -1082, -128, -1074, 27, -1040, 61, -1030, 125, -980, 156, -915, 213, -1014, 256, -1060, 298, -1054, 354, -1250, 478, -1221, 593, -1172, 625, -778, 562, -493, 762, -422, 765, -81, 550, -59, 393, 315, 193, 592, 190, 980, -154, 1363, -552, 1364, -617, 1393, -646, 1419, -625, 1430, -669, 1358, -716, 1277, -728, 511, -647, -38, -568, -79, -553, -282, -548, -297, -569, -476, -560, -567, -424, -600, -414, -655, -430, -799, -391, -832, -361)
+
+[node name="AsteroidParticles" type="CPUParticles2D" parent="."]
+z_index = -1
+scale = Vector2(3, 3)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.86
+randomness = 0.62
+spread = 180.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 1500.0
+initial_velocity_max = 1750.0
+scale_amount_min = 100.0
+scale_amount_max = 100.0
+scale_amount_curve = SubResource("Curve_8dfn6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h0jx7")
+}

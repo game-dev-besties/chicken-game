@@ -73,4 +73,4 @@ func set_marker_distance():
 
 	label.text = str(int(total_distance / 100))
 	
-	print(ship.global_position)
+	print(ship .global_position)
