@@ -39,6 +39,7 @@ func initialize_egg(charge_ratio, chicken):
 	spawnPos = chicken.position
 	spawnRot = chicken.rotation
 	mass = chicken.mass * charge_ratio * mass_multiplicative_constant
+	mass *= 1/pow(chicken.mass,0.1)
 
 
 
