@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://d0ksawywgy1t5"]
+[gd_scene load_steps=52 format=3 uid="uid://d0ksawywgy1t5"]
 
 [ext_resource type="Script" path="res://scenes/planets/planet.gd" id="1_og51u"]
 [ext_resource type="Texture2D" uid="uid://bes78n3ovh4w0" path="res://assets/asteroid_sprites/asteroid1.png" id="1_rmr24"]
+[ext_resource type="Texture2D" uid="uid://bocsx64ok70mo" path="res://assets/egg_particle.png" id="2_fbmdn"]
 [ext_resource type="Texture2D" uid="uid://d3svlyne6kugk" path="res://assets/asteroid_sprites/asteroid2.png" id="2_ifdcu"]
 [ext_resource type="Texture2D" uid="uid://ce502sr5s0fj4" path="res://assets/asteroid_sprites/asteroid3.png" id="3_yeeqb"]
 [ext_resource type="Texture2D" uid="uid://bycsb50v2gjwu" path="res://assets/asteroid_sprites/asteroid4.png" id="4_x1pd0"]
@@ -28,7 +29,7 @@
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("../Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -1394,12 +1395,21 @@ _data = {
 _data = [Vector2(0, 0.993824), 0.0, 0.0, 0, 0, Vector2(0.460894, 0.572254), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.132948), 0.0, 0.0, 0, 0, Vector2(1, 0.144509), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[node name="planet" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_40wlp"]
+radius = 140.801
+
+[node name="planet" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 6
+mass = 500.0
+gravity_scale = 0.0
+inertia = 67.19
+lock_rotation = true
 script = ExtResource("1_og51u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, 0)
-texture = ExtResource("1_rmr24")
+texture = ExtResource("2_fbmdn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AsteroidShape")
@@ -1436,3 +1446,6 @@ initial_velocity_max = 1750.0
 scale_amount_min = 100.0
 scale_amount_max = 100.0
 scale_amount_curve = SubResource("Curve_hgsg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_40wlp")
