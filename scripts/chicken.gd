@@ -121,11 +121,11 @@ func _process(delta):
 		#arrow.self_modulate.a = charge_time / 2
 	elif is_eating:
 		if mass < minimum_mass_for_medium_sprite:
-			anim_sprite.play("small_wing_start")
+			anim_sprite.play("small_eat")
 		elif mass < minimum_mass_for_fat_sprite:
-			anim_sprite.play("med_wing_start")
+			anim_sprite.play("med_eat")
 		else:
-			anim_sprite.play("fat_wing_start")
+			anim_sprite.play("fat_eat")
 	else: 
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
