@@ -29,7 +29,7 @@ func on_start_button_up() -> void:
 func _on_exit_pressed():
 	get_tree().quit()
 
-
+ 
 func _on_credits_button_up():
 	$transition.transition("fade_to_black")
 	await $transition.on_transition_finished

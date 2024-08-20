@@ -887,7 +887,6 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -897,7 +896,6 @@ shape = SubResource("CircleShape2D_huguf")
 debug_color = Color(0.935084, 1.96373e-05, 0.637874, 0.42)
 
 [node name="Eating Circle" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Eating Circle"]
