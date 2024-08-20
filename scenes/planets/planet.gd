@@ -1,5 +1,5 @@
 extends RigidBody2D
-var base_scale = 0.30
+var base_scale = 1
 @export var scaling = Vector2(pow(mass, 1.0/3.0), pow(mass, 1.0/3.0))/base_scale
 var target = mass
 var scale_mass = mass
@@ -13,9 +13,9 @@ func initialize(position: Vector2, drift_velocity: Vector2, angular_velocity: fl
 func _ready():
 	self.set_meta("type","planet")
 	randomize()
-	var animations = ["asteroid1", "asteroid2", "asteroid3", "asteroid4", "asteroid5", "asteroid6", "asteroid7", "asteroid8", "rock1", "rock2", "rock3", "rock4", "rock5", "rock6", "rock7", "rock8", "shard1", "shard2", "shard3", "shard4", "shard5", "shard6"]
+	var animations = ["planet1", "planet2", "planet3", "planet4", "planet5", "planet6", "planet7", "rings1", "rings2", "rings3", "rings4", "rings5", "moon1", "moon2", "moon3", "moon4", "moon5"]
 	var kinds = animations[randi()% animations.size()]
-	#$AnimationPlayer.play(kinds)
+	$AnimationPlayer.play(kinds)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
