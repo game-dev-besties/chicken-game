@@ -22,8 +22,10 @@ const MASS_WHEN_TOO_SMALL = 2
 
 #chicken
 var can_lay = true
+var is_eating = false
 var has_clicked = false
 var mass_to_scale = 0.4
+var eat_cooldown_start = false
 #egg
 @export var charging: bool = false
 @export var charge_time: float = 0.0
@@ -100,7 +102,6 @@ func _process(delta):
 			#arrow.self_modulate.a = 1
 
 	# Choose the sprite to use based on the chicken's current mass, whether or not it is charging, and the charge time
-	if charging:
 		if mass < minimum_mass_for_medium_sprite:
 			if charge_time >= minimum_charge_time_for_lay_sprite: 
 				anim_sprite.play("small_max")
@@ -118,6 +119,13 @@ func _process(delta):
 				anim_sprite.play("fat_lay")
 		#arrow.show()
 		#arrow.self_modulate.a = charge_time / 2
+	elif is_eating:
+		if mass < minimum_mass_for_medium_sprite:
+			anim_sprite.play("small_wing_start")
+		elif mass < minimum_mass_for_fat_sprite:
+			anim_sprite.play("med_wing_start")
+		else:
+			anim_sprite.play("fat_wing_start")
 	else: 
 		if mass < minimum_mass_for_medium_sprite:
 			anim_sprite.play("small_idle")
@@ -182,7 +190,8 @@ func getAngle():
 
 
 func _on_cooldown_timeout():
-	can_lay = true # Replace with function body.
+	is_eating = false # Replace with function body.
+	eat_cooldown_start = false
 
 func scale_by_mass():
 	$AnimatedSprite2D.scale = Vector2(mass_to_scale * pow(mass, 1.0/3.0), mass_to_scale * pow(mass, 1.0/3.0))
@@ -255,7 +264,12 @@ func gravity(target: RigidBody2D, delta: float):
 
 func attempt_to_eat():
 	if eating.size() == 0:
+		is_eating = false
 		return
+	is_eating = true
+	if not eat_cooldown_start:
+		$Cooldown.start()
+		eat_cooldown_start = true
 	var eating_asteroid = get_closest_eating()
 	var eating_distance = global_position.distance_to(eating_asteroid.global_position)
 	# Can only eat an asteroid inside our eating circle
@@ -270,6 +284,8 @@ func attempt_to_eat():
 	else:
 		target_mass += eating_asteroid.mass
 		eating_asteroid.queue_free()
+	
+	
 
 func _on_normal_force_body_entered(body):
 	#print(touching)
